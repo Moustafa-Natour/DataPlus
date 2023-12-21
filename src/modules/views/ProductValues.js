@@ -21,7 +21,7 @@ function ProductValues() {
             <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
                 <Box
                     component="img"
-                    src="/static/themes/onepirate/productCurvyLines.png"
+                    src="https://mui.com/static/themes/onepirate/productCurvyLines.png"
                     alt="curvy lines"
                     sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
                 />
@@ -30,7 +30,7 @@ function ProductValues() {
                         <Box sx={item}>
                             <Box
                                 component="img"
-                                src="/static/themes/onepirate/productValues1.svg"
+                                src="https://mui.com/static/themes/onepirate/productValues1.svg"
                                 alt="suitcase"
                                 sx={{ height: 55 }}
                             />
@@ -39,11 +39,11 @@ function ProductValues() {
                             </Typography>
                             <Typography variant="h5">
                                 {
-                                    'From the latest trendy boutique hotel to the iconic palace with XXL pool'
+                                    'With the internet growing more complex by the day, you need an internet service that can keep up with the challenges of more content and more data Data Plus helps you conquer that challenge.'
                                 }
 
                                 {
-                                    ', go for a mini-vacation just a few subway stops away from your home.'
+                                    ',Fibranet is the new Fibre-Optics service, giving you a better, faster and more enjoyable online experience. Call 70 318 228 today to subscribe and bring home the next generation internet.'
                                 }
                             </Typography>
                         </Box>
@@ -52,7 +52,7 @@ function ProductValues() {
                         <Box sx={item}>
                             <Box
                                 component="img"
-                                src="/static/themes/onepirate/productValues2.svg"
+                                src="https://mui.com/static/themes/onepirate/productValues2.svg"
                                 alt="graph"
                                 sx={{ height: 55 }}
                             />
@@ -61,10 +61,10 @@ function ProductValues() {
                             </Typography>
                             <Typography variant="h5">
                                 {
-                                    'Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… '
+                                    'One of the leading provider of honest internet services that brings people together and takes Lebanon from one era to another.'
                                 }
 
-                                {'your Sundays will not be alike.'}
+                                {'Because the Internet is no longer a luxury but a basic human right, we believe that everybody should have access to affordable, trustworthy and unlimited Internet.'}
                             </Typography>
                         </Box>
                     </Grid>
@@ -72,7 +72,7 @@ function ProductValues() {
                         <Box sx={item}>
                             <Box
                                 component="img"
-                                src="/static/themes/onepirate/productValues3.svg"
+                                src="https://mui.com/static/themes/onepirate/productValues3.svg"
                                 alt="clock"
                                 sx={{ height: 55 }}
                             />

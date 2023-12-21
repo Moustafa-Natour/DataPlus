@@ -20,17 +20,17 @@ function AppAppBar() {
                         variant="h6"
                         underline="none"
                         color="inherit"
-                        href="/premium-themes/onepirate/"
+                        href="/premium-themes/dataplus/"
                         sx={{ fontSize: 24 }}
                     >
-                        {'onepirate'}
+                        {'DATAPLUS'}
                     </Link>
                     <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                         <Link
                             color="inherit"
                             variant="h6"
                             underline="none"
-                            href="/premium-themes/onepirate/sign-in/"
+                            href="/premium-themes/dataplus/sign-in/"
                             sx={rightLink}
                         >
                             {'Sign In'}
@@ -38,7 +38,7 @@ function AppAppBar() {
                         <Link
                             variant="h6"
                             underline="none"
-                            href="/premium-themes/onepirate/sign-up/"
+                            href="/premium-themes/dataplus/sign-up/"
                             sx={{ ...rightLink, color: 'secondary.main' }}
                         >
                             {'Sign Up'}

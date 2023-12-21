@@ -2,9 +2,9 @@ import * as React from 'react';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
+import BannerImg from './Dataplus.png';
 
-const backgroundImage =
-    'https://images.unsplash.com/photo-1534854638093-bada1813ca19?auto=format&fit=crop&w=1400';
+const backgroundImage = BannerImg;
 
 export default function ProductHero() {
     return (
@@ -30,7 +30,7 @@ export default function ProductHero() {
                 variant="h5"
                 sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
             >
-                Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+                Enjoy Fast Stable And Secure Internet
             </Typography>
             <Button
                 color="secondary"
@@ -43,7 +43,7 @@ export default function ProductHero() {
                 Register
             </Button>
             <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
-                Discover the experience
+                Discover our data plus bundles
             </Typography>
         </ProductHeroLayout>
     );

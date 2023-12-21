@@ -43,7 +43,7 @@ function ProductHowItWorks() {
             >
                 <Box
                     component="img"
-                    src="/static/themes/onepirate/productCurvyLines.png"
+                    src="https://mui.com/static/themes/onepirate/productCurvyLines.png"
                     alt="curvy lines"
                     sx={{
                         pointerEvents: 'none',
@@ -62,7 +62,7 @@ function ProductHowItWorks() {
                                 <Box sx={number}>1.</Box>
                                 <Box
                                     component="img"
-                                    src="/static/themes/onepirate/productHowItWorks1.svg"
+                                    src="https://mui.com/static/themes/onepirate/productHowItWorks1.svg"
                                     alt="suitcase"
                                     sx={image}
                                 />
@@ -76,13 +76,12 @@ function ProductHowItWorks() {
                                 <Box sx={number}>2.</Box>
                                 <Box
                                     component="img"
-                                    src="/static/themes/onepirate/productHowItWorks2.svg"
+                                    src="https://mui.com/static/themes/onepirate/productHowItWorks2.svg"
                                     alt="graph"
                                     sx={image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    First come, first served. Our offers are in limited quantities, so
-                                    be quick.
+                                    FAST SECURE AND UNLIMITED INTERNET 24/7
                                 </Typography>
                             </Box>
                         </Grid>
@@ -91,7 +90,7 @@ function ProductHowItWorks() {
                                 <Box sx={number}>3.</Box>
                                 <Box
                                     component="img"
-                                    src="/static/themes/onepirate/productHowItWorks3.svg"
+                                    src="https://mui.com/static/themes/onepirate/productHowItWorks3.svg"
                                     alt="clock"
                                     sx={image}
                                 />
