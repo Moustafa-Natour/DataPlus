@@ -20,7 +20,7 @@ function AppAppBar() {
                         variant="h6"
                         underline="none"
                         color="inherit"
-                        href="/premium-themes/dataplus/"
+                        href="/"
                         sx={{ fontSize: 24 }}
                     >
                         {'DATAPLUS'}
@@ -30,7 +30,7 @@ function AppAppBar() {
                             color="inherit"
                             variant="h6"
                             underline="none"
-                            href="/premium-themes/dataplus/sign-in/"
+                            href="/signin"
                             sx={rightLink}
                         >
                             {'Sign In'}
@@ -38,7 +38,7 @@ function AppAppBar() {
                         <Link
                             variant="h6"
                             underline="none"
-                            href="/premium-themes/dataplus/sign-up/"
+                            href="/signup"
                             sx={{ ...rightLink, color: 'secondary.main' }}
                         >
                             {'Sign Up'}

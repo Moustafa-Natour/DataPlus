@@ -10,8 +10,8 @@ function Copyright() {
     return (
         <React.Fragment>
             {'© '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
+            <Link color="inherit" href="/">
+                DATA PLUS
             </Link>{' '}
             {new Date().getFullYear()}
         </React.Fragment>
@@ -41,32 +41,32 @@ const LANGUAGES = [
         name: 'Français',
     },
 ];
-
+const handlePageChange = () => {
+    window.open("https://www.facebook.com/datap/", '_blank');
+};
 export default function AppFooter() {
     return (
         <Typography
             component="footer"
             sx={{ display: 'flex', bgcolor: 'secondary.light' }}
         >
-            <Container sx={{ my: 8, display: 'flex' }}>
-                <Grid container spacing={5}>
-                    <Grid item xs={6} sm={4} md={3}>
+            <Container sx={{ my: 2, display: 'flex' }}>
+                <Grid container spacing={4} >
+                    <Grid item xs={12} sm={12} md={12}>
                         <Grid
                             container
                             direction="column"
-                            justifyContent="flex-end"
+                            alignItems='center'
+                            justifyContent="center"
                             spacing={2}
                             sx={{ height: 120 }}
                         >
                             <Grid item sx={{ display: 'flex' }}>
-                                <Box component="a" href="https://mui.com/" sx={iconStyle}>
+                                <Box component="a" onClick={handlePageChange} sx={iconStyle}>
                                     <img
                                         src="https://mui.com/static/themes/onepirate/appFooterFacebook.png"
                                         alt="Facebook"
                                     />
-                                </Box>
-                                <Box component="a" href="https://twitter.com/MUI_hq" sx={iconStyle}>
-                                    <img src="https://mui.com/static/themes/onepirate/appFooterX.png" alt="X" />
                                 </Box>
                             </Grid>
                             <Grid item>
@@ -74,21 +74,21 @@ export default function AppFooter() {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={6} sm={4} md={2}>
-                        <Typography variant="h6" marked="left" gutterBottom>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Typography variant="h6" marked="center" gutterBottom>
                             Legal
                         </Typography>
                         <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
                             <Box component="li" sx={{ py: 0.5 }}>
-                                <Link href="/premium-themes/onepirate/terms/">Terms</Link>
+                                <Link href="/terms">Terms</Link>
                             </Box>
                             <Box component="li" sx={{ py: 0.5 }}>
-                                <Link href="/premium-themes/onepirate/privacy/">Privacy</Link>
+                                <Link href="/privacy">Privacy</Link>
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={6} sm={8} md={4}>
-                        <Typography variant="h6" marked="left" gutterBottom>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Typography variant="h6" marked="center" gutterBottom>
                             Language
                         </Typography>
                         <TextField
@@ -107,8 +107,8 @@ export default function AppFooter() {
                             ))}
                         </TextField>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="caption" sx={{ align: "center" }}>
+                    <Grid item >
+                        <Typography variant="caption" sx={{ left: 'auto', right: 'auto', marginLeft: 'auto', marginRight: 'auto', padding: 2, alignItems: 'center', justifyContent: 'center' }}>
                             Data Plus S.A.R.L @Copyright All Right Reserved
                         </Typography>
                     </Grid>

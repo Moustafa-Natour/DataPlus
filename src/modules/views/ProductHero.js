@@ -22,7 +22,7 @@ export default function ProductHero() {
                 alt="increase priority"
             />
             <Typography color="inherit" align="center" variant="h2" marked="center">
-                Upgrade your Sundays
+                Internet Is Our Middle Name
             </Typography>
             <Typography
                 color="inherit"
@@ -37,13 +37,13 @@ export default function ProductHero() {
                 variant="contained"
                 size="large"
                 component="a"
-                href="/premium-themes/onepirate/sign-up/"
+                href="/signup/"
                 sx={{ minWidth: 200 }}
             >
                 Register
             </Button>
             <Typography variant="body2" color="inherit" sx={{ mt: 2 }}>
-                Discover our data plus bundles
+                Discover our internet data bundles
             </Typography>
         </ProductHeroLayout>
     );

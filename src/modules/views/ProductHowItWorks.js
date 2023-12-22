@@ -67,7 +67,10 @@ function ProductHowItWorks() {
                                     sx={image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    Appointment every Wednesday 9am.
+                                    At Data Plus we recognize that life and the internet are not just fun and play,
+                                    there is a serious and educational face to it in addition to its Entertainment value.
+                                    It is the richest source of information and knowledge at the user’s finger tips.
+                                    It is a tremendously added value to any educational institution.
                                 </Typography>
                             </Box>
                         </Grid>
@@ -107,7 +110,7 @@ function ProductHowItWorks() {
                     size="large"
                     variant="contained"
                     component="a"
-                    href="/premium-themes/onepirate/sign-up/"
+                    href="/signup"
                     sx={{ mt: 8 }}
                 >
                     Get started

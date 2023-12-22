@@ -35,7 +35,7 @@ function ProductValues() {
                                 sx={{ height: 55 }}
                             />
                             <Typography variant="h6" sx={{ my: 5 }}>
-                                The best luxury hotels
+                                MISSION
                             </Typography>
                             <Typography variant="h5">
                                 {
@@ -57,7 +57,7 @@ function ProductValues() {
                                 sx={{ height: 55 }}
                             />
                             <Typography variant="h6" sx={{ my: 5 }}>
-                                New experiences
+                                VISION
                             </Typography>
                             <Typography variant="h5">
                                 {
@@ -77,11 +77,15 @@ function ProductValues() {
                                 sx={{ height: 55 }}
                             />
                             <Typography variant="h6" sx={{ my: 5 }}>
-                                Exclusive rates
-                            </Typography>
+                                STATEMENT                            </Typography>
                             <Typography variant="h5">
-                                {'By registering, you will access specially negotiated rates '}
-                                {'that you will not find anywhere else.'}
+                                {'To survive the challenges of today’s cyber world, you don’t have to be the strongest.'}
+                                {'You need to be the fittest; the one most adaptable to change.'}
+                                {' That’s why we believe in constant progress versus uneven outbursts of speed.'}
+                                {' We don’t expect you to understand how the Internet works. We just want to you know: '}
+                                {' it works. Leave the technical details to us and feel free to call us geeks.'}
+                                {'After all, geek is the new trendy.'}
+                                {'But we both agree: smart solutions are the ones that work.'}
                             </Typography>
                         </Box>
                     </Grid>

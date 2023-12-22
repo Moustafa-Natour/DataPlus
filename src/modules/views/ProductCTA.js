@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
+import { Card, CardMedia } from '@mui/material';
 import TextField from '../components/TextField';
 import Snackbar from '../components/Snackbar';
 import Button from '../components/Button';
@@ -18,83 +19,44 @@ function ProductCTA() {
     const handleClose = () => {
         setOpen(false);
     };
-
     return (
         <Container component="section" sx={{ mt: 10, display: 'flex' }}>
             <Grid container>
-                <Grid item xs={12} md={6} sx={{ zIndex: 1 }}>
+                <Grid item xs={12} md={12} sx={{ zIndex: 1 }}>
                     <Box
                         sx={{
+                            background: 'url(https://mui.com/static/themes/onepirate/productCTAImageDots.png)',
                             display: 'flex',
                             justifyContent: 'center',
-                            bgcolor: 'warning.main',
                             py: 8,
                             px: 3,
                         }}
-                    >
-                        <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 400 }}>
-                            <Typography variant="h2" component="h2" gutterBottom>
-                                Receive offers
+                    >       <Card sx={{ width: '100%', borderRadius: '15px', overflow: 'hidden', background: 'url(/https://mui.com/static/themes/onepirate/appCurvyLines.png)', my: 4 }}>
+                            <Typography align='center' variant='h6' sx={{
+
+                                my: 4
+                            }}>
+                                Data Plus Location
                             </Typography>
-                            <Typography variant="h5">
-                                Taste the holidays of the everyday close to home.
-                            </Typography>
-                            <TextField
-                                noBorder
-                                placeholder="Your email"
-                                variant="standard"
-                                sx={{ width: '100%', mt: 3, mb: 2 }}
+                            <CardMedia
+                                component="iframe"
+                                title="Data Plus S.A.R.L"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13249.479542635114!2d35.4963574!3d33.8801265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f172750956e49%3A0x630c9a276951703e!2sData%20Plus%20S.A.R.L!5e0!3m2!1sen!2slb!4v1703277847398!5m2!1sen!2slb"
+                                width="800"
+                                height="600"
+                                allowFullScreen=""
+                                loading="lazy"
+                                sx={{ border: 0 }}
                             />
-                            <Button
-                                type="submit"
-                                color="primary"
-                                variant="contained"
-                                sx={{ width: '100%' }}
-                            >
-                                Keep me updated
-                            </Button>
-                        </Box>
+                        </Card>
                     </Box>
                 </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    sx={{ display: { md: 'block', xs: 'none' }, position: 'relative' }}
-                >
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            top: -67,
-                            left: -67,
-                            right: 0,
-                            bottom: 0,
-                            width: '100%',
-                            background: 'url(https://mui.com/static/themes/onepirate/productCTAImageDots.png)',
-                        }}
-                    />
-                    <Box
-                        component="img"
-                        src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750"
-                        alt="call to action"
-                        sx={{
-                            position: 'absolute',
-                            top: -28,
-                            left: -28,
-                            right: 0,
-                            bottom: 0,
-                            width: '100%',
-                            maxWidth: 600,
-                        }}
-                    />
-                </Grid>
             </Grid>
-            <Snackbar
-                open={open}
-                closeFunc={handleClose}
-                message="We will send you our best offers, once a week."
-            />
         </Container>
+
+
+
+
     );
 }
 
