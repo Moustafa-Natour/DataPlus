@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -67,10 +66,8 @@ function ProductHowItWorks() {
                                     sx={image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    At Data Plus we recognize that life and the internet are not just fun and play,
-                                    there is a serious and educational face to it in addition to its Entertainment value.
-                                    It is the richest source of information and knowledge at the user’s finger tips.
-                                    It is a tremendously added value to any educational institution.
+                                    {'Unlocking the Educational Power of the Internet.'}
+                                    {'At Data Plus, we understand that the internet is not just for entertainment. It is a rich source of information and knowledge that enhances educational experiences. We bring serious value to the playful world of the internet.'}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -84,7 +81,8 @@ function ProductHowItWorks() {
                                     sx={image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    FAST SECURE AND UNLIMITED INTERNET 24/7
+                                    {'Fast, Secure, and Unlimited Internet 24/7.'}
+                                    {'Experience the power of Data Plus with our high-speed, secure, and reliable internet services. Stay connected anytime, anywhere with our 24/7 unlimited internet access.'}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -98,8 +96,8 @@ function ProductHowItWorks() {
                                     sx={image}
                                 />
                                 <Typography variant="h5" align="center">
-                                    {'New offers every week. New experiences, new surprises. '}
-                                    {'Your Sundays will no longer be alike.'}
+                                    {'New Addons For Every Bundle for Unforgettable Experiences.'}
+                                    {'Discover a world of surprises with Data Plus. Every bundle brings new addon and experiences that will redefine your experience with Real IP, Free night and Gaming pool. Your internet experience will never be the same again.'}
                                 </Typography>
                             </Box>
                         </Grid>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -26,6 +25,7 @@ function ProductValues() {
                     sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
                 />
                 <Grid container spacing={5}>
+                    {/* Mission Section */}
                     <Grid item xs={12} md={4}>
                         <Box sx={item}>
                             <Box
@@ -38,16 +38,13 @@ function ProductValues() {
                                 MISSION
                             </Typography>
                             <Typography variant="h5">
-                                {
-                                    'With the internet growing more complex by the day, you need an internet service that can keep up with the challenges of more content and more data Data Plus helps you conquer that challenge.'
-                                }
-
-                                {
-                                    ',Fibranet is the new Fibre-Optics service, giving you a better, faster and more enjoyable online experience. Call 70 318 228 today to subscribe and bring home the next generation internet.'
-                                }
+                                {'Empowering Businesses with Cutting-edge Connectivity Solutions.'}
+                                {'Our mission is to provide seamless, high-speed internet services that empower businesses to thrive in the digital era. At Data Plus, we believe in connecting possibilities and fostering growth through reliable and innovative solutions.'}
                             </Typography>
                         </Box>
                     </Grid>
+
+                    {/* Vision Section */}
                     <Grid item xs={12} md={4}>
                         <Box sx={item}>
                             <Box
@@ -60,14 +57,13 @@ function ProductValues() {
                                 VISION
                             </Typography>
                             <Typography variant="h5">
-                                {
-                                    'One of the leading provider of honest internet services that brings people together and takes Lebanon from one era to another.'
-                                }
-
-                                {'Because the Internet is no longer a luxury but a basic human right, we believe that everybody should have access to affordable, trustworthy and unlimited Internet.'}
+                                {'Pioneering a Connected Future for Lebanon.'}
+                                {'Our vision is to be the leading provider of honest and reliable internet services, bringing communities together and propelling Lebanon into a new era of connectivity. We believe that affordable, trustworthy, and unlimited internet is not just a luxury but a basic human right.'}
                             </Typography>
                         </Box>
                     </Grid>
+
+                    {/* Statement Section */}
                     <Grid item xs={12} md={4}>
                         <Box sx={item}>
                             <Box
@@ -77,15 +73,11 @@ function ProductValues() {
                                 sx={{ height: 55 }}
                             />
                             <Typography variant="h6" sx={{ my: 5 }}>
-                                STATEMENT                            </Typography>
+                                STATEMENT
+                            </Typography>
                             <Typography variant="h5">
-                                {'To survive the challenges of today’s cyber world, you don’t have to be the strongest.'}
-                                {'You need to be the fittest; the one most adaptable to change.'}
-                                {' That’s why we believe in constant progress versus uneven outbursts of speed.'}
-                                {' We don’t expect you to understand how the Internet works. We just want to you know: '}
-                                {' it works. Leave the technical details to us and feel free to call us geeks.'}
-                                {'After all, geek is the new trendy.'}
-                                {'But we both agree: smart solutions are the ones that work.'}
+                                {'Adapting to the Pace of the Cyber World.'}
+                                {'In a world where constant progress is key to survival, we embrace change and strive to be the fittest in the ever-evolving cyber landscape. At Data Plus, we handle the technical details, so you can focus on what matters most. Geek is the new trendy, and we are here to deliver smart solutions that work.'}
                             </Typography>
                         </Box>
                     </Grid>

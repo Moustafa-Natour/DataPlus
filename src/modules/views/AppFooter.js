@@ -5,6 +5,7 @@ import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import TextField from '../components/TextField';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 function Copyright() {
     return (
@@ -41,32 +42,45 @@ const LANGUAGES = [
         name: 'Français',
     },
 ];
-const handlePageChange = () => {
-    window.open("https://www.facebook.com/datap/", '_blank');
+
+const handlePageChange = (url) => {
+    window.open(url, '_blank');
 };
+
+const handleWhatsAppClick = () => {
+    // Replace 'your-number' with your WhatsApp number
+    const phoneNumber = '+96170318228';
+    const message = 'Hello, I have a question!';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
+
 export default function AppFooter() {
     return (
-        <Typography
-            component="footer"
-            sx={{ display: 'flex', bgcolor: 'secondary.light' }}
-        >
-            <Container sx={{ my: 2, display: 'flex' }}>
-                <Grid container spacing={4} >
+        <Typography component="footer" sx={{ display: 'flex', bgcolor: 'secondary.light' }}>
+            <Container sx={{ my: 1, display: 'flex' }}>
+                <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={12}>
                         <Grid
                             container
                             direction="column"
-                            alignItems='center'
+                            alignItems="center"
                             justifyContent="center"
                             spacing={2}
                             sx={{ height: 120 }}
                         >
                             <Grid item sx={{ display: 'flex' }}>
-                                <Box component="a" onClick={handlePageChange} sx={iconStyle}>
+                                {/* Facebook Icon */}
+                                <Box component="a" onClick={() => handlePageChange("https://www.facebook.com/datap/")} sx={iconStyle}>
                                     <img
                                         src="https://mui.com/static/themes/onepirate/appFooterFacebook.png"
                                         alt="Facebook"
                                     />
+                                </Box>
+
+                                {/* WhatsApp Icon */}
+                                <Box component="a" onClick={handleWhatsAppClick} sx={iconStyle}>
+                                    <WhatsAppIcon />
                                 </Box>
                             </Grid>
                             <Grid item>
@@ -107,8 +121,15 @@ export default function AppFooter() {
                             ))}
                         </TextField>
                     </Grid>
-                    <Grid item >
-                        <Typography variant="caption" sx={{ left: 'auto', right: 'auto', marginLeft: 'auto', marginRight: 'auto', padding: 2, alignItems: 'center', justifyContent: 'center' }}>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Typography
+                            variant="caption"
+                            align="center"
+                            sx={{
+                                marginLeft: 'auto',
+                                marginRight: 'auto',
+                            }}
+                        >
                             Data Plus S.A.R.L @Copyright All Right Reserved
                         </Typography>
                     </Grid>

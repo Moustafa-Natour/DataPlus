@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
@@ -13,9 +14,12 @@ import RFTextField from './modules/form/RFTextField';
 import FormButton from './modules/form/FormButton';
 import FormFeedback from './modules/form/FormFeedback';
 import withRoot from './modules/withRoot';
+import useAuth from "./useAuth"; // import useAuth
 
 function SignUp() {
+    const [user, setUser] = useState({});
     const [sent, setSent] = React.useState(false);
+    const { signup } = useAuth();
 
     const validate = (values) => {
         const errors = required(['firstName', 'lastName', 'email', 'password'], values);
@@ -30,8 +34,18 @@ function SignUp() {
         return errors;
     };
 
-    const handleSubmit = () => {
+    const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async () => {
         setSent(true);
+        try {
+            await signup(user.email, user.password, user.fistName, user.lastName);
+            alert("Account created successfully!");
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -43,7 +57,7 @@ function SignUp() {
                         Sign Up
                     </Typography>
                     <Typography variant="body2" align="center">
-                        <Link href="/premium-themes/onepirate/sign-in/" underline="always">
+                        <Link href="/signin" underline="always">
                             Already have an account?
                         </Link>
                     </Typography>
@@ -63,6 +77,7 @@ function SignUp() {
                                         disabled={submitting || sent}
                                         autoComplete="given-name"
                                         fullWidth
+                                        onSubmit={handleChange}
                                         label="First name"
                                         name="firstName"
                                         required
@@ -70,6 +85,7 @@ function SignUp() {
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <Field
+                                        onSubmit={handleChange}
                                         component={RFTextField}
                                         disabled={submitting || sent}
                                         autoComplete="family-name"
@@ -81,6 +97,7 @@ function SignUp() {
                                 </Grid>
                             </Grid>
                             <Field
+                                onSubmit={handleChange}
                                 autoComplete="email"
                                 component={RFTextField}
                                 disabled={submitting || sent}
@@ -91,6 +108,7 @@ function SignUp() {
                                 required
                             />
                             <Field
+                                onSubmit={handleChange}
                                 fullWidth
                                 component={RFTextField}
                                 disabled={submitting || sent}
