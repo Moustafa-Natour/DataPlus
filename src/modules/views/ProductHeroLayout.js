@@ -1,9 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
-
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import StoreVideo from './StoreVideo.mp4';
 
 const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     color: theme.palette.common.white,
@@ -14,6 +14,13 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
         height: '80vh',
         minHeight: 500,
         maxHeight: 1300,
+    },
+    '& video': {
+        position: 'absolute',
+        objectFit: 'cover',
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
     },
 }));
 
@@ -33,6 +40,10 @@ function ProductHeroLayout(props) {
 
     return (
         <ProductHeroLayoutRoot>
+            <video autoPlay muted loop playsInline>
+                <source src={StoreVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
             <Container
                 sx={{
                     mt: 3,
@@ -40,38 +51,30 @@ function ProductHeroLayout(props) {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    position: 'relative',
+                    zIndex: 1,
                 }}
             >
                 <img
-                    src="https://mui.com/static/themes/onepirate/productHeroWonder.png"
+                    src="/android-chrome-512x512.png"
                     alt="wonder"
-                    width="147"
-                    height="80"
+                    width="160"
+                    height="100"
                 />
                 {children}
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        bottom: 0,
-                        backgroundColor: 'common.black',
-                        opacity: 0.5,
-                        zIndex: -1,
-                    }}
-                />
-                <Background sx={sxBackground} />
+                {/* <Background sx={sxBackground} /> */}
                 <Box
                     component="img"
                     src="https://mui.com/static/themes/onepirate/productHeroArrowDown.png"
                     height="16"
                     width="12"
                     alt="arrow down"
-                    sx={{ position: 'absolute', bottom: 32 }}
+                    align="center"
+                    sx={{ position: 'absolute', bottom: -32, mt: 2 }}
                 />
             </Container>
         </ProductHeroLayoutRoot>
+
     );
 }
 
