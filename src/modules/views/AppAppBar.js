@@ -21,7 +21,7 @@ function AppAppBar() {
                         underline="none"
                         color="inherit"
                         href="/"
-                        sx={{ fontSize: 24, mt: 3, justifyContent: 'center', alignItems: 'center' }}
+                        sx={{ fontSize: 24, mt: 3 }}
                     >
                         <img
                             src="/android-chrome-512x512.png"

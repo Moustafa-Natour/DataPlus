@@ -22,6 +22,8 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
         width: '100%',
         height: '100%',
         zIndex: -1,
+        top: 0,
+        left: 0
     },
 }));
 
@@ -47,13 +49,14 @@ function ProductHeroLayout(props) {
             </video>
             <Container
                 sx={{
-                    mt: 3,
-                    mb: 14,
+                    mt: 50,
+                    mb: 10,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     position: 'relative',
                     zIndex: 1,
+                    height: '100vh',
                 }}
             >
                 <Typography color="black" align="center" variant="h1" marked="center" sx={{ my: 2 }}>
