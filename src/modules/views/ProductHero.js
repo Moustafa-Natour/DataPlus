@@ -2,27 +2,18 @@ import * as React from 'react';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
-import BannerImg from './Dataplus.png';
 import Container from '@mui/material/Container';
-const backgroundImage = BannerImg;
+
 
 export default function ProductHero() {
     return (
         <ProductHeroLayout
             sxBackground={{
-                // backgroundImage: `url(${backgroundImage})`,
-                // backgroundColor: '#7fc7d9', // Average color of the background image.
                 backgroundPosition: 'center',
             }}
         >
-            {/* Increase the network loading priority of the background image. */}
-            {/* <img
-                style={{ display: 'none' }}
-                src={backgroundImage}
-                alt="increase priority"
-            /> */}
             <Container>
-                <Typography color="black" align="center" variant="h2" marked="center">
+                <Typography color="black" align="center" variant="h4" marked="center">
                     Internet Is Our Middle Name
                 </Typography>
                 <Typography

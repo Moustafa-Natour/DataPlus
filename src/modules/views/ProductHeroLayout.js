@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import StoreVideo from './StoreVideo.mp4';
+import Typography from '../components/Typography';
 
 const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     color: theme.palette.common.white,
@@ -55,14 +56,11 @@ function ProductHeroLayout(props) {
                     zIndex: 1,
                 }}
             >
-                <img
-                    src="/android-chrome-512x512.png"
-                    alt="wonder"
-                    width="160"
-                    height="100"
-                />
+                <Typography color="black" align="center" variant="h1" marked="center" sx={{ my: 2 }}>
+                    DATA PLUS
+                </Typography>
+
                 {children}
-                {/* <Background sx={sxBackground} /> */}
                 <Box
                     component="img"
                     src="https://mui.com/static/themes/onepirate/productHeroArrowDown.png"

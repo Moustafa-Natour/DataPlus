@@ -14,18 +14,24 @@ function AppAppBar() {
     return (
         <div>
             <AppBar position="fixed">
-                <Toolbar sx={{ justifyContent: 'space-between' }}>
-                    <Box sx={{ flex: 1 }} />
+                <Toolbar sx={{ justifyContent: 'center' }}>
+                    <Box />
                     <Link
-                        variant="h6"
+                        variant="h1"
                         underline="none"
                         color="inherit"
                         href="/"
-                        sx={{ fontSize: 24 }}
+                        sx={{ fontSize: 24, mt: 3, justifyContent: 'center', alignItems: 'center' }}
                     >
-                        {'DATAPLUS'}
+                        <img
+                            src="/android-chrome-512x512.png"
+                            alt="DATA PLUS"
+                            width="160"
+                            height="120"
+                            sx={{ align: 'center' }}
+                        />
                     </Link>
-                    <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+                    {/* <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                         <Link
                             color="inherit"
                             variant="h6"
@@ -43,7 +49,7 @@ function AppAppBar() {
                         >
                             {'Sign Up'}
                         </Link>
-                    </Box>
+                    </Box> */}
                 </Toolbar>
             </AppBar>
             <Toolbar />
