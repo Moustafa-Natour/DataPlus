@@ -14,7 +14,7 @@ function AppAppBar() {
     return (
         <div>
             <AppBar position="fixed">
-                <Toolbar sx={{ justifyContent: 'center', width: 'auto' }}>
+                <Toolbar sx={{ justifyContent: 'center' }}>
                     <Box />
                     <Link
                         variant="h1"
