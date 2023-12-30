@@ -57,7 +57,11 @@ function ProductHeroLayout(props) {
                     position: 'relative',
                     zIndex: 1,
                     height: '100vh',
-                    width: '100vw'
+                    width: '100vw',
+                    '@media (max-width: 600px)': {
+                        height: 'auto', // Adjust the height for smaller screens
+                        width: 'auto', // Adjust the height for smaller screens
+                    },
                 }}
             >
                 <Typography color="black" align="center" variant="h1" marked="center" sx={{ my: 2 }}>
