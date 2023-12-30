@@ -57,6 +57,7 @@ function ProductHeroLayout(props) {
                     position: 'relative',
                     zIndex: 1,
                     height: '100vh',
+                    width: '100vw'
                 }}
             >
                 <Typography color="black" align="center" variant="h1" marked="center" sx={{ my: 2 }}>
