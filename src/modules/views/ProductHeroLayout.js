@@ -59,6 +59,7 @@ function ProductHeroLayout(props) {
                     height: '100vh',
                     width: '100vw',
                     '@media (max-width: 600px)': {
+                        mt: 10,
                         height: 'auto', // Adjust the height for smaller screens
                         width: 'auto', // Adjust the height for smaller screens
                     },
