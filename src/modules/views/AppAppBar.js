@@ -14,14 +14,14 @@ function AppAppBar() {
     return (
         <div>
             <AppBar position="fixed">
-                <Toolbar sx={{ justifyContent: 'center' }}>
+                <Toolbar sx={{ justifyContent: 'center', width: 'auto' }}>
                     <Box />
                     <Link
                         variant="h1"
                         underline="none"
                         color="inherit"
                         href="/"
-                        sx={{ fontSize: 24, mt: 3, justifyContent: 'center', alignItems: 'center' }}
+                        sx={{ fontSize: 24, mt: 3 }}
                     >
                         <img
                             src="/android-chrome-512x512.png"
