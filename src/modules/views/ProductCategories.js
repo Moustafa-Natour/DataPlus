@@ -55,47 +55,47 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 
 const images = [
     {
-        url: '',
+        url: '/assets/images/D5mb.png',
         title: '5 Mega',
-        width: '40%',
+        width: 'auto',
     },
     {
-        url: 'https://images.unsplash.com/photo-1531299204812-e6d44d9a185c?auto=format&fit=crop&w=400',
+        url: '/assets/images/D6mb.png',
         title: '6 Mega',
-        width: '20%',
+        width: 'auto',
     },
     {
-        url: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=400',
+        url: '/assets/images/D8mb.png',
         title: '8 Mega',
-        width: '40%',
+        width: 'auto',
     },
     {
-        url: 'https://images.unsplash.com/photo-1453747063559-36695c8771bd?auto=format&fit=crop&w=400',
+        url: '/assets/images/D10mb.png',
         title: '10 Mega',
-        width: '38%',
+        width: 'auto',
     },
     {
-        url: 'https://images.unsplash.com/photo-1523309996740-d5315f9cc28b?auto=format&fit=crop&w=400',
+        url: '/assets/images/D12mb.png',
         title: '12 Mega',
-        width: '38%',
+        width: 'auto',
     },
     {
-        url: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=400',
+        url: '/assets/images/D20mb.png',
         title: '20 Mega',
-        width: '24%',
+        width: 'auto',
     },
     {
-        url: 'https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&w=400',
+        url: '/assets/images/Ddedicated.png',
         title: 'Dedicated',
-        width: '40%',
+        width: 'auto',
     },
 ];
 
 export default function ProductCategories() {
     return (
         <Container component="section" sx={{ mt: 8, mb: 4 }}>
-            <Typography variant="h4" marked="center" align="center" component="h2">
-                {'Experience a spectrum of internet solutions designed to cater to various profiles and preferences.'}
+            <Typography variant="h4" marked="center" align="center" component="h4">
+                {'Experience a spectrum of internet solutions designed to various profiles and preferences. \n'}
                 {'Our commitment is to provide seamless connectivity that aligns with your unique requirements'}
             </Typography>
             <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
@@ -114,7 +114,7 @@ export default function ProductCategories() {
                                 top: 0,
                                 bottom: 0,
                                 backgroundSize: 'cover',
-                                backgroundPosition: 'center 40%',
+                                backgroundPosition: 'center 50%',
                                 backgroundImage: `url(${image.url})`,
                             }}
                         />
