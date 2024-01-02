@@ -1,20 +1,29 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 
-const ImageBackdrop = styled('div')(({ theme }) => ({
-    position: 'absolute',
+const FullScreenImageOverlay = styled('div')({
+    position: 'fixed',
+    top: 35,
     left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    background: '#000',
-    opacity: 0.5,
-    transition: theme.transitions.create('opacity'),
-}));
+    width: '100%',
+    height: '100%',
+    background: 'rgba(0, 0, 0, 0.9)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 1000,
+});
+
+const FullScreenImage = styled('img')({
+    maxWidth: '90%',
+    maxHeight: '90%',
+    objectFit: 'contain',
+});
 
 const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
@@ -41,6 +50,7 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
     '& .imageTitle': {
         position: 'relative',
         padding: `${theme.spacing(2)} ${theme.spacing(4)} 14px`,
+        cursor: 'pointer',
     },
     '& .imageMarked': {
         height: 3,
@@ -91,7 +101,17 @@ const images = [
     },
 ];
 
-export default function ProductCategories() {
+const ProductCategories = () => {
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const openFullScreen = (url) => {
+        setSelectedImage(url);
+    };
+
+    const closeFullScreen = () => {
+        setSelectedImage(null);
+    };
+
     return (
         <Container component="section" sx={{ mt: 4, mb: 4 }}>
             <Typography variant="h3" marked="center" align="center" component="h3">
@@ -118,7 +138,6 @@ export default function ProductCategories() {
                                 backgroundImage: `url(${image.url})`,
                             }}
                         />
-                        <ImageBackdrop className="imageBackdrop" />
                         <Box
                             sx={{
                                 position: 'absolute',
@@ -131,6 +150,7 @@ export default function ProductCategories() {
                                 justifyContent: 'center',
                                 color: 'common.white',
                             }}
+                            onClick={() => openFullScreen(image.url)}
                         >
                             <Typography
                                 component="h3"
@@ -145,6 +165,14 @@ export default function ProductCategories() {
                     </ImageIconButton>
                 ))}
             </Box>
+
+            {selectedImage && (
+                <FullScreenImageOverlay onClick={closeFullScreen}>
+                    <FullScreenImage src={selectedImage} alt="Full Screen" />
+                </FullScreenImageOverlay>
+            )}
         </Container>
     );
-}
+};
+
+export default ProductCategories;

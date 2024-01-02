@@ -18,12 +18,14 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     },
     '& video': {
         position: 'absolute',
-        objectFit: 'cover',
+        objectFit: 'fill',
         width: '100%',
         height: '100%',
         zIndex: -1,
         top: 0,
-        left: 0
+        left: 0,
+        transform: 'scale(1.1)', // Adjust the scale value for zoom-out effect
+        transition: 'transform 0.5s ease-in-out', // Add transition for smooth effect
     },
 }));
 

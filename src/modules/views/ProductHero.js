@@ -4,7 +4,13 @@ import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 import Container from '@mui/material/Container';
 
-
+const handleWhatsAppClick = () => {
+    // Replace 'your-number' with your WhatsApp number
+    const phoneNumber = '+96170318228';
+    const message = 'Hello, I have a question!';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
 export default function ProductHero() {
     return (
         <ProductHeroLayout
@@ -29,10 +35,10 @@ export default function ProductHero() {
                     variant="contained"
                     size="large"
                     component="a"
-                    href="/signup"
+                    onClick={handleWhatsAppClick}
                     sx={{ minWidth: 200 }}
                 >
-                    Register
+                    Contact Now
                 </Button>
                 <Typography variant="body2" color="black" sx={{ mt: 2 }}>
                     Discover our internet data bundles

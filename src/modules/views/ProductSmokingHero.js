@@ -24,7 +24,7 @@ function ProductSmokingHero() {
                 component="img"
                 src="/Contact2.jpg"
                 alt="Contact us"
-                sx={{ my: 2, objectFit: 'contain' }}
+                sx={{ my: 2, objectFit: 'contain', width: '90%', height: '90%' }}
 
             />
             <Button
