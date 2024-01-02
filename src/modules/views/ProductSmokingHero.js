@@ -22,7 +22,7 @@ function ProductSmokingHero() {
         >
             <Box
                 component="img"
-                src="/Contact2.jpg"
+                src="/contact2.jpg"
                 alt="Contact us"
                 sx={{ my: 2, objectFit: 'contain', width: '90%', height: '90%' }}
 
