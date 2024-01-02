@@ -5,6 +5,9 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import StoreVideo from './StoreVideo.mp4';
 import Typography from '../components/Typography';
+import { useTheme } from '@mui/material/styles';
+
+
 
 const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     color: theme.palette.common.white,
@@ -42,7 +45,7 @@ const Background = styled(Box)({
 
 function ProductHeroLayout(props) {
     const { sxBackground, children } = props;
-
+    const theme = useTheme();
     return (
         <ProductHeroLayoutRoot>
             <video autoPlay muted loop playsInline>
@@ -79,7 +82,15 @@ function ProductHeroLayout(props) {
                     width="12"
                     alt="arrow down"
                     align="center"
-                    sx={{ position: 'absolute', bottom: 200, mt: 2 }}
+                    sx={{
+                        position: 'absolute',
+                        bottom:
+                            theme.breakpoints.down('xs') ? -30 :
+                                theme.breakpoints.down('sm') ? -20 :
+                                    theme.breakpoints.down('lg') ? -40 :
+                                        theme.breakpoints.down('xl') ? -50 : 300,
+                        mt: 2
+                    }}
                 />
             </Container>
         </ProductHeroLayoutRoot>
