@@ -20,11 +20,11 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     display: 'block',
     padding: 0,
-    borderRadius: 0,
-    height: '40vh',
+    border: '1px solid',
+    borderRadius: 1,
+    height: 500,
     [theme.breakpoints.down('md')]: {
         width: '100% !important',
-        height: 100,
     },
     '&:hover': {
         zIndex: 1,
@@ -57,48 +57,48 @@ const images = [
     {
         url: '/assets/images/D5mb.png',
         title: '5 Mega',
-        width: 'auto',
+        width: 500,
     },
     {
         url: '/assets/images/D6mb.png',
         title: '6 Mega',
-        width: 'auto',
+        width: 500,
     },
     {
         url: '/assets/images/D8mb.png',
         title: '8 Mega',
-        width: 'auto',
+        width: 500,
     },
     {
         url: '/assets/images/D10mb.png',
         title: '10 Mega',
-        width: 'auto',
+        width: 500,
     },
     {
         url: '/assets/images/D12mb.png',
         title: '12 Mega',
-        width: 'auto',
+        width: 500,
     },
     {
         url: '/assets/images/D20mb.png',
         title: '20 Mega',
-        width: 'auto',
+        width: 500,
     },
     {
         url: '/assets/images/Ddedicated.png',
         title: 'Dedicated',
-        width: 'auto',
+        width: 500,
     },
 ];
 
 export default function ProductCategories() {
     return (
-        <Container component="section" sx={{ mt: 8, mb: 4 }}>
-            <Typography variant="h4" marked="center" align="center" component="h4">
+        <Container component="section" sx={{ mt: 4, mb: 4 }}>
+            <Typography variant="h3" marked="center" align="center" component="h3">
                 {'Experience a spectrum of internet solutions designed to various profiles and preferences. \n'}
                 {'Our commitment is to provide seamless connectivity that aligns with your unique requirements'}
             </Typography>
-            <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
+            <Box sx={{ mt: 4, display: 'flex', flexWrap: 'wrap', gap: '4vw', justifyContent: 'center', alignItems: 'center' }}>
                 {images.map((image) => (
                     <ImageIconButton
                         key={image.title}

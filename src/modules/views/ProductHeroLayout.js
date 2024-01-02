@@ -56,8 +56,8 @@ function ProductHeroLayout(props) {
                     alignItems: 'center',
                     position: 'relative',
                     zIndex: 1,
-                    height: '100vh',
-                    width: '100vw',
+                    height: '100%',
+                    width: '100%',
                     '@media (max-width: 600px)': {
                         mt: 10,
                         height: 'auto', // Adjust the height for smaller screens
@@ -77,7 +77,7 @@ function ProductHeroLayout(props) {
                     width="12"
                     alt="arrow down"
                     align="center"
-                    sx={{ position: 'absolute', bottom: -32, mt: 2 }}
+                    sx={{ position: 'absolute', bottom: 200, mt: 2 }}
                 />
             </Container>
         </ProductHeroLayoutRoot>
