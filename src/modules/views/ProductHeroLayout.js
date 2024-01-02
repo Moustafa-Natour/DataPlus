@@ -18,7 +18,7 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     },
     '& video': {
         position: 'absolute',
-        objectFit: 'cover',
+        objectFit: 'fill',
         width: '100%',
         height: '100%',
         zIndex: -1,
