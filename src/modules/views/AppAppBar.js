@@ -14,16 +14,29 @@ const rightLink = {
 
 function AppAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [menuSection, setMenuSection] = React.useState(null);
+    const [nestedAnchorEl, setNestedAnchorEl] = React.useState(null);
 
-    const handleMenuOpen = (event) => {
+    const handleMenuOpen = (event, section) => {
+        setMenuSection(section);
         setAnchorEl(event.currentTarget);
+    };
+
+    const handleNestedMenuOpen = (event) => {
+        setNestedAnchorEl(event.currentTarget);
     };
 
     const handleMenuClose = () => {
         setAnchorEl(null);
+        setMenuSection(null);
+    };
+
+    const handleNestedMenuClose = () => {
+        setNestedAnchorEl(null);
     };
 
     const isMenuOpen = Boolean(anchorEl);
+    const isNestedMenuOpen = Boolean(nestedAnchorEl);
 
     return (
         <div>
@@ -65,13 +78,13 @@ function AppAppBar() {
                             variant="h6"
                             underline="none"
                             aria-haspopup="true"
-                            onMouseEnter={handleMenuOpen}
+                            onMouseEnter={(event) => handleMenuOpen(event, 'residential')}
                             sx={{ ...rightLink, color: 'secondary.main' }}
                         >
                             {'Internet'}
                         </Link>
                         <Popover
-                            open={isMenuOpen}
+                            open={isMenuOpen && menuSection === 'residential'}
                             anchorEl={anchorEl}
                             onClose={handleMenuClose}
                             anchorOrigin={{
@@ -89,15 +102,103 @@ function AppAppBar() {
                                 },
                             }}
                         >
-                            <MenuItem onClick={handleMenuClose} component="a" href="/internet-section1">
-                                Section 1
+                            <MenuItem
+                                onClick={(event) => handleNestedMenuOpen(event)}
+                                sx={{ cursor: 'pointer' }}
+                            >
+                                Residential Internet
                             </MenuItem>
-                            <MenuItem onClick={handleMenuClose} component="a" href="/internet-section2">
-                                Section 2
+                            <Popover
+                                open={isNestedMenuOpen}
+                                anchorEl={nestedAnchorEl}
+                                onClose={handleNestedMenuClose}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                PaperProps={{
+                                    style: {
+                                        minWidth: '200px',
+                                        maxWidth: '300px',
+                                    },
+                                }}
+                            >
+                                <MenuItem onClick={handleMenuClose} component="a" href="/adsl">
+                                    ADSL
+                                </MenuItem>
+                                <MenuItem onClick={handleMenuClose} component="a" href="/vdsl">
+                                    VDSL
+                                </MenuItem>
+                            </Popover>
+                        </Popover>
+
+                        <Link
+                            variant="h6"
+                            underline="none"
+                            aria-haspopup="true"
+                            onMouseEnter={(event) => handleMenuOpen(event, 'corporate')}
+                            sx={{ ...rightLink, color: 'secondary.main' }}
+                        >
+                            {'Corporate Internet'}
+                        </Link>
+                        <Popover
+                            open={isMenuOpen && menuSection === 'corporate'}
+                            anchorEl={anchorEl}
+                            onClose={handleMenuClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            PaperProps={{
+                                style: {
+                                    minWidth: '200px',
+                                    maxWidth: '300px',
+                                },
+                            }}
+                        >
+                            <MenuItem
+                                onClick={(event) => handleNestedMenuOpen(event)}
+                                sx={{ cursor: 'pointer' }}
+                            >
+                                Corporate Internet
                             </MenuItem>
-                            <MenuItem onClick={handleMenuClose} component="a" href="/internet-section3">
-                                Section 3
-                            </MenuItem>
+                            <Popover
+                                open={isNestedMenuOpen}
+                                anchorEl={nestedAnchorEl}
+                                onClose={handleNestedMenuClose}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                PaperProps={{
+                                    style: {
+                                        minWidth: '200px',
+                                        maxWidth: '300px',
+                                    },
+                                }}
+                            >
+                                <MenuItem onClick={handleMenuClose} component="a" href="/broadband">
+                                    Broadband
+                                </MenuItem>
+                                <MenuItem onClick={handleMenuClose} component="a" href="/corporate-dsl">
+                                    Corporate DSL
+                                </MenuItem>
+                                <MenuItem onClick={handleMenuClose} component="a" href="/microwave">
+                                    Microwave
+                                </MenuItem>
+                            </Popover>
                         </Popover>
 
                         <Link
