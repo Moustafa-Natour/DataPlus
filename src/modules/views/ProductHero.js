@@ -3,7 +3,8 @@ import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 import Container from '@mui/material/Container';
-
+import IconButton from '@mui/material/IconButton';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 const handleWhatsAppClick = () => {
     // Replace 'your-number' with your WhatsApp number
     const phoneNumber = '+96170318228';
@@ -38,6 +39,14 @@ export default function ProductHero() {
                     onClick={handleWhatsAppClick}
                     sx={{ minWidth: 200 }}
                 >
+                    <IconButton
+                        color="inherit"
+                        aria-label="whatsapp"
+                        onClick={handleWhatsAppClick}
+                        sx={{ gap: 1 }}
+                    >
+                        <WhatsAppIcon />
+                    </IconButton>
                     Contact Now
                 </Button>
                 <Typography variant="body2" color="black" sx={{ mt: 2 }}>

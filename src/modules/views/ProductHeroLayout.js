@@ -15,7 +15,7 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
-        height: '80vh',
+        height: '100%',
         minHeight: 500,
         maxHeight: 1300,
     },
@@ -54,8 +54,9 @@ function ProductHeroLayout(props) {
             </video>
             <Container
                 sx={{
-                    mt: 50,
+                    mt: 10,
                     mb: 10,
+                    padding: { xs: 1, sm: 10 },
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
