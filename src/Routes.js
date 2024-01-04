@@ -5,8 +5,7 @@ import Home from './Home';
 import ForgotPassword from './ForgotPassword';
 import Pricing from './Pricing';
 import Privacy from './Privacy';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import Broadband from './Broadband'
 import Terms from './Terms';
 
 function AppRoutes() {
@@ -16,8 +15,7 @@ function AppRoutes() {
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/privacy" element={<Privacy />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/broadband" element={<Broadband />} />
             <Route path="/terms" element={<Terms />} />
         </Routes>
     );

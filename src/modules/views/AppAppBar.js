@@ -1,3 +1,4 @@
+// components/AppAppBar.js
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -9,34 +10,59 @@ import MenuItem from '@mui/material/MenuItem';
 const rightLink = {
     fontSize: { xs: 9, sm: 12, md: 16 },
     color: 'common.white',
-    ml: 1,
+    '&:hover': {
+        color: 'common.white',
+        textDecoration: 'underline',
+    }
+
+};
+
+const menuStyle = {
+    backgroundColor: '#58a0fa', // Dark background color
+    borderRadius: '8px', // Rounded corners
+    boxShadow: '5px 5px 10px 5px rgba(0, 0, 0, 0.2)', // Box shadow for depth
 };
 
 function AppAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [menuSection, setMenuSection] = React.useState(null);
-    const [nestedAnchorEl, setNestedAnchorEl] = React.useState(null);
+
+    const [isResidentialNestedMenuOpen, setResidentialNestedMenuOpen] = React.useState(false);
+    const [residentialNestedAnchorEl, setResidentialNestedAnchorEl] = React.useState(null);
+
+    const [isCorporateNestedMenuOpen, setCorporateNestedMenuOpen] = React.useState(false);
+    const [corporateNestedAnchorEl, setCorporateNestedAnchorEl] = React.useState(null);
 
     const handleMenuOpen = (event, section) => {
         setMenuSection(section);
         setAnchorEl(event.currentTarget);
     };
 
-    const handleNestedMenuOpen = (event) => {
-        setNestedAnchorEl(event.currentTarget);
+    const handleNestedMenuOpen = (event, menuType) => {
+        if (menuType === 'residential') {
+            setResidentialNestedMenuOpen(true);
+            setResidentialNestedAnchorEl(event.currentTarget);
+            setCorporateNestedMenuOpen(false);
+        } else if (menuType === 'corporate') {
+            setCorporateNestedMenuOpen(true);
+            setCorporateNestedAnchorEl(event.currentTarget);
+            setResidentialNestedMenuOpen(false);
+        }
     };
 
     const handleMenuClose = () => {
         setAnchorEl(null);
         setMenuSection(null);
+        setResidentialNestedMenuOpen(false);
+        setCorporateNestedMenuOpen(false);
     };
 
     const handleNestedMenuClose = () => {
-        setNestedAnchorEl(null);
+        setResidentialNestedMenuOpen(false);
+        setCorporateNestedMenuOpen(false);
     };
 
     const isMenuOpen = Boolean(anchorEl);
-    const isNestedMenuOpen = Boolean(nestedAnchorEl);
 
     return (
         <div>
@@ -72,7 +98,6 @@ function AppAppBar() {
                             />
                         </Link>
                     </Box>
-
                     <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
                         <Link
                             variant="h6"
@@ -97,20 +122,21 @@ function AppAppBar() {
                             }}
                             PaperProps={{
                                 style: {
+                                    ...menuStyle,
                                     minWidth: '200px',
                                     maxWidth: '300px',
                                 },
                             }}
                         >
                             <MenuItem
-                                onClick={(event) => handleNestedMenuOpen(event)}
-                                sx={{ cursor: 'pointer' }}
+                                onClick={(event) => handleNestedMenuOpen(event, 'residential')}
+                                sx={{ ...rightLink, cursor: 'pointer' }}
                             >
                                 Residential Internet
                             </MenuItem>
                             <Popover
-                                open={isNestedMenuOpen}
-                                anchorEl={nestedAnchorEl}
+                                open={isResidentialNestedMenuOpen}
+                                anchorEl={residentialNestedAnchorEl}
                                 onClose={handleNestedMenuClose}
                                 anchorOrigin={{
                                     vertical: 'bottom',
@@ -122,57 +148,30 @@ function AppAppBar() {
                                 }}
                                 PaperProps={{
                                     style: {
+                                        ...menuStyle,
                                         minWidth: '200px',
                                         maxWidth: '300px',
                                     },
                                 }}
                             >
-                                <MenuItem onClick={handleMenuClose} component="a" href="/adsl">
+                                <MenuItem onClick={handleMenuClose} component="a" href="/adsl" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     ADSL
                                 </MenuItem>
-                                <MenuItem onClick={handleMenuClose} component="a" href="/vdsl">
+                                <MenuItem onClick={handleMenuClose} component="a" href="/vdsl" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     VDSL
                                 </MenuItem>
                             </Popover>
-                        </Popover>
 
-                        <Link
-                            variant="h6"
-                            underline="none"
-                            aria-haspopup="true"
-                            onMouseEnter={(event) => handleMenuOpen(event, 'corporate')}
-                            sx={{ ...rightLink, color: 'secondary.main' }}
-                        >
-                            {'Corporate Internet'}
-                        </Link>
-                        <Popover
-                            open={isMenuOpen && menuSection === 'corporate'}
-                            anchorEl={anchorEl}
-                            onClose={handleMenuClose}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'center',
-                            }}
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'center',
-                            }}
-                            PaperProps={{
-                                style: {
-                                    minWidth: '200px',
-                                    maxWidth: '300px',
-                                },
-                            }}
-                        >
+                            {/* Add additional menu items for Corporate Internet */}
                             <MenuItem
-                                onClick={(event) => handleNestedMenuOpen(event)}
-                                sx={{ cursor: 'pointer' }}
+                                onClick={(event) => handleNestedMenuOpen(event, 'corporate')}
+                                sx={{ ...rightLink, cursor: 'pointer' }}
                             >
                                 Corporate Internet
                             </MenuItem>
                             <Popover
-                                open={isNestedMenuOpen}
-                                anchorEl={nestedAnchorEl}
+                                open={isCorporateNestedMenuOpen}
+                                anchorEl={corporateNestedAnchorEl}
                                 onClose={handleNestedMenuClose}
                                 anchorOrigin={{
                                     vertical: 'bottom',
@@ -184,18 +183,19 @@ function AppAppBar() {
                                 }}
                                 PaperProps={{
                                     style: {
+                                        ...menuStyle,
                                         minWidth: '200px',
                                         maxWidth: '300px',
                                     },
                                 }}
                             >
-                                <MenuItem onClick={handleMenuClose} component="a" href="/broadband">
+                                <MenuItem onClick={handleMenuClose} component="a" href="/broadband" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     Broadband
                                 </MenuItem>
-                                <MenuItem onClick={handleMenuClose} component="a" href="/corporate-dsl">
+                                <MenuItem onClick={handleMenuClose} component="a" href="/corporate-dsl" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     Corporate DSL
                                 </MenuItem>
-                                <MenuItem onClick={handleMenuClose} component="a" href="/microwave">
+                                <MenuItem onClick={handleMenuClose} component="a" href="/microwave" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     Microwave
                                 </MenuItem>
                             </Popover>
@@ -207,7 +207,7 @@ function AppAppBar() {
                             href="/tvsub"
                             sx={{ ...rightLink, color: 'secondary.main' }}
                         >
-                            {'TV Bundles'}
+                            {'IPTV'}
                         </Link>
                         <Link
                             variant="h6"
