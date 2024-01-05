@@ -48,14 +48,10 @@ function ProductHeroLayout(props) {
     const theme = useTheme();
     return (
         <ProductHeroLayoutRoot>
-            <video autoPlay muted loop playsInline>
-                <source src={StoreVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
             <Container
                 sx={{
-                    mt: 10,
-                    mb: 10,
+                    mt: 3.56,
+                    mb: 1,
                     padding: { xs: 1, sm: 10 },
                     display: 'flex',
                     flexDirection: 'column',
@@ -65,16 +61,19 @@ function ProductHeroLayout(props) {
                     height: '100%',
                     width: '100%',
                     '@media (max-width: 600px)': {
-                        mt: 10,
+                        mt: 2.55,
                         height: 'auto', // Adjust the height for smaller screens
                         width: 'auto', // Adjust the height for smaller screens
                     },
                 }}
             >
+                <video autoPlay muted loop playsInline>
+                    <source src={StoreVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
                 <Typography color="black" align="center" variant="h1" marked="center" sx={{ my: 2 }}>
                     DATA PLUS
                 </Typography>
-
                 {children}
                 <Box
                     component="img"
@@ -86,7 +85,7 @@ function ProductHeroLayout(props) {
                     sx={{
                         position: 'absolute',
                         bottom:
-                            theme.breakpoints.down('xs') ? -30 :
+                            theme.breakpoints.down('xs') ? -15 :
                                 theme.breakpoints.down('sm') ? -20 :
                                     theme.breakpoints.down('lg') ? -40 :
                                         theme.breakpoints.down('xl') ? -50 : 300,

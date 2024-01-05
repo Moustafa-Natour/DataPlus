@@ -34,19 +34,12 @@ export default function ProductHero() {
                 <Button
                     color="secondary"
                     variant="contained"
+                    startIcon={<WhatsAppIcon />}
                     size="large"
                     component="a"
                     onClick={handleWhatsAppClick}
                     sx={{ minWidth: 200 }}
                 >
-                    <IconButton
-                        color="inherit"
-                        aria-label="whatsapp"
-                        onClick={handleWhatsAppClick}
-                        sx={{ gap: 1 }}
-                    >
-                        <WhatsAppIcon />
-                    </IconButton>
                     Contact Now
                 </Button>
                 <Typography variant="body2" color="black" sx={{ mt: 2 }}>

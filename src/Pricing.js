@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -15,130 +14,118 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
+import SpeedIcon from '@mui/icons-material/Speed';
 
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const tiers = [
     {
-        title: 'Free',
-        price: '0',
+        title: 'Basic Plan',
+        price: '2,340,000',
         description: [
-            '10 users included',
-            '2 GB of storage',
-            'Help center access',
-            'Email support',
+            '5 Megabytes/second',
+            '10 GB Daily Limit',
         ],
-        buttonText: 'Sign up for free',
+        buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
     {
-        title: 'Pro',
+        title: 'Standard Plan',
         subheader: 'Most popular',
-        price: '15',
+        price: '3,150,000',
         description: [
-            '20 users included',
-            '10 GB of storage',
-            'Help center access',
-            'Priority email support',
+            '6 Megabytes/second',
+            '12 GB Daily Limit',
         ],
-        buttonText: 'Get started',
-        buttonVariant: 'contained',
+        buttonText: 'Apply Now',
+        buttonVariant: 'outlined',
     },
     {
-        title: 'Enterprise',
-        price: '30',
+        title: 'Enhanced Plan',
+        price: '3,600,000',
         description: [
-            '50 users included',
-            '30 GB of storage',
-            'Help center access',
-            'Phone & email support',
+            '8 Megabytes/second',
+            '16 GB Daily Limit',
         ],
-        buttonText: 'Contact us',
+        buttonText: 'Apply Now',
+        buttonVariant: 'outlined',
+    },
+
+    {
+        title: 'Premium Plan',
+        price: '4,500,000',
+        description: [
+            '10 Megabytes/second',
+            '20 GB Daily Limit',
+        ],
+        buttonText: 'Apply Now',
+        buttonVariant: 'outlined',
+    },
+    {
+        title: 'Elite Plan',
+        price: '5,400,000',
+        description: [
+            '12 Megabytes/second',
+            '24 GB Daily Limit',
+        ],
+        buttonText: 'Apply Now',
+        buttonVariant: 'outlined',
+    },
+    {
+        title: 'Ultimate Plan',
+        price: '13,500,000',
+        description: [
+            '20 Megabytes/second',
+            '40 GB Daily Limit',
+        ],
+        buttonText: 'Apply Now',
+        buttonVariant: 'outlined',
+    },
+    {
+        title: 'Dedicated Plan',
+        price: '3,600,000',
+        description: [
+            '1 Megabytes/second',
+            'No Daily Limit',
+        ],
+        buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
 ];
 
-const footers = [
-    {
-        title: 'Company',
-        description: ['Team', 'History', 'Contact us', 'Locations'],
-    },
-    {
-        title: 'Features',
-        description: [
-            'Cool stuff',
-            'Random feature',
-            'Team feature',
-            'Developer stuff',
-            'Another one',
-        ],
-    },
-    {
-        title: 'Resources',
-        description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
-    },
-    {
-        title: 'Legal',
-        description: ['Privacy policy', 'Terms of use'],
-    },
-];
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
 const defaultTheme = createTheme();
 
 export default function Pricing() {
     return (
         <>
-            {/* <ThemeProvider theme={defaultTheme}> */}
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
-            <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
-                <Typography
-                    component="h1"
-                    variant="h2"
-                    align="center"
-                    color="text.primary"
-                    gutterBottom
-                >
+            <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ pt: 8, pb: 6 }}>
+                <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom >
                     Broadband Pricing
                 </Typography>
-                <Typography variant="h5" align="center" color="text.secondary" component="p">
-                    Quickly build an effective pricing table for your potential customers with
-                    this layout. It&apos;s built with default MUI components with little
-                    customization.
+                <Typography variant="h5" align="center" color="text.secondary" component="p" sx={{ textAlign: 'left', ml: 6, mr: 4 }}>
+                    {'Explore our carefully crafted broadband pricing plans designed to meet the diverse needs of your business.'}
+                    {'Our pricing table is thoughtfully curated to provide valuable solutions for your organization.Leveraging the power of Internet '}
+                    {'We offer a seamless and efficient experience with bundle addons for your convenience.'}
                 </Typography>
-            </Container>
-            {/* End hero unit */}
+            </Container >
             <Container maxWidth="md" component="main" sx={{ my: 4 }}>
                 <Grid container spacing={5} alignItems="flex-end">
                     {tiers.map((tier) => (
-                        <Grid
-                            item
-                            key={tier.title}
-                            xs={12}
-                            sm={tier.title === 'Enterprise' ? 12 : 6}
-                            md={4}
-                        >
+                        <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
                             <Card>
                                 <CardHeader
-                                    title={tier.title}
+                                    title={
+                                        <>
+                                            {tier.title} <SpeedIcon fontSize="medium" sx={{ ml: 1, color: 'red' }} />
+                                        </>
+                                    }
                                     subheader={tier.subheader}
                                     titleTypographyProps={{ align: 'center' }}
                                     action={tier.title === 'Pro' ? <StarIcon /> : null}
-                                    subheaderTypographyProps={{
-                                        align: 'center',
-                                    }}
+                                    subheaderTypographyProps={{ align: 'center' }}
                                     sx={{
                                         backgroundColor: (theme) =>
                                             theme.palette.mode === 'light'
@@ -147,16 +134,9 @@ export default function Pricing() {
                                     }}
                                 />
                                 <CardContent>
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            alignItems: 'baseline',
-                                            mb: 2,
-                                        }}
-                                    >
-                                        <Typography component="h2" variant="h3" color="text.primary">
-                                            ${tier.price}
+                                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', mb: 2 }}>
+                                        <Typography component="h5" variant="h5" color="text.primary">
+                                            {tier.price} L.B.P
                                         </Typography>
                                         <Typography variant="h6" color="text.secondary">
                                             /mo
@@ -164,12 +144,7 @@ export default function Pricing() {
                                     </Box>
                                     <ul>
                                         {tier.description.map((line) => (
-                                            <Typography
-                                                component="li"
-                                                variant="subtitle1"
-                                                align="center"
-                                                key={line}
-                                            >
+                                            <Typography component="li" variant="subtitle1" align="center" key={line}>
                                                 {line}
                                             </Typography>
                                         ))}
@@ -185,7 +160,6 @@ export default function Pricing() {
                     ))}
                 </Grid>
             </Container>
-            {/* </ThemeProvider > */}
         </>
     );
 }

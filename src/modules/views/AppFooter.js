@@ -11,7 +11,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 function Copyright() {
     return (
         <React.Fragment>
-            {'© '}
+            {'©'}
             <Link color="inherit" href="/" sx={{ textDecoration: 'none', color: '#fff' }}>
                 DATA PLUS
             </Link>{' Since 2016-'}
@@ -100,53 +100,20 @@ export default function AppFooter() {
                                 <Copyright />
                             </Grid>
                         </Grid>
-                    </Grid>
-                    {/* <Grid item xs={12} sm={12} md={12}>
-                        <Typography variant="h6" marked="center" gutterBottom>
-                            Legal
-                        </Typography>
-                        <Box component="ul" sx={{ m: 0, listStyle: 'none', p: 0 }}>
-                            <Box component="li" sx={{ py: 0.5 }}>
-                                <Link href="/terms">Terms</Link>
-                            </Box>
-                            <Box component="li" sx={{ py: 0.5 }}>
-                                <Link href="/privacy">Privacy</Link>
-                            </Box>
-                        </Box>
-                    </Grid> */}
-                    {/* <Grid item xs={12} sm={12} md={12}>
-                        <Typography variant="h6" marked="center" gutterBottom>
-                            Language
-                        </Typography>
-                        <TextField
-                            select
-                            size="medium"
-                            variant="standard"
-                            SelectProps={{
-                                native: true,
-                            }}
-                            sx={{ mt: 1, width: 150 }}
-                        >
-                            {LANGUAGES.map((language) => (
-                                <option value={language.code} key={language.code}>
-                                    {language.name}
-                                </option>
-                            ))}
-                        </TextField>
-                    </Grid> */}
-                    <Grid item xs={12} sm={12} md={12}>
-                        <Typography
-                            variant="caption"
-                            align="center"
-                            sx={{
-                                marginLeft: 'auto',
-                                marginRight: 'auto',
-                                marginTop: 'auto',
-                                marginBottom: 'auto',
-                            }}
-                        >
-                            Data Plus S.A.R.L @Copyright All Right Reserved
-                        </Typography>
+                        <Grid item xs={12} sm={12} md={12}>
+                            <Typography
+                                variant="caption"
+                                align="center"
+                                sx={{
+                                    marginLeft: 'auto',
+                                    marginRight: 'auto',
+                                    marginTop: 'auto',
+                                    marginBottom: 'auto',
+                                }}
+                            >
+                                Data Plus S.A.R.L @Copyright All Right Reserved
+                            </Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Container>
