@@ -66,7 +66,7 @@ function AppAppBar() {
 
     return (
         <div>
-            <AppBar position="fixed">
+            <AppBar position="fixed" sx={{ bgcolor: '#28282a!important' }}>
                 <Toolbar sx={{ justifyContent: 'center' }}>
                     <Box />
                     <Box
