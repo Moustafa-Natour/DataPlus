@@ -7,15 +7,7 @@ import Toolbar from '../components/Toolbar';
 import Popover from '@mui/material/Popover';
 import MenuItem from '@mui/material/MenuItem';
 
-const rightLink = {
-    fontSize: { xs: 9, sm: 12, md: 16 },
-    color: 'common.white',
-    '&:hover': {
-        color: 'common.white',
-        textDecoration: 'underline',
-    }
 
-};
 
 const menuStyle = {
     backgroundColor: '#58a0fa', // Dark background color
@@ -26,17 +18,35 @@ const menuStyle = {
 function AppAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [menuSection, setMenuSection] = React.useState(null);
-
     const [isResidentialNestedMenuOpen, setResidentialNestedMenuOpen] = React.useState(false);
     const [residentialNestedAnchorEl, setResidentialNestedAnchorEl] = React.useState(null);
-
     const [isCorporateNestedMenuOpen, setCorporateNestedMenuOpen] = React.useState(false);
     const [corporateNestedAnchorEl, setCorporateNestedAnchorEl] = React.useState(null);
+    const [isIPTVNestedMenuOpen, setIPTVNestedMenuOpen] = React.useState(false);
+    const [iptvNestedAnchorEl, setIPTVNestedAnchorEl] = React.useState(null);
+
+    const rightLink = {
+        fontSize: { xs: 12, sm: 14, md: 16, lg: 18, xl: 20 },
+        color: 'common.white !important',
+        '&:hover': {
+            color: 'common.white !important',
+            textDecoration: 'none',
+        },
+        '&:active': {
+            color: 'common.white !important',
+            textDecoration: 'none',
+        }
+
+    };
 
     const handleMenuOpen = (event, section) => {
         setMenuSection(section);
         setAnchorEl(event.currentTarget);
-    };
+        if (section === 'iptv') {
+            setIPTVNestedMenuOpen(true);
+            setIPTVNestedAnchorEl(event.currentTarget);
+        };
+    }
 
     const handleNestedMenuOpen = (event, menuType) => {
         if (menuType === 'residential') {
@@ -47,6 +57,9 @@ function AppAppBar() {
             setCorporateNestedMenuOpen(true);
             setCorporateNestedAnchorEl(event.currentTarget);
             setResidentialNestedMenuOpen(false);
+        } else if (menuType === 'iptv') {
+            setIPTVNestedMenuOpen(true);
+            setIPTVNestedAnchorEl(event.currentTarget);
         }
     };
 
@@ -55,6 +68,8 @@ function AppAppBar() {
         setMenuSection(null);
         setResidentialNestedMenuOpen(false);
         setCorporateNestedMenuOpen(false);
+        setIPTVNestedMenuOpen(false);
+
     };
 
     const handleNestedMenuClose = () => {
@@ -104,7 +119,7 @@ function AppAppBar() {
                             underline="none"
                             aria-haspopup="true"
                             onMouseEnter={(event) => handleMenuOpen(event, 'residential')}
-                            sx={{ ...rightLink, color: 'secondary.main' }}
+                            sx={{ ...rightLink, color: '#58a0fa !important' }}
                         >
                             {'Internet'}
                         </Link>
@@ -204,19 +219,105 @@ function AppAppBar() {
                         <Link
                             variant="h6"
                             underline="none"
-                            href="/tvsub"
-                            sx={{ ...rightLink, color: 'secondary.main' }}
+                            aria-haspopup="true"
+                            onMouseEnter={(event) => handleMenuOpen(event, 'iptv')}
+                            sx={{ ...rightLink, color: '#58a0fa !important' }}
                         >
                             {'IPTV'}
                         </Link>
+                        <Popover
+                            open={isMenuOpen && menuSection === 'iptv'}
+                            anchorEl={anchorEl}
+                            onClose={handleMenuClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            PaperProps={{
+                                style: {
+                                    ...menuStyle,
+                                    minWidth: '200px',
+                                    maxWidth: '300px',
+                                },
+                            }}
+                        >
+                            <MenuItem
+                                onClick={handleNestedMenuClose}
+                                component="a"
+                                href="/samaflix"
+                                sx={{ ...rightLink, cursor: 'pointer' }}
+                            >
+                                SAMA FLIX
+                            </MenuItem>
+                            <MenuItem
+                                onClick={handleNestedMenuClose}
+                                component="a"
+                                href="/hitv"
+                                sx={{ ...rightLink, cursor: 'pointer' }}
+                            >
+                                HITV
+                            </MenuItem>
+                            {/* Add more IPTV-related menu items as needed */}
+                        </Popover>
+
                         <Link
                             variant="h6"
                             underline="none"
-                            href="/faq"
-                            sx={{ ...rightLink, color: 'secondary.main' }}
+                            aria-haspopup="true"
+                            onMouseEnter={(event) => handleMenuOpen(event, 'faq')}
+                            sx={{ ...rightLink, color: '#58a0fa !important' }}
                         >
                             {'FAQ'}
                         </Link>
+                        <Popover
+                            open={isMenuOpen && menuSection === 'faq'}
+                            anchorEl={anchorEl}
+                            onClose={handleMenuClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            PaperProps={{
+                                style: {
+                                    ...menuStyle,
+                                    minWidth: '200px',
+                                    maxWidth: '300px',
+                                },
+                            }}
+                        >
+                            <MenuItem
+                                onClick={handleMenuClose}
+                                component="a"
+                                href="/contactus"
+                                sx={{ ...rightLink, cursor: 'pointer' }}
+                            >
+                                Contact Us
+                            </MenuItem>
+                            <MenuItem
+                                onClick={handleMenuClose}
+                                component="a"
+                                href="/aboutus"
+                                sx={{ ...rightLink, cursor: 'pointer' }}
+                            >
+                                About Us
+                            </MenuItem>
+                            <MenuItem
+                                onClick={handleMenuClose}
+                                component="a"
+                                href="/answers"
+                                sx={{ ...rightLink, cursor: 'pointer' }}
+                            >
+                                Answers
+                            </MenuItem>
+                        </Popover>
                     </Box>
                 </Toolbar>
             </AppBar>

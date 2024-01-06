@@ -2,10 +2,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Home';
-import ForgotPassword from './ForgotPassword';
-import Pricing from './Pricing';
-import Privacy from './Privacy';
+import AboutUs from './AboutUs';
+import Adsl from './Adsl';
+import Vdsl from './Vdsl';
+import CorporateDsl from './CorporateDsl';
+import Microwave from './Microwave';
 import Broadband from './Broadband';
+import NotFound from './NotFound';
+
+import ForgotPassword from './ForgotPassword';
+import Privacy from './Privacy';
 import Terms from './Terms';
 import { Helmet } from 'react-helmet';
 
@@ -32,6 +38,18 @@ function AppRoutes() {
                     }
                 />
                 <Route
+                    path="/aboutus"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - About Us</title>
+                            </Helmet>
+                            <AboutUs />
+                        </>
+                    }
+                />
+                <Route
                     path="/forgotpassword"
                     element={
                         <>
@@ -44,26 +62,26 @@ function AppRoutes() {
                     }
                 />
                 <Route
-                    path="/pricing"
+                    path="/adsl"
                     element={
                         <>
                             {/* Set title for the Pricing page */}
                             <Helmet>
-                                <title>Data Plus - Pricing</title>
+                                <title>Data Plus - ADSL</title>
                             </Helmet>
-                            <Pricing />
+                            <Adsl />
                         </>
                     }
                 />
                 <Route
-                    path="/privacy"
+                    path="/vdsl"
                     element={
                         <>
-                            {/* Set title for the Privacy page */}
+                            {/* Set title for the Pricing page */}
                             <Helmet>
-                                <title>Data Plus - Privacy</title>
+                                <title>Data Plus - VDSL</title>
                             </Helmet>
-                            <Privacy />
+                            <Vdsl />
                         </>
                     }
                 />
@@ -80,6 +98,43 @@ function AppRoutes() {
                     }
                 />
                 <Route
+                    path="/microwave"
+                    element={
+                        <>
+                            {/* Set title for the Pricing page */}
+                            <Helmet>
+                                <title>Data Plus - Microwave</title>
+                            </Helmet>
+                            <Microwave />
+                        </>
+                    }
+                />
+                <Route
+                    path="/corporatedsl"
+                    element={
+                        <>
+                            {/* Set title for the Pricing page */}
+                            <Helmet>
+                                <title>Data Plus - Corporate DSL</title>
+                            </Helmet>
+                            <CorporateDsl />
+                        </>
+                    }
+                />
+                <Route
+                    path="/privacy"
+                    element={
+                        <>
+                            {/* Set title for the Privacy page */}
+                            <Helmet>
+                                <title>Data Plus - Privacy</title>
+                            </Helmet>
+                            <Privacy />
+                        </>
+                    }
+                />
+
+                <Route
                     path="/terms"
                     element={
                         <>
@@ -88,6 +143,19 @@ function AppRoutes() {
                                 <title>Data Plus - Terms</title>
                             </Helmet>
                             <Terms />
+                        </>
+                    }
+                />
+                {/* Wildcard route for undefined routes */}
+                <Route
+                    path="*"
+                    element={
+                        <>
+                            {/* Set title for the 404 Not Found page */}
+                            <Helmet>
+                                <title>Data Plus - 404 Not Found</title>
+                            </Helmet>
+                            <NotFound />
                         </>
                     }
                 />
