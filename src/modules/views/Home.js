@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ProductCategories from './modules/views/ProductCategories';
+import ProductCategories from './ProductCategories';
 import ProductSmokingHero from './ProductSmokingHero';
 import AppFooter from './AppFooter';
 import ProductHero from './ProductHero';
