@@ -20,14 +20,15 @@ export default function ProductHero() {
             }}
         >
             <Container>
-                <Typography color="black" align="center" variant="h4" marked="center">
+                <Typography color='#fff5f8' align="center" variant="h4" marked="center"
+                    sx={{ mb: 25 }}>
                     Internet Is Our Middle Name
                 </Typography>
                 <Typography
-                    color="black"
+                    color='#fff5f8'
                     align="center"
                     variant="h5"
-                    sx={{ mb: 4, mt: { xs: 4, sm: 10 } }}
+                    sx={{ mb: 4, mt: { xs: 14, sm: 16 } }}
                 >
                     Enjoy Fast Stable And Secure Internet
                 </Typography>
@@ -42,7 +43,7 @@ export default function ProductHero() {
                 >
                     Contact Now
                 </Button>
-                <Typography variant="body2" color="black" sx={{ mt: 2 }}>
+                <Typography variant="body2" color='#fff5f8' sx={{ mt: 2 }}>
                     Discover our internet data bundles
                 </Typography>
             </Container>

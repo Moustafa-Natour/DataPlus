@@ -71,7 +71,7 @@ function ProductHeroLayout(props) {
                     <source src={StoreVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-                <Typography color="black" align="center" variant="h1" marked="center" sx={{ my: 2 }}>
+                <Typography color='#fff5f8' align="center" variant="h1" marked="center" sx={{ my: 2 }}>
                     DATA PLUS
                 </Typography>
                 {children}
