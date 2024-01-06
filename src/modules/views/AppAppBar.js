@@ -207,7 +207,7 @@ function AppAppBar() {
                                 <MenuItem onClick={handleMenuClose} component="a" href="/broadband" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     Broadband
                                 </MenuItem>
-                                <MenuItem onClick={handleMenuClose} component="a" href="/corporate-dsl" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                <MenuItem onClick={handleMenuClose} component="a" href="/corporatedsl" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     Corporate DSL
                                 </MenuItem>
                                 <MenuItem onClick={handleMenuClose} component="a" href="/microwave" sx={{ ...rightLink, cursor: 'pointer' }}>

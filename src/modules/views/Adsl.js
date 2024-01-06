@@ -1,8 +1,14 @@
 import React from 'react'
+import AppAppBar from './AppAppBar'
+import AppFooter from './AppFooter'
 
 const Adsl = () => {
     return (
-        <div>Adsl</div>
+        <>
+            <AppAppBar />
+            <div>Adsl</div>
+            <AppFooter />
+        </>
     )
 }
 

@@ -1,8 +1,14 @@
 import React from 'react'
+import AppAppBar from './AppAppBar'
+import AppFooter from './AppFooter'
 
 const Vdsl = () => {
     return (
-        <div>Vdsl</div>
+        <>
+            <AppAppBar />
+            <div>Vdsl</div>
+            <AppFooter />
+        </>
     )
 }
 
