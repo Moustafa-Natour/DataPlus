@@ -14,8 +14,8 @@ function Copyright() {
             {'©'}
             <Link color="inherit" href="/" sx={{ textDecoration: 'none', color: '#fff' }}>
                 DATA PLUS
-            </Link>{' Since 2016-'}
-            {new Date().getFullYear()}
+            </Link>{' Since 2016'}
+            {/* {new Date().getFullYear()} */}
         </React.Fragment>
     );
 }
@@ -72,7 +72,12 @@ const handleWhatsAppClick = () => {
 export default function AppFooter() {
     return (
         <Typography component="footer" sx={{
-            display: 'flex', bgcolor: '#28282a', color: 'white', opacity: 0.8
+            display: 'flex',
+            bottom: 0,
+            bgcolor: '#28282a',
+            color: 'white',
+            opacity: 0.8,
+            textAlign: 'center'
         }}>
             <Container sx={{ my: 1, display: 'flex' }}>
                 <Grid container spacing={4}>

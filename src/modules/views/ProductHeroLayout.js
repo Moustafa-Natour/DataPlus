@@ -8,12 +8,14 @@ import Typography from '../components/Typography';
 import { useTheme } from '@mui/material/styles';
 
 
-
 const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     color: theme.palette.common.white,
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
+    height: '100%',
+    width: '100%',
+    overflow: 'hidden', // Add overflow: 'hidden' to remove any potential scrollbars
     [theme.breakpoints.up('sm')]: {
         height: '100%',
         minHeight: 500,
@@ -27,10 +29,14 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
         zIndex: -1,
         top: 0,
         left: 0,
+        right: 0,
+        bottom: 0,
+        margin: 0, // Remove any margin
         transform: 'scale(1.1)', // Adjust the scale value for zoom-out effect
         transition: 'transform 0.5s ease-in-out', // Add transition for smooth effect
     },
 }));
+
 
 const Background = styled(Box)({
     position: 'absolute',
@@ -58,19 +64,18 @@ function ProductHeroLayout(props) {
                     alignItems: 'center',
                     position: 'relative',
                     zIndex: 1,
-                    height: '100%',
-                    width: '100%',
+                    textAlign: 'center',
                     '@media (max-width: 600px)': {
                         mt: 2.55,
                         height: 'auto', // Adjust the height for smaller screens
                         width: 'auto', // Adjust the height for smaller screens
                     },
                 }}
-            >
-                <video autoPlay muted loop playsInline>
+            >  <video autoPlay muted loop playsInline>
                     <source src={StoreVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
+
                 <Typography color='#fff5f8' align="center" variant="h1" marked="center" sx={{ my: 2 }}>
                     DATA PLUS
                 </Typography>

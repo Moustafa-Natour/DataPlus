@@ -101,8 +101,7 @@ function AppAppBar() {
                             sx={{
                                 fontSize: 24,
                                 mt: 3,
-                                height: 'auto',
-                                width: 'auto',
+                                left: 0,
                             }}
                         >
                             <img
@@ -169,6 +168,9 @@ function AppAppBar() {
                                     },
                                 }}
                             >
+                                <MenuItem onClick={handleMenuClose} component="a" href="/broadband" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                    Broadband
+                                </MenuItem>
                                 <MenuItem onClick={handleMenuClose} component="a" href="/adsl" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     ADSL
                                 </MenuItem>
@@ -204,9 +206,7 @@ function AppAppBar() {
                                     },
                                 }}
                             >
-                                <MenuItem onClick={handleMenuClose} component="a" href="/broadband" sx={{ ...rightLink, cursor: 'pointer' }}>
-                                    Broadband
-                                </MenuItem>
+
                                 <MenuItem onClick={handleMenuClose} component="a" href="/corporatedsl" sx={{ ...rightLink, cursor: 'pointer' }}>
                                     Corporate DSL
                                 </MenuItem>
@@ -293,14 +293,7 @@ function AppAppBar() {
                                 },
                             }}
                         >
-                            <MenuItem
-                                onClick={handleMenuClose}
-                                component="a"
-                                href="/contactus"
-                                sx={{ ...rightLink, cursor: 'pointer' }}
-                            >
-                                Contact Us
-                            </MenuItem>
+
                             <MenuItem
                                 onClick={handleMenuClose}
                                 component="a"
@@ -308,6 +301,14 @@ function AppAppBar() {
                                 sx={{ ...rightLink, cursor: 'pointer' }}
                             >
                                 About Us
+                            </MenuItem>
+                            <MenuItem
+                                onClick={handleMenuClose}
+                                component="a"
+                                href="/contactus"
+                                sx={{ ...rightLink, cursor: 'pointer' }}
+                            >
+                                Contact Us
                             </MenuItem>
                             <MenuItem
                                 onClick={handleMenuClose}

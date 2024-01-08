@@ -101,7 +101,7 @@ export default function Pricing() {
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
             <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ pt: 6, pb: 6 }}>
-                <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom >
+                <Typography component="h1" variant="h2" align="center" color="text.primary" sx={{ borderBottom: ' 4mm ridge #000000' }} gutterBottom >
                     Broadband Pricing
                 </Typography>
                 <Typography variant="h5" align="center" color="text.secondary" component="p" sx={{ textAlign: 'left', ml: 6, mr: 4 }}>

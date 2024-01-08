@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import AboutUs from './AboutUs';
+import ContactUs from './ContactUs';
 import Adsl from './Adsl';
 import Vdsl from './Vdsl';
 import CorporateDsl from './CorporateDsl';
@@ -46,6 +47,18 @@ function AppRoutes() {
                                 <title>Data Plus - About Us</title>
                             </Helmet>
                             <AboutUs />
+                        </>
+                    }
+                />
+                <Route
+                    path="/contactus"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Contact Us</title>
+                            </Helmet>
+                            <ContactUs />
                         </>
                     }
                 />
