@@ -100,7 +100,7 @@ function AppAppBar() {
                             href="/"
                             sx={{
                                 fontSize: 24,
-                                mt: 3,
+                                mt: 2,
                                 left: 0,
                             }}
                         >
@@ -215,7 +215,6 @@ function AppAppBar() {
                                 </MenuItem>
                             </Popover>
                         </Popover>
-
                         <Link
                             variant="h6"
                             underline="none"
@@ -253,17 +252,8 @@ function AppAppBar() {
                             >
                                 SAMA FLIX
                             </MenuItem>
-                            <MenuItem
-                                onClick={handleNestedMenuClose}
-                                component="a"
-                                href="/hitv"
-                                sx={{ ...rightLink, cursor: 'pointer' }}
-                            >
-                                HITV
-                            </MenuItem>
                             {/* Add more IPTV-related menu items as needed */}
                         </Popover>
-
                         <Link
                             variant="h6"
                             underline="none"

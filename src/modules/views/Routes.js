@@ -9,8 +9,8 @@ import Vdsl from './Vdsl';
 import CorporateDsl from './CorporateDsl';
 import Microwave from './Microwave';
 import Broadband from './Broadband';
+import SamaFlix from './SamaFlix';
 import NotFound from './NotFound';
-
 import ForgotPassword from './ForgotPassword';
 import Privacy from './Privacy';
 import Terms from './Terms';
@@ -131,6 +131,18 @@ function AppRoutes() {
                                 <title>Data Plus - Corporate DSL</title>
                             </Helmet>
                             <CorporateDsl />
+                        </>
+                    }
+                />
+                <Route
+                    path="/samaflix"
+                    element={
+                        <>
+                            {/* Set title for the Pricing page */}
+                            <Helmet>
+                                <title>Data Plus - SamaFlix</title>
+                            </Helmet>
+                            <SamaFlix />
                         </>
                     }
                 />

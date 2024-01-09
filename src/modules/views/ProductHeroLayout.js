@@ -54,6 +54,10 @@ function ProductHeroLayout(props) {
     const theme = useTheme();
     return (
         <ProductHeroLayoutRoot>
+            <video autoPlay muted loop playsInline>
+                <source src={StoreVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
             <Container
                 sx={{
                     mt: 3.56,
@@ -71,10 +75,7 @@ function ProductHeroLayout(props) {
                         width: 'auto', // Adjust the height for smaller screens
                     },
                 }}
-            >  <video autoPlay muted loop playsInline>
-                    <source src={StoreVideo} type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+            >
 
                 <Typography color='#fff5f8' align="center" variant="h1" marked="center" sx={{ my: 2 }}>
                     DATA PLUS
