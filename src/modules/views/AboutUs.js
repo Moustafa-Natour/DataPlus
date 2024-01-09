@@ -21,7 +21,7 @@ let CompanyInfo = () => {
                             loop
                             height="100%"
                             objectFit="cover"
-                            src="/assets/videos/StoreVideo.mp4"
+                            src="/assets/videos/aboutus.mp4"
                             alt="Company Video"
                         />
                     </Card>

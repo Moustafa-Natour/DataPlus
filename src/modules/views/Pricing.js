@@ -10,11 +10,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import StarIcon from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import SpeedIcon from '@mui/icons-material/Speed';
-
 
 const tiers = [
     {
@@ -48,7 +46,6 @@ const tiers = [
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
-
     {
         title: 'Premium Plan',
         price: '4,500,000',
@@ -79,23 +76,18 @@ const tiers = [
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
-    {
-        title: 'Dedicated Plan',
-        price: '3,600,000',
-        description: [
-            '1 Megabytes/second',
-            'No Daily Limit',
-        ],
-        buttonText: 'Apply Now',
-        buttonVariant: 'outlined',
-    },
 ];
 
-
+const handleWhatsAppClick = (tier) => {
+    const phoneNumber = '+96170318228';
+    const message = `Hello, I want to apply to the listed Broadband plan ${tier.title} ${tier.description}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
 
 const defaultTheme = createTheme();
 
-export default function Pricing() {
+const Pricing = () => {
     return (
         <>
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -110,7 +102,7 @@ export default function Pricing() {
                     {'We offer a seamless and efficient experience with bundle addons for your convenience.'}
                 </Typography>
             </Container >
-            <Container maxWidth="md" component="main" sx={{ my: 4 }}>
+            <Container maxWidth="md" component="main" sx={{ my: 4, mb: 7 }}>
                 <Grid container spacing={5} alignItems="flex-end">
                     {tiers.map((tier) => (
                         <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
@@ -133,7 +125,7 @@ export default function Pricing() {
                                     }}
                                 />
                                 <CardContent>
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', mb: 2 }}>
+                                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', mb: 2, pb: 2, pt: 2 }}>
                                         <Typography component="h5" variant="h5" color="text.primary">
                                             {tier.price} L.B.P
                                         </Typography>
@@ -150,7 +142,11 @@ export default function Pricing() {
                                     </ul>
                                 </CardContent>
                                 <CardActions>
-                                    <Button fullWidth variant={tier.buttonVariant}>
+                                    <Button
+                                        fullWidth
+                                        variant={tier.buttonVariant}
+                                        onClick={() => handleWhatsAppClick(tier)}
+                                    >
                                         {tier.buttonText}
                                     </Button>
                                 </CardActions>
@@ -160,5 +156,15 @@ export default function Pricing() {
                 </Grid>
             </Container>
         </>
+    );
+};
+
+export default function App() {
+    const theme = createTheme();
+
+    return (
+        <ThemeProvider theme={theme}>
+            <Pricing />
+        </ThemeProvider>
     );
 }
