@@ -13,7 +13,7 @@ const lisx = {
 
 const Contact = () => {
     const handlePhoneCall = () => {
-        const phoneNumber = '+9611818422';
+        const phoneNumber = '+96101818422';
         window.location.href = `tel:${phoneNumber}`;
     };
 
