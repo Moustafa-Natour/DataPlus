@@ -76,7 +76,6 @@ function ProductHeroLayout(props) {
                     },
                 }}
             >
-
                 <Typography color='#fff5f8' align="center" variant="h1" marked="center" sx={{ my: 2 }}>
                     DATA PLUS
                 </Typography>

@@ -120,7 +120,7 @@ function AppAppBar() {
                             onMouseEnter={(event) => handleMenuOpen(event, 'residential')}
                             sx={{ ...rightLink, color: '#58a0fa !important' }}
                         >
-                            {'Internet'}
+                            {'INTERNET'}
                         </Link>
                         <Popover
                             open={isMenuOpen && menuSection === 'residential'}
