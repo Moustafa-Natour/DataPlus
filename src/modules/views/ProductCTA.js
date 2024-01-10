@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
-import { Card, CardMedia } from '@mui/material';
+import { Card, CardHeader, CardMedia } from '@mui/material';
 import TextField from '../components/TextField';
 import Snackbar from '../components/Snackbar';
 import Button from '../components/Button';
@@ -20,7 +20,7 @@ function ProductCTA() {
         setOpen(false);
     };
     return (
-        <Container component="section" sx={{ mt: 4, display: 'flex' }}>
+        <Container component="section" sx={{ display: 'flex' }}>
             <Grid container>
                 <Grid item xs={12} md={12} sx={{ zIndex: 1 }}>
                     <Box
@@ -28,16 +28,11 @@ function ProductCTA() {
                             background: 'url(https://mui.com/static/themes/onepirate/productCTAImageDots.png)',
                             display: 'flex',
                             justifyContent: 'center',
-                            py: 8,
-                            px: 3,
+                            py: 2,
+                            px: 2,
                         }}
-                    >       <Card sx={{ width: '100%', borderRadius: '15px', overflow: 'hidden', background: 'url(/https://mui.com/static/themes/onepirate/appCurvyLines.png)', my: 4 }}>
-                            <Typography align='center' variant='h6' sx={{
-
-                                my: 4
-                            }}>
-                                Data Plus Location
-                            </Typography>
+                    >       <Card sx={{ width: '100%', borderRadius: '15px', overflow: 'hidden', background: 'url(/https://mui.com/static/themes/onepirate/appCurvyLines.png)' }}>
+                            <CardHeader align='center' title="Data Plus S.A.R.L" subheader="Location" sx={{ background: 'white', color: 'black', borderRadius: '15px 15px 0px 0px' }} />
                             <CardMedia
                                 component="iframe"
                                 title="Data Plus S.A.R.L"
