@@ -37,7 +37,7 @@ function ProductCTA() {
                                 component="iframe"
                                 title="Data Plus S.A.R.L"
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13249.479542635114!2d35.4963574!3d33.8801265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f172750956e49%3A0x630c9a276951703e!2sData%20Plus%20S.A.R.L!5e0!3m2!1sen!2slb!4v1703277847398!5m2!1sen!2slb"
-                                width="800"
+                                width="999"
                                 height="600"
                                 allowFullScreen=""
                                 loading="lazy"
