@@ -8,6 +8,7 @@ const lisx = {
     my: 3,
     textAlign: 'left',
     fontSize: { xs: 14, md: 20, lg: 30, xl: 45 },
+    textDecoration: 'none',
     cursor: 'pointer', // Added cursor style for clickable text
 };
 
@@ -54,6 +55,8 @@ const Contact = () => {
                 <Typography sx={{ ...noCursor, borderBottom: '2px solid black' }} variant="body1" component="p" >
                     Sunday: 10:00 AM - 6:00 PM
                 </Typography>
+            </Box>
+            <Box sx={{ border: '1px solid #e0e0e0', borderRadius: 8, my: 2, p: 4 }}>
                 <ProductCTA />
             </Box>
         </Container>
