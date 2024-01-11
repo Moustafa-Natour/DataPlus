@@ -10,6 +10,7 @@ import CorporateDsl from './CorporateDsl';
 import Microwave from './Microwave';
 import Broadband from './Broadband';
 import SamaFlix from './SamaFlix';
+import Answers from './Answers';
 import NotFound from './NotFound';
 import ForgotPassword from './ForgotPassword';
 import Privacy from './Privacy';
@@ -59,6 +60,18 @@ function AppRoutes() {
                                 <title>Data Plus - Contact Us</title>
                             </Helmet>
                             <ContactUs />
+                        </>
+                    }
+                />
+                <Route
+                    path="/answers"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - FAQ</title>
+                            </Helmet>
+                            <Answers />
                         </>
                     }
                 />

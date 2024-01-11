@@ -81,7 +81,7 @@ function AppAppBar() {
 
     return (
         <div>
-            <AppBar position="fixed">
+            <AppBar position="fixed" sx={{ height: '80px', opacity: 0.9 }}>
                 <Toolbar sx={{ justifyContent: 'center' }}>
                     <Box />
                     <Box
@@ -89,8 +89,7 @@ function AppAppBar() {
                             flex: 1,
                             display: 'flex',
                             justifyContent: 'flex-start',
-                            height: 'auto',
-                            width: 'auto',
+
                         }}
                     >
                         <Link
@@ -98,17 +97,18 @@ function AppAppBar() {
                             align="center"
                             underline="none"
                             href="/"
-                            sx={{
-                                fontSize: 24,
-                                mt: 2,
-                                left: 0,
-                            }}
                         >
                             <img
                                 src="/android-chrome-512x512.png"
                                 alt="DATA PLUS"
-                                width="160"
-                                height="120"
+                                width="120"
+                                height="70"
+                                style={{
+                                    objectFit: 'cover', // Maintain aspect ratio and cover the entire container
+                                    display: 'block', // Ensure the image is treated as a block element
+                                    marginTop: '10px', // Center the image horizontally
+                                    overflow: 'hidden', // Hide any overflow
+                                }}
                             />
                         </Link>
                     </Box>

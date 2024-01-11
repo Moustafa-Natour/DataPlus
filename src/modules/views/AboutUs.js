@@ -8,7 +8,15 @@ let CompanyInfo = () => {
         <>
             <AppAppBar />
             <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <Box sx={{ my: 4, mx: 4 }}>
+                <Box
+                    sx={{
+                        border: '2px solid #e0e0e0',
+                        borderRadius: '12px',
+                        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
+                        my: 2,
+                        p: 4,
+                    }}
+                >
                     <Typography variant="h1" component="h1" align="center" sx={{ borderBottom: ' 4mm ridge #000000', mb: 4 }}>
                         Data Plus S.A.R.L
                     </Typography>
