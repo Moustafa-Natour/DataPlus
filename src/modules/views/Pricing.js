@@ -13,6 +13,9 @@ import Typography from '@mui/material/Typography';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import SpeedIcon from '@mui/icons-material/Speed';
+import AppFooter from './AppFooter';
+import AppAppBar from './AppAppBar';
+import { ContainerSx } from '../utils/ContainerSx';
 
 const tiers = [
     {
@@ -92,69 +95,89 @@ const Pricing = () => {
         <>
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
-            <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ pt: 6, pb: 6 }}>
-                <Typography component="h1" variant="h2" align="center" color="text.primary" sx={{ borderBottom: ' 4mm ridge #000000' }} gutterBottom >
-                    Broadband Pricing
-                </Typography>
-                <Typography variant="h5" align="center" color="text.secondary" component="p" sx={{ textAlign: 'left', ml: 6, mr: 4 }}>
-                    {'Explore our carefully crafted broadband pricing plans designed to meet the diverse needs of your business.'}
-                    {'Our pricing table is thoughtfully curated to provide valuable solutions for your organization.Leveraging the power of Internet '}
-                    {'We offer a seamless and efficient experience with bundle addons for your convenience.'}
-                </Typography>
-            </Container >
-            <Container maxWidth="md" component="main" sx={{ my: 4, mb: 7 }}>
-                <Grid container spacing={5} alignItems="flex-end">
-                    {tiers.map((tier) => (
-                        <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-                            <Card>
-                                <CardHeader
-                                    title={
-                                        <>
-                                            {tier.title} <SpeedIcon fontSize="medium" sx={{ ml: 1, color: 'red' }} />
-                                        </>
-                                    }
-                                    subheader={tier.subheader}
-                                    titleTypographyProps={{ align: 'center' }}
-                                    action={tier.title === 'Pro' ? <StarIcon /> : null}
-                                    subheaderTypographyProps={{ align: 'center' }}
-                                    sx={{
-                                        backgroundColor: (theme) =>
-                                            theme.palette.mode === 'light'
-                                                ? theme.palette.grey[200]
-                                                : theme.palette.grey[700],
-                                    }}
-                                />
-                                <CardContent>
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', mb: 2, pb: 2, pt: 2 }}>
-                                        <Typography component="h5" variant="h5" color="text.primary">
-                                            {tier.price} L.B.P
-                                        </Typography>
-                                        <Typography variant="h6" color="text.secondary">
-                                            /mo
-                                        </Typography>
-                                    </Box>
-                                    <ul>
-                                        {tier.description.map((line) => (
-                                            <Typography component="li" variant="subtitle1" align="center" key={line}>
-                                                {line}
-                                            </Typography>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                                <CardActions>
-                                    <Button
-                                        fullWidth
-                                        variant={tier.buttonVariant}
-                                        onClick={() => handleWhatsAppClick(tier)}
-                                    >
-                                        {tier.buttonText}
-                                    </Button>
-                                </CardActions>
-                            </Card>
+            <AppAppBar />
+            <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ ...ContainerSx, p: 10 }}>
+                <Box
+                    sx={{
+                        border: '2px solid #e0e0e0',
+                        backgroundColor: '#dbd3d3',
+                        borderRadius: '12px',
+                        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
+                        p: 10,
+
+                        height: '100%',
+
+                    }}
+                >
+                    <Typography component="h1" variant="h2" align="center" color="text.primary" sx={{ borderBottom: ' 4mm ridge #000000' }} gutterBottom >
+                        Broadband Pricing
+                    </Typography>
+                    <Typography variant="h5" align="center" color="text.secondary" component="p" sx={{ textAlign: 'left', ml: 6, mr: 4 }}>
+                        {'Explore our carefully crafted broadband pricing plans designed to meet the diverse needs of your business.'}
+                        {'Our pricing table is thoughtfully curated to provide valuable solutions for your organization.Leveraging the power of Internet '}
+                        {'We offer a seamless and efficient experience with bundle addons for your convenience.'}
+                    </Typography>
+                    <Container maxWidth="md" component="main" sx={{ my: 4, mb: 7 }}>
+                        <Grid container spacing={5} alignItems="flex-end">
+                            {tiers.map((tier) => (
+                                <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+                                    <Card>
+                                        <CardHeader
+                                            title={
+                                                <>
+                                                    {tier.title} <SpeedIcon fontSize="medium" sx={{ ml: 1, color: 'red' }} />
+                                                </>
+                                            }
+                                            subheader={tier.subheader}
+                                            titleTypographyProps={{ align: 'center' }}
+                                            action={tier.title === 'Pro' ? <StarIcon /> : null}
+                                            subheaderTypographyProps={{ align: 'center' }}
+                                            sx={{
+                                                backgroundColor: (theme) =>
+                                                    theme.palette.mode === 'light'
+                                                        ? theme.palette.grey[200]
+                                                        : theme.palette.grey[700],
+                                            }}
+                                        />
+                                        <CardContent>
+                                            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', mb: 2, pb: 2, pt: 2 }}>
+                                                <Typography component="h5" variant="h5" color="text.primary">
+                                                    {tier.price} L.B.P
+                                                </Typography>
+                                                <Typography variant="h6" color="text.secondary">
+                                                    /mo
+                                                </Typography>
+                                            </Box>
+                                            <ul>
+                                                {tier.description.map((line) => (
+                                                    <Typography component="li" variant="subtitle1" align="center" key={line}>
+                                                        {line}
+                                                    </Typography>
+                                                ))}
+                                            </ul>
+                                        </CardContent>
+                                        <CardActions>
+                                            <Button
+                                                fullWidth
+                                                variant={tier.buttonVariant}
+                                                onClick={() => handleWhatsAppClick(tier)}
+                                            >
+                                                {tier.buttonText}
+                                            </Button>
+                                        </CardActions>
+
+                                    </Card>
+                                </Grid>
+                            ))}
                         </Grid>
-                    ))}
-                </Grid>
-            </Container>
+                        <Typography variant="subtitle2" align="center" sx={{ my: 2, textAlign: 'center', lineHeight: 2, fontWeight: 'bold' }}>
+                            {'All Profiles Are Subjected To Fair Use Policy'}
+                        </Typography>
+                    </Container>
+                </Box>
+            </Container >
+
+            <AppFooter />
         </>
     );
 };

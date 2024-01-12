@@ -7,8 +7,6 @@ import Toolbar from '../components/Toolbar';
 import Popover from '@mui/material/Popover';
 import MenuItem from '@mui/material/MenuItem';
 
-
-
 const menuStyle = {
     backgroundColor: '#58a0fa', // Dark background color
     borderRadius: '8px', // Rounded corners
@@ -27,7 +25,6 @@ function AppAppBar() {
 
     const rightLink = {
         fontSize: { xs: 12, sm: 14, md: 16, lg: 18, xl: 20 },
-        color: 'common.white !important',
         '&:hover': {
             color: 'common.white !important',
             textDecoration: 'none',
@@ -81,7 +78,7 @@ function AppAppBar() {
 
     return (
         <div>
-            <AppBar position="fixed" sx={{ height: '80px', opacity: 0.9 }}>
+            <AppBar position="fixed" sx={{ opacity: 0.9 }}>
                 <Toolbar sx={{ justifyContent: 'center' }}>
                     <Box />
                     <Box
@@ -101,8 +98,8 @@ function AppAppBar() {
                             <img
                                 src="/android-chrome-512x512.png"
                                 alt="DATA PLUS"
-                                width="120"
-                                height="70"
+                                width="100"
+                                height="60"
                                 style={{
                                     objectFit: 'cover', // Maintain aspect ratio and cover the entire container
                                     display: 'block', // Ensure the image is treated as a block element

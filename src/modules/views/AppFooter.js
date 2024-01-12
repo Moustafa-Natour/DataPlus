@@ -75,9 +75,9 @@ export default function AppFooter() {
         <Typography component="footer" sx={{
             display: 'flex',
             bottom: 0,
-            bgcolor: '#28282a',
+            bgcolor: '#050505',
             color: 'white',
-            opacity: 0.8,
+            opacity: 1,
             textAlign: 'center'
         }}>
             <Container sx={{ my: 1, display: 'flex' }}>

@@ -13,14 +13,14 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    height: '100%',
+    height: '100svh',
     width: '100%',
     overflow: 'hidden', // Add overflow: 'hidden' to remove any potential scrollbars
-    [theme.breakpoints.up('sm')]: {
-        height: '100%',
-        minHeight: 500,
-        maxHeight: 1300,
-    },
+    // [theme.breakpoints.up('sm')]: {
+    //     height: '100%',
+    //     minHeight: 500,
+    //     maxHeight: 1300,
+    // }, 
     '& video': {
         position: 'absolute',
         objectFit: 'fill',
@@ -90,10 +90,11 @@ function ProductHeroLayout(props) {
                     sx={{
                         position: 'absolute',
                         bottom:
-                            theme.breakpoints.down('xs') ? -15 :
+                            theme.breakpoints.down('xs') ? -5 :
                                 theme.breakpoints.down('sm') ? -20 :
-                                    theme.breakpoints.down('lg') ? -40 :
-                                        theme.breakpoints.down('xl') ? -50 : 300,
+                                    theme.breakpoints.down('md') ? -20 :
+                                        theme.breakpoints.down('lg') ? -40 :
+                                            theme.breakpoints.down('xl') ? -50 : 300,
                         mt: 2
                     }}
                 />
