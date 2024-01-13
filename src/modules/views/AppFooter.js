@@ -7,6 +7,7 @@ import Typography from '../components/Typography';
 import TextField from '../components/TextField';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import { AppFooterSx, whatsappIconStyle, facebookIconStyle, iconStyle } from "../utils/StyleSx";
 
 function Copyright() {
     return (
@@ -21,31 +22,7 @@ function Copyright() {
     );
 }
 
-const iconStyle = {
-    width: 48,
-    height: 48,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: '#fff', // Default icon color
-    mr: 1,
-    borderRadius: '50%',
-    transition: 'background-color 0.3s',
-    '&:hover': {
-        backgroundColor: '#13489e', // Default background color on hover
-    },
-};
 
-const facebookIconStyle = {
-    backgroundColor: '#1877f2', // Facebook blue color
-};
-
-const whatsappIconStyle = {
-    backgroundColor: '#25D366', // WhatsApp green color
-    '&:hover': {
-        backgroundColor: '#128C7E', // Darker shade of WhatsApp green on hover
-    },
-};
 
 const LANGUAGES = [
     {
@@ -72,14 +49,7 @@ const handleWhatsAppClick = () => {
 
 export default function AppFooter() {
     return (
-        <Typography component="footer" sx={{
-            display: 'flex',
-            bottom: 0,
-            bgcolor: '#050505',
-            color: 'white',
-            opacity: 1,
-            textAlign: 'center'
-        }}>
+        <Typography component="footer" sx={AppFooterSx}>
             <Container sx={{ my: 1, display: 'flex' }}>
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={12}>

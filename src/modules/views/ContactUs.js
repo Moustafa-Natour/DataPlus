@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, Typography, Box, Link } from '@mui/material';
+import { Container, Typography, Box, Link, Divider } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
 import ProductCTA from './ProductCTA';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 const listItemStyle = {
     display: 'block',
@@ -32,17 +33,9 @@ const Contact = () => {
     };
 
     return (
-        <Container sx={{ maxWidth: '800px', margin: 'auto', padding: 'auto' }}>
-            <Box
-                sx={{
-                    border: '2px solid #e0e0e0',
-                    borderRadius: '12px',
-                    boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                    my: 2,
-                    p: 4,
-                }}
-            >
-                <Typography variant="h1" component="h1" sx={{ textAlign: 'center', fontSize: { xs: 36, md: 48, lg: 60, xl: 72 }, my: 4, borderBottom: '4mm ridge #000000' }}>
+        <Container sx={ContainerSx}>
+            <Box sx={BoxSx}>
+                <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                     Contact Us
                 </Typography>
                 <Typography sx={{ ...listItemStyle }} component={Link} onClick={() => alert('Location clicked')}>
@@ -63,16 +56,7 @@ const Contact = () => {
                 <Typography sx={{ ...listItemStyle, fontSize: { xs: 16, md: 24, lg: 34, xl: 48 } }}>
                     Sunday: 10:00 AM - 6:00 PM
                 </Typography>
-            </Box>
-            <Box
-                sx={{
-                    border: '2px solid #e0e0e0',
-                    borderRadius: '12px',
-                    boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                    my: 2,
-                    p: 4,
-                }}
-            >
+                <Divider variant='middle' sx={{ my: 4, bgcolor: 'black' }} />
                 <ProductCTA />
             </Box>
         </Container>

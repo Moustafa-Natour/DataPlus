@@ -2,24 +2,13 @@ import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
-import { ContainerSx } from '../utils/ContainerSx';
+import { BoxSx, ContainerSx } from '../utils/StyleSx';
 const AdslView = () => {
     return (
         <>
             <AppAppBar />
-            <Container sx={{ ...ContainerSx }}>
-                <Box
-                    sx={{
-                        border: '2px solid #e0e0e0',
-                        backgroundColor: '#dbd3d3',
-                        borderRadius: '12px',
-                        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                        p: 10,
-                        my: 2,
-                        height: '100%',
-
-                    }}
-                >
+            <Container sx={ContainerSx}>
+                <Box sx={BoxSx}>
                     <Typography variant="h1" sx={{ textAlign: 'center', fontSize: { xs: 36, md: 48, lg: 60, xl: 72 }, letterSpacing: 1, borderBottom: ' 4mm ridge #000000' }}>
                         Explore High-Speed ADSL Plans
                     </Typography>

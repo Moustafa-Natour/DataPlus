@@ -2,24 +2,14 @@ import React from 'react';
 import { Typography, Box, Container, Card, CardMedia, CardContent } from '@mui/material';
 import AppAppBar from './AppAppBar'
 import AppFooter from './AppFooter'
-import { ContainerSx } from '../utils/ContainerSx';
+import { BoxSx, ContainerSx } from '../utils/StyleSx';
 
 let CompanyInfo = () => {
     return (
         <>
             <AppAppBar />
-            <Container sx={{ ...ContainerSx, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <Box
-                    sx={{
-                        border: '2px solid #e0e0e0',
-                        backgroundColor: '#dbd3d3',
-                        borderRadius: '12px',
-                        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                        my: 2,
-                        p: 4,
-
-                    }}
-                >
+            <Container sx={ContainerSx}>
+                <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" align="center" sx={{ borderBottom: ' 4mm ridge #000000', mb: 4 }}>
                         Data Plus S.A.R.L
                     </Typography>

@@ -2,6 +2,7 @@ import React from 'react';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
 import { Box, Container, Typography, Grid, Card, CardMedia } from '@mui/material';
+import { BoxSx, ContainerSx } from '../utils/StyleSx';
 
 const SamaFlixView = () => {
     const tvChannels = getChannelImages();
@@ -14,23 +15,15 @@ const SamaFlixView = () => {
     return (
         <>
             <AppAppBar />
-            <Container>
-                <Box sx={{ my: 4 }}>
+            <Container sx={ContainerSx}>
+                <Box sx={BoxSx}>
                     <Typography variant="h1" sx={{ textAlign: 'center', fontSize: { xs: 26, md: 38, lg: 50, xl: 62 }, letterSpacing: 1, borderBottom: '4mm ridge #000000', color: '#333', pb: 4 }}>
                         SamaFlix
                     </Typography>
                     <Typography variant="body1" sx={{ textAlign: 'left', fontSize: 18, marginTop: 4, color: '#666', lineHeight: 3 }}>
                         SAMA Flix is an IPTV platform distributed all over Lebanon. It includes TV Channels from different bouquets such as Sports, Documentary, News, and others from different languages. It includes also a Catch Up feature for live channels that allows going back in time up to 36 hours. This platform is distributed over the Internet and Intranets through different networks. Our company, DATA PLUS, is the authorized agent that resells this service, providing you with access to a wide range of entertainment options.
                     </Typography>
-                    <Box
-                        sx={{
-                            border: '2px solid #e0e0e0',
-                            borderRadius: '12px',
-                            boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                            my: 2,
-                            p: 4,
-                        }}
-                    >
+                    <Box sx={BoxSx}>
                         <Grid container spacing={4} mt={4}>
                             {tvChannels.map((channel, index) => (
                                 <Grid item key={index + 1} xs={12} sm={6} md={4} lg={3}>

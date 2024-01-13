@@ -1,8 +1,9 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Typography, Container } from '@mui/material';
+import { Typography, Container, Box } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
+import { BoxSx, ContainerSx } from '../utils/StyleSx';
 
 const useStyles = styled((theme) => ({
     root: {
@@ -32,8 +33,10 @@ const NotFound = () => {
     return (
         <div className={classes.root}>
             <AppAppBar />
-            <Container className={classes.container}>
-                <Typography className={classes.text}>404 - Page Not Found</Typography>
+            <Container className={classes.container} sx={ContainerSx}>
+                <Box sx={BoxSx}>
+                    <Typography className={classes.text}>Dp Error 404 - Page Not Found</Typography>
+                </Box>
             </Container>
             <AppFooter className={classes.footer} />
         </div>

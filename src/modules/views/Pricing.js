@@ -15,7 +15,7 @@ import Container from '@mui/material/Container';
 import SpeedIcon from '@mui/icons-material/Speed';
 import AppFooter from './AppFooter';
 import AppAppBar from './AppAppBar';
-import { ContainerSx } from '../utils/ContainerSx';
+import { BoxSx, ContainerSx } from '../utils/StyleSx';
 
 const tiers = [
     {
@@ -97,18 +97,7 @@ const Pricing = () => {
             <CssBaseline />
             <AppAppBar />
             <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ ...ContainerSx, p: 10 }}>
-                <Box
-                    sx={{
-                        border: '2px solid #e0e0e0',
-                        backgroundColor: '#dbd3d3',
-                        borderRadius: '12px',
-                        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                        p: 10,
-
-                        height: '100%',
-
-                    }}
-                >
+                <Box sx={BoxSx}>
                     <Typography component="h1" variant="h2" align="center" color="text.primary" sx={{ borderBottom: ' 4mm ridge #000000' }} gutterBottom >
                         Broadband Pricing
                     </Typography>

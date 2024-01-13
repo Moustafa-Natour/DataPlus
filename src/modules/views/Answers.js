@@ -3,6 +3,7 @@ import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
 import { Accordion, AccordionSummary, AccordionDetails, Box, Typography, Container, Tabs, Tab } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { BoxSx, ContainerSx } from '../utils/StyleSx';
 
 
 const FiberQuestionsAndAnswers = [
@@ -105,20 +106,8 @@ const AnswersView = () => {
         <>
 
             <AppAppBar />
-            {/* <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    minHeight: '100vh', // Set minimum height to full viewport height
-                }}
-            > */}
-            <Container fixed
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    minHeight: '75.9dvh', // Set minimum height to full viewport height
-                }}>
-                <Box sx={{ my: 2 }}>
+            <Container fixed sx={ContainerSx}>
+                <Box sx={BoxSx}>
                     <Tabs
                         value={selectedCategory}
                         onChange={handleCategoryChange}
