@@ -1,3 +1,8 @@
+export const AppBarSx = {
+    backgroundColor: '#1a1919',
+    opacity: 1,
+}
+
 export const ContainerSx = {
     bgcolor: '#1d5293',
     maxWidth: '100% !important',
@@ -7,10 +12,7 @@ export const ContainerSx = {
     alignItems: 'center',
     justifyContent: 'center'
 };
-export const AppBarSx = {
-    backgroundColor: '#1a1919',
-    opacity: 1,
-}
+
 export const AppFooterSx = {
     display: 'flex',
     bottom: 0,
