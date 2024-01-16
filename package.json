@@ -7,6 +7,7 @@
     "@mui/icons-material": "^5.15.1",
     "@mui/material": "^5.15.1",
     "appwrite": "^13.0.1",
+    "framer-motion": "^10.18.0",
     "markdown-to-jsx": "^7.3.2",
     "react-final-form": "^6.5.9",
     "react-helmet": "^6.1.0",

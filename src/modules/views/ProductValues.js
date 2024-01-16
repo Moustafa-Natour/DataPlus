@@ -11,9 +11,11 @@ const item = {
     px: 5,
 };
 
+
 function ProductValues() {
     return (
         <Box
+            id="StoreMission"
             component="section"
             sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
         >

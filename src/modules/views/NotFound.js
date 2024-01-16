@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Typography, Container, Box } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 const useStyles = styled((theme) => ({
     root: {
@@ -35,7 +35,7 @@ const NotFound = () => {
             <AppAppBar />
             <Container className={classes.container} sx={ContainerSx}>
                 <Box sx={BoxSx}>
-                    <Typography className={classes.text}>Dp Error 404 - Page Not Found</Typography>
+                    <Typography sx={TypographyHeaderSx} className={classes.text}>Data Plus Error 404 - Page Not Found</Typography>
                 </Box>
             </Container>
             <AppFooter className={classes.footer} />

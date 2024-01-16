@@ -1,21 +1,11 @@
 import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Box, Button, Card, CardActions, CardContent, CardHeader, CssBaseline, Grid, Typography, GlobalStyles, Container } from '@mui/material';
 import StarIcon from '@mui/icons-material/StarBorder';
-import Typography from '@mui/material/Typography';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import Container from '@mui/material/Container';
 import SpeedIcon from '@mui/icons-material/Speed';
 import AppFooter from './AppFooter';
 import AppAppBar from './AppAppBar';
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle } from '../utils/StyleSx';
 
 const tiers = [
     {
@@ -23,8 +13,9 @@ const tiers = [
         price: '2,340,000',
         description: [
             '5 Megabytes/second',
-            '10 GB Daily Limit',
+            'Unlimited/Mo',
         ],
+        dailyLimit: '10 Gigabytes/day',
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
@@ -34,8 +25,9 @@ const tiers = [
         price: '3,150,000',
         description: [
             '6 Megabytes/second',
-            '12 GB Daily Limit',
+            'Unlimited/Mo',
         ],
+        dailyLimit: '12 Gigabytes/day',
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
@@ -44,8 +36,9 @@ const tiers = [
         price: '3,600,000',
         description: [
             '8 Megabytes/second',
-            '16 GB Daily Limit',
+            'Unlimited/Mo',
         ],
+        dailyLimit: '16 Gigabytes/day',
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
@@ -54,8 +47,9 @@ const tiers = [
         price: '4,500,000',
         description: [
             '10 Megabytes/second',
-            '20 GB Daily Limit',
+            'Unlimited/Mo',
         ],
+        dailyLimit: '20 Gigabytes/day',
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
@@ -64,8 +58,9 @@ const tiers = [
         price: '5,400,000',
         description: [
             '12 Megabytes/second',
-            '24 GB Daily Limit',
+            'Unlimited/Mo',
         ],
+        dailyLimit: '24 Gigabytes/day',
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
@@ -74,8 +69,9 @@ const tiers = [
         price: '13,500,000',
         description: [
             '20 Megabytes/second',
-            '40 GB Daily Limit',
+            'Unlimited/Mo',
         ],
+        dailyLimit: '40 Gigabytes/day',
         buttonText: 'Apply Now',
         buttonVariant: 'outlined',
     },
@@ -90,7 +86,20 @@ const handleWhatsAppClick = (tier) => {
 
 const defaultTheme = createTheme();
 
+
 const Pricing = () => {
+    const [isFullScreenDescriptionOpen, setFullScreenDescriptionOpen] = React.useState(false);
+    const [selectedTier, setSelectedTier] = React.useState(null);
+
+    const handleOpenFullScreenDescription = (tier) => {
+        setSelectedTier(tier);
+        setFullScreenDescriptionOpen(true);
+    };
+
+    const handleCloseFullScreenDescription = () => {
+        setSelectedTier(null);
+        setFullScreenDescriptionOpen(false);
+    };
     return (
         <>
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -98,7 +107,7 @@ const Pricing = () => {
             <AppAppBar />
             <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ ...ContainerSx, p: 10 }}>
                 <Box sx={BoxSx}>
-                    <Typography component="h1" variant="h2" align="center" color="text.primary" sx={{ borderBottom: ' 4mm ridge #000000' }} gutterBottom >
+                    <Typography component="h1" variant="h2" align="center" color="text.primary" sx={TypographyHeaderSx} gutterBottom >
                         Broadband Pricing
                     </Typography>
                     <Typography variant="h5" align="center" color="text.secondary" component="p" sx={{ textAlign: 'left', ml: 6, mr: 4 }}>
@@ -110,8 +119,9 @@ const Pricing = () => {
                         <Grid container spacing={5} alignItems="flex-end">
                             {tiers.map((tier) => (
                                 <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-                                    <Card>
+                                    <Card >
                                         <CardHeader
+                                            onClick={() => handleOpenFullScreenDescription(tier)}
                                             title={
                                                 <>
                                                     {tier.title} <SpeedIcon fontSize="medium" sx={{ ml: 1, color: 'red' }} />
@@ -128,7 +138,8 @@ const Pricing = () => {
                                                         : theme.palette.grey[700],
                                             }}
                                         />
-                                        <CardContent>
+                                        <CardContent
+                                            onClick={() => handleOpenFullScreenDescription(tier)}>
                                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', mb: 2, pb: 2, pt: 2 }}>
                                                 <Typography component="h5" variant="h5" color="text.primary">
                                                     {tier.price} L.B.P
@@ -159,15 +170,70 @@ const Pricing = () => {
                                 </Grid>
                             ))}
                         </Grid>
-                        <Typography variant="subtitle2" align="center" sx={{ my: 2, textAlign: 'center', lineHeight: 2, fontWeight: 'bold' }}>
-                            {'All Profiles Are Subjected To Fair Use Policy'}
+                        <Typography
+                            variant="subtitle2"
+                            align="center"
+                            sx={{ textAlign: 'center', fontSize: { xs: 12, md: 20 }, my: 4 }}
+                        >
+                            {'All profiles are subject to our'}
+
+                            <Typography
+                                variant="subtitle2"
+                                onClick={() => { window.location.href = "/fairusepolicy" }}
+                                sx={{
+                                    ...listItemStyle, textAlign: 'center', fontSize: { xs: 12, md: 20 },
+                                    display: 'inline', // or 'display: inline-block'
+                                    marginLeft: 1, // Adjust the spacing between the two Typography components
+                                }}
+                            >
+                                {'Fair Use Policy '}
+                            </Typography>
                         </Typography>
+
                     </Container>
                 </Box>
             </Container >
 
+
+            {/* Render Full-Screen Description */}
+            {selectedTier && (
+                <FullScreenDescription
+                    isOpen={isFullScreenDescriptionOpen}
+                    onClose={handleCloseFullScreenDescription}
+                    tier={selectedTier}
+                />
+            )}
+
             <AppFooter />
         </>
+    );
+};
+// FullScreenDescription component
+const FullScreenDescription = ({ isOpen, onClose, tier }) => {
+    return (
+        <Dialog
+            open={isOpen}
+            onClose={onClose}
+            fullWidth
+            maxWidth="md"
+        >
+            <DialogTitle>
+                {tier.title}
+            </DialogTitle>
+            <DialogContent>
+                {/* Render the full-screen description here using tier.description */}
+                <Typography>
+                    {tier.description.join('\n')}
+                    <br />
+                    {tier.dailyLimit}
+                </Typography>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={onClose} color="primary">
+                    Close
+                </Button>
+            </DialogActions>
+        </Dialog>
     );
 };
 

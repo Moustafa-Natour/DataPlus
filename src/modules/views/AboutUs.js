@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Box, Container, Card, CardMedia, CardContent } from '@mui/material';
 import AppAppBar from './AppAppBar'
 import AppFooter from './AppFooter'
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 let CompanyInfo = () => {
     return (
@@ -10,7 +10,7 @@ let CompanyInfo = () => {
             <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
-                    <Typography variant="h1" component="h1" align="center" sx={{ borderBottom: ' 4mm ridge #000000', mb: 4 }}>
+                    <Typography variant="h1" component="h1" align="center" sx={TypographyHeaderSx}>
                         Data Plus S.A.R.L
                     </Typography>
                     <Card>

@@ -2,7 +2,14 @@ export const AppBarSx = {
     backgroundColor: '#1a1919',
     opacity: 1,
 }
-
+export const AppFooterSx = {
+    display: 'flex',
+    bottom: 0,
+    bgcolor: '#050505',
+    color: 'white',
+    opacity: 1,
+    textAlign: 'center'
+}
 export const ContainerSx = {
     bgcolor: '#1d5293',
     maxWidth: '100% !important',
@@ -13,16 +20,7 @@ export const ContainerSx = {
     justifyContent: 'center'
 };
 
-export const AppFooterSx = {
-    display: 'flex',
-    bottom: 0,
-    bgcolor: '#050505',
-    color: 'white',
-    opacity: 1,
-    textAlign: 'center'
-}
-
-//Footer custom components Sx
+//Footer page custom components Sx
 export const iconStyle = {
     width: 48,
     height: 48,
@@ -39,13 +37,25 @@ export const iconStyle = {
 };
 
 export const facebookIconStyle = {
-    backgroundColor: '#1877f2', // Facebook blue color
+    background: 'linear-gradient(45deg, #1877f2, #3b5998)', // Facebook-like gradient
+    '&:hover': {
+        background: 'linear-gradient(45deg, #13489e, #3b5998)', // Adjusted gradient on hover
+    },
 };
 
 export const whatsappIconStyle = {
-    backgroundColor: '#25D366', // WhatsApp green color
+    background: 'linear-gradient(45deg, #25D366, #128C7E)', // WhatsApp-like gradient
+    transition: 'background 0.3s',
     '&:hover': {
-        backgroundColor: '#128C7E', // Darker shade of WhatsApp green on hover
+        background: 'linear-gradient(45deg, #128C7E, #075e54)', // Adjusted gradient on hover
+    },
+};
+
+export const instagramIconStyle = {
+    background: 'linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D)', // Instagram-like gradient
+    transition: 'background 0.3s',
+    '&:hover': {
+        background: 'linear-gradient(45deg, #833AB4, #C13584, #FD1D1D)', // Adjusted gradient on hover
     },
 };
 
@@ -62,9 +72,29 @@ export const BoxSx = {
 export const TypographyHeaderSx = {
     textAlign: 'center',
     fontSize: { xs: 36, md: 48, lg: 60, xl: 72 },
+    fontWeight: 'bold',
     my: 4,
+    letterSpacing: 1,
+    lineHeight: 1.5,
     borderBottom: '4mm ridge #000000'
 }
+
+//Contact us List :
+export const listItemStyle = {
+    display: 'block',
+    my: 3,
+    textAlign: 'left',
+    fontSize: { xs: 16, md: 24, lg: 30, xl: 45 },
+    textDecoration: 'none',
+    letterSpacing: 1,
+    lineHeight: 1.5,
+    cursor: 'pointer',
+    color: 'text.primary',
+    transition: 'color 0.3s ease-in-out',
+    '&:hover': {
+        color: 'primary.main',
+    },
+};
 
 export const ButtonSx = {
 

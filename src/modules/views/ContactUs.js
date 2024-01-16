@@ -3,45 +3,22 @@ import { Container, Typography, Box, Link, Divider } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
 import ProductCTA from './ProductCTA';
-import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle } from '../utils/StyleSx';
+import { handleEmail, handlePhoneCall, handleWhatsApp, scrollToSection } from '../utils/ComonFunc';
 
-const listItemStyle = {
-    display: 'block',
-    my: 3,
-    textAlign: 'left',
-    fontSize: { xs: 16, md: 24, lg: 30, xl: 45 },
-    textDecoration: 'none',
-    cursor: 'pointer',
-    color: 'text.primary',
-    transition: 'color 0.3s ease-in-out',
-    '&:hover': {
-        color: 'primary.main',
-    },
-};
+
 
 const Contact = () => {
-    const handlePhoneCall = () => {
-        const phoneNumber = '+96101818422';
-        window.location.href = `tel:${phoneNumber}`;
-    };
-
-    const handleWhatsApp = () => {
-        const phoneNumber = '+96170318228';
-        const message = 'Hello! I have a question!';
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-    };
-
     return (
         <Container sx={ContainerSx}>
             <Box sx={BoxSx}>
                 <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                     Contact Us
                 </Typography>
-                <Typography sx={{ ...listItemStyle }} component={Link} onClick={() => alert('Location clicked')}>
+                <Typography sx={{ ...listItemStyle }} component={Link} onClick={() => scrollToSection('StoreLocation')}>
                     Main office: Bashir Joumblat Street, Ayas Building, Ground and first floor
                 </Typography>
-                <Typography sx={{ ...listItemStyle }} component={Link} onClick={() => { window.location.href = "mailto:mk@datapluslb.net" }}>
+                <Typography sx={{ ...listItemStyle }} component={Link} onClick={handleEmail}>
                     Email: mk@datapluslb.net
                 </Typography>
                 <Typography sx={{ ...listItemStyle }} component={Link} onClick={handlePhoneCall}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 const VdslView = () => {
     return (
@@ -10,7 +10,7 @@ const VdslView = () => {
             <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
-                    <Typography variant="h1" sx={{ my: 2, fontSize: { xs: 26, md: 38, lg: 50, xl: 62 }, letterSpacing: 1, borderBottom: ' 4mm ridge #000000' }}>
+                    <Typography variant="h1" sx={TypographyHeaderSx}>
                         Elevate Your Internet Experience with VDSL
                     </Typography>
                     <Box sx={{ maxWidth: '800px', margin: 'auto' }}>

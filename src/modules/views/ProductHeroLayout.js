@@ -1,26 +1,22 @@
-import * as React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import StoreVideo from './StoreVideo.mp4';
 import Typography from '../components/Typography';
 import { useTheme } from '@mui/material/styles';
 
-
-const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
+const ProductHeroLayoutRoot = styled(motion.section)(({ theme }) => ({
     color: theme.palette.common.white,
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    height: '100svh',
+    height: '100vh',
     width: '100%',
-    overflow: 'hidden', // Add overflow: 'hidden' to remove any potential scrollbars
-    // [theme.breakpoints.up('sm')]: {
-    //     height: '100%',
-    //     minHeight: 500,
-    //     maxHeight: 1300,
-    // }, 
+    overflow: 'hidden',
     '& video': {
         position: 'absolute',
         objectFit: 'fill',
@@ -31,29 +27,38 @@ const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
         left: 0,
         right: 0,
         bottom: 0,
-        margin: 0, // Remove any margin
-        transform: 'scale(1.1)', // Adjust the scale value for zoom-out effect
-        transition: 'transform 0.5s ease-in-out', // Add transition for smooth effect
+        margin: 0,
+        transform: 'scale(1.1)',
+        transition: 'transform 0.5s ease-in-out',
     },
 }));
-
-
-const Background = styled(Box)({
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    zIndex: -2,
-});
 
 function ProductHeroLayout(props) {
     const { sxBackground, children } = props;
     const theme = useTheme();
+    const navigate = useNavigate();
+    const arrowRef = useRef(null);
+
+    const scrollToSecondSection = () => {
+        const secondSection = document.getElementById('StoreMission');
+        if (secondSection) {
+            secondSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    useEffect(() => {
+        // Trigger animation when the component mounts
+        if (arrowRef.current) {
+            arrowRef.current.style.opacity = 1;
+        }
+    }, []);
+
     return (
-        <ProductHeroLayoutRoot>
+        <ProductHeroLayoutRoot
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <video autoPlay muted loop playsInline>
                 <source src={StoreVideo} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -71,8 +76,8 @@ function ProductHeroLayout(props) {
                     textAlign: 'center',
                     '@media (max-width: 600px)': {
                         mt: 2.55,
-                        height: 'auto', // Adjust the height for smaller screens
-                        width: 'auto', // Adjust the height for smaller screens
+                        height: 'auto',
+                        width: 'auto',
                     },
                 }}
             >
@@ -81,7 +86,8 @@ function ProductHeroLayout(props) {
                 </Typography>
                 {children}
                 <Box
-                    component="img"
+                    component={motion.img}
+                    ref={arrowRef}
                     src="https://mui.com/static/themes/onepirate/productHeroArrowDown.png"
                     height="16"
                     width="12"
@@ -95,21 +101,28 @@ function ProductHeroLayout(props) {
                                     theme.breakpoints.down('md') ? -20 :
                                         theme.breakpoints.down('lg') ? -40 :
                                             theme.breakpoints.down('xl') ? -50 : 300,
-                        mt: 2
+                        mt: 2,
+                        cursor: 'pointer',
+                        opacity: 0,
                     }}
+                    onClick={() => {
+                        scrollToSecondSection();
+                        // If you want to navigate, uncomment the following line
+                        // navigate('/second-section'); // Update this to the path of your second section
+                    }}
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
                 />
             </Container>
         </ProductHeroLayoutRoot>
-
     );
 }
 
 ProductHeroLayout.propTypes = {
     children: PropTypes.node,
     sxBackground: PropTypes.oneOfType([
-        PropTypes.arrayOf(
-            PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool]),
-        ),
+        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])),
         PropTypes.func,
         PropTypes.object,
     ]),

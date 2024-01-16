@@ -22,6 +22,9 @@ function AppAppBar() {
     const [corporateNestedAnchorEl, setCorporateNestedAnchorEl] = React.useState(null);
     const [isIPTVNestedMenuOpen, setIPTVNestedMenuOpen] = React.useState(false);
     const [iptvNestedAnchorEl, setIPTVNestedAnchorEl] = React.useState(null);
+    const [isServicesMenuOpen, setServicesMenuOpen] = React.useState(false);
+    const [servicesMenuAnchorEl, setServicesMenuAnchorEl] = React.useState(null);
+
 
     const rightLink = {
         fontSize: { xs: 12, sm: 14, md: 16, lg: 18, xl: 20 },
@@ -42,7 +45,10 @@ function AppAppBar() {
         if (section === 'iptv') {
             setIPTVNestedMenuOpen(true);
             setIPTVNestedAnchorEl(event.currentTarget);
-        };
+        } else if (section === 'services') {
+            setServicesMenuOpen(true);
+            setServicesMenuAnchorEl(event.currentTarget);
+        }
     }
 
     const handleNestedMenuOpen = (event, menuType) => {
@@ -110,6 +116,8 @@ function AppAppBar() {
                         </Link>
                     </Box>
                     <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
+                        {/* Internet Menu Section */}
+
                         <Link
                             variant="h6"
                             underline="none"
@@ -212,6 +220,51 @@ function AppAppBar() {
                                 </MenuItem>
                             </Popover>
                         </Popover>
+
+                        {/*  Services Menu Section */}
+
+                        <Link
+                            variant="h6"
+                            underline="none"
+                            aria-haspopup="true"
+                            onMouseEnter={(event) => handleMenuOpen(event, 'services')}
+                            sx={{ ...rightLink, color: '#58a0fa !important' }}
+                        >
+                            {'SERVICES'}
+                        </Link>
+                        <Popover
+                            open={isMenuOpen && menuSection === 'services'}
+                            anchorEl={servicesMenuAnchorEl}
+                            onClose={handleMenuClose}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'center',
+                            }}
+                            PaperProps={{
+                                style: {
+                                    ...menuStyle,
+                                    minWidth: '200px',
+                                    maxWidth: '300px',
+                                },
+                            }}
+                        >
+                            <MenuItem onClick={handleMenuClose} component="a" href="/vpn" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                VPN
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/dsp" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                DSP
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/webhosting" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Website Hosting
+                            </MenuItem>
+                        </Popover>
+
+                        {/*  IPTV Menu Section */}
+
                         <Link
                             variant="h6"
                             underline="none"
@@ -251,6 +304,9 @@ function AppAppBar() {
                             </MenuItem>
                             {/* Add more IPTV-related menu items as needed */}
                         </Popover>
+
+                        {/*  FAQ Menu Section */}
+
                         <Link
                             variant="h6"
                             underline="none"

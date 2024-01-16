@@ -2,24 +2,24 @@ import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 const MicrowaveView = () => {
     return (
         <>
             <AppAppBar />
-            <Container sx={{ ...ContainerSx, textAlign: 'center' }}>
+            <Container sx={{ ...ContainerSx }}>
                 <Box sx={BoxSx}>
-                    <Typography variant="h1" sx={{ fontSize: { xs: 26, md: 38, lg: 50, xl: 62 }, letterSpacing: 1, borderBottom: ' 4mm ridge #000000', lineHeight: 1.5 }}>
+                    <Typography variant="h1" sx={TypographyHeaderSx}>
                         Unleash Connectivity with Microwave Technology
                     </Typography>
-                    <Box sx={{ maxWidth: '800px', margin: 'auto' }}>
+                    <Box sx={{ maxWidth: '1000px', margin: 'auto' }}>
                         <Typography variant="body1" sx={{ mt: 2, fontSize: { xs: 16, md: 18, lg: 20, xl: 22 }, lineHeight: 1.8 }}>
                             Microwave technology revolutionizes internet connectivity by providing high-speed data transmission through the air using radio waves. As a leading internet service provider, Data Plus embraces microwave technology to deliver seamless, reliable, and high-performance internet services to our customers.
                         </Typography>
                     </Box>
-                    <Box sx={{ maxWidth: '800px', margin: 'auto' }}>
-                        <Typography variant="h2" sx={{ fontSize: { xs: 30, md: 36, lg: 42, xl: 48 }, letterSpacing: 1, my: 2 }}>
+                    <Box sx={{ maxWidth: '1000px', margin: 'auto' }}>
+                        <Typography variant="h2" sx={TypographyHeaderSx}>
                             Advantages of Microwave Internet:
                         </Typography>
                         <Typography variant="body1" sx={{ fontSize: { xs: 16, md: 18, lg: 20, xl: 22 }, lineHeight: 1.8 }}>

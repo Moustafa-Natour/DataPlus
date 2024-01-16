@@ -15,6 +15,9 @@ import NotFound from './NotFound';
 import ForgotPassword from './ForgotPassword';
 import Privacy from './Privacy';
 import Terms from './Terms';
+import FairUsePolicy from './FairUsePolicy';
+import Vpn from './Vpn';
+import WebHosting from './WebHosting';
 import { Helmet } from 'react-helmet';
 
 function AppRoutes() {
@@ -52,6 +55,30 @@ function AppRoutes() {
                     }
                 />
                 <Route
+                    path="/vpn"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Vpn</title>
+                            </Helmet>
+                            <Vpn />
+                        </>
+                    }
+                />
+                <Route
+                    path="/webhosting"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - WebHosting</title>
+                            </Helmet>
+                            <WebHosting />
+                        </>
+                    }
+                />
+                <Route
                     path="/contactus"
                     element={
                         <>
@@ -60,6 +87,18 @@ function AppRoutes() {
                                 <title>Data Plus - Contact Us</title>
                             </Helmet>
                             <ContactUs />
+                        </>
+                    }
+                />
+                <Route
+                    path="/fairusepolicy"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Fair Usage Policy</title>
+                            </Helmet>
+                            <FairUsePolicy />
                         </>
                     }
                 />

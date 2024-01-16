@@ -2,7 +2,7 @@ import React from 'react';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
 import { Box, Container, Typography, Grid, Card, CardMedia } from '@mui/material';
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 const SamaFlixView = () => {
     const tvChannels = getChannelImages();
@@ -17,7 +17,7 @@ const SamaFlixView = () => {
             <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
-                    <Typography variant="h1" sx={{ textAlign: 'center', fontSize: { xs: 26, md: 38, lg: 50, xl: 62 }, letterSpacing: 1, borderBottom: '4mm ridge #000000', color: '#333', pb: 4 }}>
+                    <Typography variant="h1" sx={TypographyHeaderSx}>
                         SamaFlix
                     </Typography>
                     <Typography variant="body1" sx={{ textAlign: 'left', fontSize: 18, marginTop: 4, color: '#666', lineHeight: 3 }}>

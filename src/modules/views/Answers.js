@@ -3,7 +3,7 @@ import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
 import { Accordion, AccordionSummary, AccordionDetails, Box, Typography, Container, Tabs, Tab } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { BoxSx, ContainerSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
 
 
 const FiberQuestionsAndAnswers = [
@@ -95,7 +95,7 @@ const AnswersView = () => {
                 return FiberQuestionsAndAnswers;
             case 'adsl':
                 return AdslQuestionsAndAnswers;
-            case 'fqa':
+            case 'faq':
                 return FqaQuestionsAndAnswers;
             default:
                 return [];
@@ -108,6 +108,13 @@ const AnswersView = () => {
             <AppAppBar />
             <Container fixed sx={ContainerSx}>
                 <Box sx={BoxSx}>
+                    <Typography variant="h4" sx={TypographyHeaderSx}>
+                        {selectedCategory === 'fiber'
+                            ? 'Fiber Internet FAQs'
+                            : selectedCategory === 'adsl'
+                                ? 'ADSL FAQs'
+                                : 'Frequently Asked Questions (FAQ)'}
+                    </Typography>
                     <Tabs
                         value={selectedCategory}
                         onChange={handleCategoryChange}
@@ -117,15 +124,8 @@ const AnswersView = () => {
                     >
                         <Tab label="Fiber" value="fiber" />
                         <Tab label="ADSL" value="adsl" />
-                        <Tab label="FQA" value="fqa" />
+                        <Tab label="FAQ" value="faq" />
                     </Tabs>
-                    <Typography variant="h4" sx={{ textAlign: 'center', mb: 2 }}>
-                        {selectedCategory === 'fiber'
-                            ? 'Fiber Internet FAQs'
-                            : selectedCategory === 'adsl'
-                                ? 'ADSL FAQs'
-                                : 'Frequently Asked Questions (FQA)'}
-                    </Typography>
                     <Box
                         sx={{
                             border: '2px solid #e0e0e0',

@@ -7,7 +7,9 @@ import Typography from '../components/Typography';
 import TextField from '../components/TextField';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { AppFooterSx, whatsappIconStyle, facebookIconStyle, iconStyle } from "../utils/StyleSx";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import { AppFooterSx, whatsappIconStyle, facebookIconStyle, instagramIconStyle, iconStyle } from "../utils/StyleSx";
+import { handleWhatsApp, handlePageChange } from '../utils/ComonFunc';
 
 function Copyright() {
     return (
@@ -22,8 +24,6 @@ function Copyright() {
     );
 }
 
-
-
 const LANGUAGES = [
     {
         code: 'en-US',
@@ -34,18 +34,6 @@ const LANGUAGES = [
         name: 'Français',
     },
 ];
-
-const handlePageChange = (url) => {
-    window.open(url, '_blank');
-};
-
-const handleWhatsAppClick = () => {
-    // Replace 'your-number' with your WhatsApp number
-    const phoneNumber = '+96170318228';
-    const message = 'Hello, I have a question!';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-};
 
 export default function AppFooter() {
     return (
@@ -63,13 +51,16 @@ export default function AppFooter() {
                         >
                             <Grid item sx={{ display: 'flex' }}>
                                 {/* Facebook Icon */}
-                                <Box component="a" onClick={() => handlePageChange("https://www.facebook.com/datap/")} sx={{ ...iconStyle, ...facebookIconStyle }}>
+                                <Box component="a" onClick={() => handlePageChange("Fb")} sx={{ ...iconStyle, ...facebookIconStyle }}>
                                     <FacebookIcon />
                                 </Box>
 
                                 {/* WhatsApp Icon */}
-                                <Box component="a" onClick={handleWhatsAppClick} sx={{ ...iconStyle, ...whatsappIconStyle }}>
+                                <Box component="a" onClick={handleWhatsApp} sx={{ ...iconStyle, ...whatsappIconStyle }}>
                                     <WhatsAppIcon />
+                                </Box>
+                                <Box component="a" onClick={() => handlePageChange("Ig")} sx={{ ...iconStyle, ...instagramIconStyle }}>
+                                    <InstagramIcon />
                                 </Box>
                             </Grid>
                             <Grid item>
