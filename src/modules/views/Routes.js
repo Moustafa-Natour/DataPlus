@@ -122,7 +122,7 @@ function AppRoutes() {
                     }
                 />
                 <Route
-                    path="/contentdeliverynetworks"
+                    path="/contentdeliverynetwork"
                     element={
                         <>
                             {/* Set title for the Home page */}
@@ -134,7 +134,7 @@ function AppRoutes() {
                     }
                 />
                 <Route
-                    path="/techincalsupport"
+                    path="/technicalsupport"
                     element={
                         <>
                             {/* Set title for the Home page */}
@@ -146,7 +146,7 @@ function AppRoutes() {
                     }
                 />
                 <Route
-                    path="/networkinfrastructure"
+                    path="/networkinfrastructureservices"
                     element={
                         <>
                             {/* Set title for the Home page */}
@@ -158,7 +158,7 @@ function AppRoutes() {
                     }
                 />
                 <Route
-                    path="/cloudcomputing"
+                    path="/cloudcomputingservices"
                     element={
                         <>
                             {/* Set title for the Home page */}
