@@ -6,12 +6,8 @@ import AppBar from '../components/AppBar';
 import Toolbar from '../components/Toolbar';
 import Popover from '@mui/material/Popover';
 import MenuItem from '@mui/material/MenuItem';
+import { rightLink, menuStyle } from '../utils/StyleSx';
 
-const menuStyle = {
-    backgroundColor: '#58a0fa', // Dark background color
-    borderRadius: '8px', // Rounded corners
-    boxShadow: '5px 5px 10px 5px rgba(0, 0, 0, 0.2)', // Box shadow for depth
-};
 
 function AppAppBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,20 +20,6 @@ function AppAppBar() {
     const [iptvNestedAnchorEl, setIPTVNestedAnchorEl] = React.useState(null);
     const [isServicesMenuOpen, setServicesMenuOpen] = React.useState(false);
     const [servicesMenuAnchorEl, setServicesMenuAnchorEl] = React.useState(null);
-
-
-    const rightLink = {
-        fontSize: { xs: 12, sm: 14, md: 16, lg: 18, xl: 20 },
-        '&:hover': {
-            color: 'common.white !important',
-            textDecoration: 'none',
-        },
-        '&:active': {
-            color: 'common.white !important',
-            textDecoration: 'none',
-        }
-
-    };
 
     const handleMenuOpen = (event, section) => {
         setMenuSection(section);
@@ -255,11 +237,29 @@ function AppAppBar() {
                             <MenuItem onClick={handleMenuClose} component="a" href="/vpn" sx={{ ...rightLink, cursor: 'pointer' }}>
                                 VPN
                             </MenuItem>
-                            <MenuItem onClick={handleMenuClose} component="a" href="/dsp" sx={{ ...rightLink, cursor: 'pointer' }}>
-                                DSP
+                            <MenuItem onClick={handleMenuClose} component="a" href="/domainregister" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Domain Registration
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/voip" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                VOIP
                             </MenuItem>
                             <MenuItem onClick={handleMenuClose} component="a" href="/webhosting" sx={{ ...rightLink, cursor: 'pointer' }}>
                                 Website Hosting
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/networksolutions" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Network Solutions
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/contentdeliverynetwork" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Content Delivery Networks
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/technicalsupport" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Techincal Support
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/networkinfrastructureservices" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Network Infastructure Services
+                            </MenuItem>
+                            <MenuItem onClick={handleMenuClose} component="a" href="/cloudcomputingservices" sx={{ ...rightLink, cursor: 'pointer' }}>
+                                Cloud computing Services
                             </MenuItem>
                         </Popover>
 

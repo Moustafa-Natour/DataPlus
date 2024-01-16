@@ -5,7 +5,8 @@ import StarIcon from '@mui/icons-material/StarBorder';
 import SpeedIcon from '@mui/icons-material/Speed';
 import AppFooter from './AppFooter';
 import AppAppBar from './AppAppBar';
-import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle, TypographyStyle } from '../utils/StyleSx';
+import { handleWhatsAppClick } from '../utils/ComonFunc';
 
 const tiers = [
     {
@@ -77,12 +78,7 @@ const tiers = [
     },
 ];
 
-const handleWhatsAppClick = (tier) => {
-    const phoneNumber = '+96170318228';
-    const message = `Hello, I want to apply to the listed Broadband plan ${tier.title} ${tier.description}`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-};
+
 
 const defaultTheme = createTheme();
 
@@ -217,15 +213,17 @@ const FullScreenDescription = ({ isOpen, onClose, tier }) => {
             fullWidth
             maxWidth="md"
         >
-            <DialogTitle>
+            <DialogTitle align='center' sx={TypographyHeaderSx}>
                 {tier.title}
             </DialogTitle>
             <DialogContent>
                 {/* Render the full-screen description here using tier.description */}
-                <Typography>
+                <Typography align='center' sx={TypographyStyle}>
                     {tier.description.join('\n')}
                     <br />
                     {tier.dailyLimit}
+                    <br />
+                    {'Experience boundless internet speed across various CDN applications, including but not limited to Facebook, TikTok, Instagram, YouTube, Google Play Store, and many others. Unlock seamless connectivity and optimized performance for your business operations.'}
                 </Typography>
             </DialogContent>
             <DialogActions>

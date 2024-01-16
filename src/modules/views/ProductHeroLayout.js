@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import StoreVideo from './StoreVideo.mp4';
 import Typography from '../components/Typography';
 import { useTheme } from '@mui/material/styles';
+import { scrollToSection } from '../utils/ComonFunc';
 
 const ProductHeroLayoutRoot = styled(motion.section)(({ theme }) => ({
     color: theme.palette.common.white,
@@ -39,12 +40,6 @@ function ProductHeroLayout(props) {
     const navigate = useNavigate();
     const arrowRef = useRef(null);
 
-    const scrollToSecondSection = () => {
-        const secondSection = document.getElementById('StoreMission');
-        if (secondSection) {
-            secondSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
 
     useEffect(() => {
         // Trigger animation when the component mounts
@@ -105,11 +100,7 @@ function ProductHeroLayout(props) {
                         cursor: 'pointer',
                         opacity: 0,
                     }}
-                    onClick={() => {
-                        scrollToSecondSection();
-                        // If you want to navigate, uncomment the following line
-                        // navigate('/second-section'); // Update this to the path of your second section
-                    }}
+                    onClick={() => scrollToSection('StoreMission')}
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.5 }}

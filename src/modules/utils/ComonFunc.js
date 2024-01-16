@@ -8,6 +8,12 @@ export const handleWhatsApp = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 };
+export const handleWhatsAppClick = (tier) => {
+    const phoneNumber = '+96170318228';
+    const message = `Hello, I want to apply to the listed Broadband plan ${tier.title} ${tier.description}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
 export const handleEmail = () => {
     const email = 'mk@datapluslb.net';
     window.location.href = `mailto:${email}`;

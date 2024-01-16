@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
+import { handlePageChange, handleWhatsApp } from '../utils/ComonFunc';
 
 const item = {
     display: 'flex',
@@ -108,7 +109,7 @@ function ProductHowItWorks() {
                     size="large"
                     variant="contained"
                     component="a"
-                    href="/signup"
+                    onClick={handleWhatsApp}
                     sx={{ mt: 8 }}
                 >
                     Get started

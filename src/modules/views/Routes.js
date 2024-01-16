@@ -17,6 +17,13 @@ import Privacy from './Privacy';
 import Terms from './Terms';
 import FairUsePolicy from './FairUsePolicy';
 import Vpn from './Vpn';
+import DomainRegister from './DomainRegister';
+import Voip from './Voip';
+import NetworkSolutions from './NetworkSolutions';
+import ContentDeliveryNetworks from './ContentDeliveryNetworks';
+import TechincalSupport from './TechincalSupport';
+import NetworkInfastructureService from './NetworkInfastructureService';
+import CloudComputingService from './CloudComputingService';
 import WebHosting from './WebHosting';
 import { Helmet } from 'react-helmet';
 
@@ -75,6 +82,90 @@ function AppRoutes() {
                                 <title>Data Plus - WebHosting</title>
                             </Helmet>
                             <WebHosting />
+                        </>
+                    }
+                />
+                <Route
+                    path="/domainregister"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Domain Name Register</title>
+                            </Helmet>
+                            <DomainRegister />
+                        </>
+                    }
+                />
+                <Route
+                    path="/voip"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - VOIP</title>
+                            </Helmet>
+                            <Voip />
+                        </>
+                    }
+                />
+                <Route
+                    path="/networksolutions"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Network Solutions</title>
+                            </Helmet>
+                            <NetworkSolutions />
+                        </>
+                    }
+                />
+                <Route
+                    path="/contentdeliverynetworks"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Content Delivery Networks</title>
+                            </Helmet>
+                            <ContentDeliveryNetworks />
+                        </>
+                    }
+                />
+                <Route
+                    path="/techincalsupport"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Techincal Support</title>
+                            </Helmet>
+                            <TechincalSupport />
+                        </>
+                    }
+                />
+                <Route
+                    path="/networkinfrastructure"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Network Infastructure Service</title>
+                            </Helmet>
+                            <NetworkInfastructureService />
+                        </>
+                    }
+                />
+                <Route
+                    path="/cloudcomputing"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Cloud Computing Service</title>
+                            </Helmet>
+                            <CloudComputingService />
                         </>
                     }
                 />

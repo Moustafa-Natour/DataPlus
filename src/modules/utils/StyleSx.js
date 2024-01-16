@@ -76,8 +76,35 @@ export const TypographyHeaderSx = {
     my: 4,
     letterSpacing: 1,
     lineHeight: 1.5,
-    borderBottom: '4mm ridge #000000'
+    borderBottom: '4mm ridge #58a0fa'
 }
+export const TypographyStyle = {
+    textAlign: 'center',
+    fontSize: { xs: 10, md: 15, lg: 20, xl: 30 },
+    my: 4,
+    letterSpacing: 1.2,
+    lineHeight: 2,
+}
+
+export const rightLink = {
+    fontSize: { xs: 12, sm: 14, md: 16, lg: 18, xl: 20 },
+    fontWeight: 'bold',
+    lineHeight: 2,
+    '&:hover': {
+        color: 'common.white !important',
+        textDecoration: 'none',
+    },
+    '&:active': {
+        color: 'common.white !important',
+        textDecoration: 'none',
+    }
+
+};
+export const menuStyle = {
+    backgroundColor: '#58a0fa', // Dark background color
+    borderRadius: '8px', // Rounded corners
+    boxShadow: '5px 5px 10px 5px rgba(0, 0, 0, 0.2)', // Box shadow for depth
+};
 
 //Contact us List :
 export const listItemStyle = {

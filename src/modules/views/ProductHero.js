@@ -3,15 +3,8 @@ import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-const handleWhatsAppClick = () => {
-    // Replace 'your-number' with your WhatsApp number
-    const phoneNumber = '+96170318228';
-    const message = 'Hello, I have a question!';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-};
+import { handleWhatsApp } from '../utils/ComonFunc';
 export default function ProductHero() {
     return (
         <ProductHeroLayout
@@ -38,7 +31,7 @@ export default function ProductHero() {
                     startIcon={<WhatsAppIcon />}
                     size="large"
                     component="a"
-                    onClick={handleWhatsAppClick}
+                    onClick={handleWhatsApp}
                     sx={{ minWidth: 200 }}
                 >
                     Contact Now
