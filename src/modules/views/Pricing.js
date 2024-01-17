@@ -5,8 +5,9 @@ import StarIcon from '@mui/icons-material/StarBorder';
 import SpeedIcon from '@mui/icons-material/Speed';
 import AppFooter from './AppFooter';
 import AppAppBar from './AppAppBar';
-import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle, TypographyStyle } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle, TypographyStyle, CardSx } from '../utils/StyleSx';
 import { handleWhatsAppClick } from '../utils/ComonFunc';
+
 
 const tiers = [
     {
@@ -14,7 +15,7 @@ const tiers = [
         price: '2,340,000',
         description: [
             '5 Megabytes/second',
-            'Unlimited/Mo',
+            'Unlimited Download/Mo',
         ],
         dailyLimit: '10 Gigabytes/day',
         buttonText: 'Apply Now',
@@ -26,7 +27,7 @@ const tiers = [
         price: '3,150,000',
         description: [
             '6 Megabytes/second',
-            'Unlimited/Mo',
+            'Unlimited Download/Mo',
         ],
         dailyLimit: '12 Gigabytes/day',
         buttonText: 'Apply Now',
@@ -37,7 +38,7 @@ const tiers = [
         price: '3,600,000',
         description: [
             '8 Megabytes/second',
-            'Unlimited/Mo',
+            'Unlimited Download/Mo',
         ],
         dailyLimit: '16 Gigabytes/day',
         buttonText: 'Apply Now',
@@ -48,7 +49,7 @@ const tiers = [
         price: '4,500,000',
         description: [
             '10 Megabytes/second',
-            'Unlimited/Mo',
+            'Unlimited Download/Mo',
         ],
         dailyLimit: '20 Gigabytes/day',
         buttonText: 'Apply Now',
@@ -59,7 +60,7 @@ const tiers = [
         price: '5,400,000',
         description: [
             '12 Megabytes/second',
-            'Unlimited/Mo',
+            'Unlimited Download/Mo',
         ],
         dailyLimit: '24 Gigabytes/day',
         buttonText: 'Apply Now',
@@ -70,7 +71,7 @@ const tiers = [
         price: '13,500,000',
         description: [
             '20 Megabytes/second',
-            'Unlimited/Mo',
+            'Unlimited Download/Mo',
         ],
         dailyLimit: '40 Gigabytes/day',
         buttonText: 'Apply Now',
@@ -101,12 +102,12 @@ const Pricing = () => {
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
             <AppAppBar />
-            <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ ...ContainerSx, p: 10 }}>
+            <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ ...ContainerSx, p: 5 }}>
                 <Box sx={BoxSx}>
                     <Typography component="h1" variant="h2" align="center" color="text.primary" sx={TypographyHeaderSx} gutterBottom >
                         Broadband Pricing
                     </Typography>
-                    <Typography variant="h5" align="center" color="text.secondary" component="p" sx={{ textAlign: 'left', ml: 6, mr: 4 }}>
+                    <Typography variant="h5" align="center" color="text.secondary" component="p" sx={TypographyStyle}>
                         {'Explore our carefully crafted broadband pricing plans designed to meet the diverse needs of your business.'}
                         {'Our pricing table is thoughtfully curated to provide valuable solutions for your organization.Leveraging the power of Internet '}
                         {'We offer a seamless and efficient experience with bundle addons for your convenience.'}
@@ -115,12 +116,12 @@ const Pricing = () => {
                         <Grid container spacing={5} alignItems="flex-end">
                             {tiers.map((tier) => (
                                 <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-                                    <Card >
+                                    <Card sx={CardSx}>
                                         <CardHeader
                                             onClick={() => handleOpenFullScreenDescription(tier)}
                                             title={
                                                 <>
-                                                    {tier.title} <SpeedIcon fontSize="medium" sx={{ ml: 1, color: 'red' }} />
+                                                    {tier.title} <SpeedIcon fontSize="large" sx={{ ml: 1, color: 'red' }} />
                                                 </>
                                             }
                                             subheader={tier.subheader}
@@ -219,8 +220,14 @@ const FullScreenDescription = ({ isOpen, onClose, tier }) => {
             <DialogContent>
                 {/* Render the full-screen description here using tier.description */}
                 <Typography align='center' sx={TypographyStyle}>
-                    {tier.description.join('\n')}
-                    <br />
+                    {tier.description.map((line, index) => (
+                        <React.Fragment key={index}>
+                            <Typography component="span" sx={TypographyStyle} variant="subtitle1">
+                                {line}
+                            </Typography>
+                            <br />
+                        </React.Fragment>
+                    ))}
                     {tier.dailyLimit}
                     <br />
                     {'Experience boundless internet speed across various CDN applications, including but not limited to Facebook, TikTok, Instagram, YouTube, Google Play Store, and many others. Unlock seamless connectivity and optimized performance for your business operations.'}

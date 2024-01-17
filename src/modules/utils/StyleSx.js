@@ -19,7 +19,16 @@ export const ContainerSx = {
     alignItems: 'center',
     justifyContent: 'center'
 };
-
+export const CardSx = {
+    transition: 'transform 0.2s ease-in-out',
+    '&:hover': {
+        transform: 'scale(1.05)',  // Increase the scale on hover
+    },
+    '&:focus': {
+        transform: 'scale(1.05)',  // Increase the scale on focus
+    },
+    cursor: 'pointer',  // Set cursor to pointer on hover
+};
 //Footer page custom components Sx
 export const iconStyle = {
     width: 48,
@@ -75,11 +84,11 @@ export const TypographyHeaderSx = {
     fontWeight: 'bold',
     my: 4,
     letterSpacing: 1,
-    lineHeight: 1.5,
+    lineHeight: 2,
     borderBottom: '4mm ridge #58a0fa'
 }
 export const TypographyStyle = {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: { xs: 10, md: 15, lg: 20, xl: 30 },
     my: 4,
     letterSpacing: 1.2,
