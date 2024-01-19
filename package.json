@@ -12,7 +12,8 @@
     "react-final-form": "^6.5.9",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.21.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "react-speedometer": "^0.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
