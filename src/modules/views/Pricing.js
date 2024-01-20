@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Box, Button, Card, CardActions, CardContent, CardHeader, CssBaseline, Grid, Typography, GlobalStyles, Container } from '@mui/material';
+import {
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions,
+    Box,
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    CardHeader,
+    CssBaseline,
+    Grid,
+    Typography,
+    GlobalStyles,
+    Container
+} from '@mui/material';
 import StarIcon from '@mui/icons-material/StarBorder';
-import SpeedIcon from '@mui/icons-material/Speed';
 import AppFooter from './AppFooter';
 import AppAppBar from './AppAppBar';
-import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle, TypographyStyle, CardSx } from '../utils/StyleSx';
+import {
+    BoxSx,
+    ContainerSx,
+    TypographyHeaderSx,
+    listItemStyle,
+    TypographyStyle,
+    CardSx
+} from '../utils/StyleSx';
 import { handleWhatsAppClick } from '../utils/ComonFunc';
 import Speedometer, {
     Background,
@@ -31,7 +53,6 @@ const tiers = [
     },
     {
         title: 'Standard Plan',
-        subheader: 'Most popular',
         price: '3,150,000',
         description: [
             '6 Megabytes/second',
@@ -44,6 +65,7 @@ const tiers = [
     },
     {
         title: 'Enhanced Plan',
+        subheader: 'Most popular',
         price: '3,600,000',
         description: [
             '8 Megabytes/second',
@@ -120,7 +142,7 @@ const Pricing = () => {
                 const interval = setInterval(() => {
                     setAnimatedSpeed((prev) => ({
                         ...prev,
-                        [tier.title]: prev[tier.title] + stepValue,
+                        [tier.title]: Math.min(prev[tier.title] + stepValue, tier.speed),
                     }));
                     step++;
 
@@ -148,7 +170,7 @@ const Pricing = () => {
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
             <AppAppBar />
-            <Container disableGutters maxWidth={{ xs: 'xs', sm: 'sm', md: 'md', lg: 'lg' }} component="main" sx={{ ...ContainerSx, p: 5 }}>
+            <Container disableGutters component="main" sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography component="h1" variant="h2" align="center" color="text.primary" sx={TypographyHeaderSx} gutterBottom >
                         Broadband Pricing
@@ -160,7 +182,7 @@ const Pricing = () => {
                     </Typography>
                     <Grid container spacing={2} alignItems="flex-end">
                         {tiers.map((tier) => (
-                            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 12} md={6}>
+                            <Grid item key={tier.title} xs={12} sm={12} md={6} lg={4} xl={2}>
                                 <Card sx={CardSx}>
                                     <CardHeader
                                         onClick={() => handleOpenFullScreenDescription(tier)}
@@ -171,7 +193,7 @@ const Pricing = () => {
                                         }
                                         subheader={tier.subheader}
                                         titleTypographyProps={{ align: 'center' }}
-                                        action={tier.title === 'Pro' ? <StarIcon /> : null}
+                                        action={tier.title === 'Enhanced Plan' ? <StarIcon /> : null}
                                         subheaderTypographyProps={{ align: 'center' }}
                                         sx={{
                                             width: '100%',
@@ -233,7 +255,7 @@ const Pricing = () => {
                                                     20: '20 MB/s',
                                                 }}
                                             >
-                                                <Background outerRadius={90} innerRadius={80} />
+                                                <Background />
                                                 <Arc arcWidth={4} />
                                                 <Needle
                                                     baseOffset={55}
@@ -251,7 +273,7 @@ const Pricing = () => {
 
 
                                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2, pb: 2, pt: 2 }}>
-                                            <Typography component="h5" variant="h5" color="text.primary">
+                                            <Typography component="h6" variant="h6" color="text.primary">
                                                 {tier.price} L.B.P
                                             </Typography>
                                             <Typography variant="h6" color="text.secondary">

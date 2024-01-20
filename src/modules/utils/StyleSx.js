@@ -17,7 +17,8 @@ export const ContainerSx = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    p: 2
 };
 export const CardSx = {
     display: 'flex',

@@ -78,7 +78,7 @@ export default function AppFooter() {
                                     marginBottom: 'auto',
                                 }}
                             >
-                                Data Plus S.A.R.L @Copyright All Right Reserved
+                                Data Plus S.A.R.L © All Right Reserved
                             </Typography>
                         </Grid>
                     </Grid>
