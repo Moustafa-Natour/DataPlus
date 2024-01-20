@@ -11,15 +11,18 @@ export const AppFooterSx = {
     textAlign: 'center'
 }
 export const ContainerSx = {
-    bgcolor: '#1d5293',
+    background: 'linear-gradient(290deg, #060681,#065B6A,#1d5293,#00a0e5,#C87878,#55F5F5,#FF3E4D,#833AB4,#40a8c4,#00a0e5,#031421)', // Add more colors as needed
     maxWidth: '100% !important',
-    minHeight: '100svh',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     p: 2
 };
+
+
+
 export const CardSx = {
     display: 'flex',
     flexDirection: 'column',
@@ -90,8 +93,18 @@ export const TypographyHeaderSx = {
     my: 4,
     letterSpacing: 1,
     lineHeight: 2,
-    borderBottom: '4mm ridge #58a0fa'
-}
+    position: 'relative',
+    '&:after': {
+        content: "''",
+        position: 'absolute',
+        left: 0,
+        bottom: 0,
+        width: '100%',
+        height: '4mm',
+        background: 'linear-gradient(290deg, #060681,#065B6A,#1d5293,#00a0e5,#C87878,#55F5F5,#FF3E4D,#833AB4,#40a8c4,#00a0e5,#031421)', // Adjust colors as needed
+    },
+};
+
 export const TypographyStyle = {
     textAlign: 'left',
     fontSize: { xs: 10, md: 15, lg: 20, xl: 30 },

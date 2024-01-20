@@ -121,6 +121,98 @@ const Pricing = () => {
     const [animatedSpeed, setAnimatedSpeed] = useState(0);
     const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
+    // FullScreenDescription component
+    const FullScreenDescription = ({ isOpen, onClose, tier }) => {
+        return (
+            <Dialog
+                open={isOpen}
+                onClose={onClose}
+                fullWidth
+                maxWidth="md"
+            >
+                <DialogTitle align='center' sx={TypographyHeaderSx}>
+                    {tier.title}
+                </DialogTitle>
+                <DialogContent>
+                    <Container
+                        style={{
+                            background: 'linear-gradient(45deg, #00a0e5, #0090d6, #0077bd, #C13584,#5851DB, #833AB4)',
+                            padding: '14px',
+                            borderRadius: '50%',
+                            width: 'fit-content', // Adjust the width and height to fit your design
+                            height: 'fit-content',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Speedometer
+                            value={animatedSpeed[tier.title] || 0}
+                            max={20}
+                            fontFamily='squada-one'
+                            needleHeightRatio={0.7}
+                            needleColor="#0084ff"
+                            startColor="#0084ff"
+                            endColor="#ff0000"
+                            currentValueText={tier.speed + 'MB/s'}
+                            ringWidth={15}
+                            needleTransitionDuration={3000}
+                            needleTransition="easeElastic"
+                            textColor="#333"
+                            valueFormat="d"
+                            customSegmentStops={[0, 5, 10, 15, 20]}
+                            customSegmentLabels={[
+                                { text: '0 MB/s', position: 'OUTSIDE' },
+                                { text: '5 MB/s', position: 'OUTSIDE' },
+                                { text: '10 MB/s', position: 'OUTSIDE' },
+                                { text: '15 MB/s', position: 'OUTSIDE' },
+                                { text: '20 MB/s', position: 'OUTSIDE' },
+                            ]}
+                            marks={{
+                                0: '0 MB/s',
+                                5: '5 MB/s',
+                                10: '10 MB/s',
+                                15: '15 MB/s',
+                                20: '20 MB/s',
+                            }}
+                        >
+                            <Background />
+                            <Arc arcWidth={4} />
+                            <Needle
+                                baseOffset={55}
+                                circleRadius={25}
+                                needleHeightRatio={0.7}
+                                color="cyan"
+                                circleColor='#1d5293'
+                            />
+                            <DangerPath arcWidth={12} angle={100} color="red" offset={-7} />
+                            <Progress arcWidth={12} />
+                            <Marks step={1} />
+                        </Speedometer>
+                    </Container>
+                    <Typography align='center' sx={TypographyStyle}>
+                        {tier.description.map((line, index) => (
+                            <React.Fragment key={index}>
+                                <Typography component="span" sx={TypographyStyle} variant="subtitle1">
+                                    {line}
+                                </Typography>
+                                <br />
+                            </React.Fragment>
+                        ))}
+                        {tier.dailyLimit}
+                        <br />
+                        {'Experience boundless internet speed across various CDN applications, including but not limited to Facebook, TikTok, Instagram, YouTube, Google Play Store, and many others. Unlock seamless connectivity and optimized performance for your business operations.'}
+                    </Typography>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={onClose} color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        );
+    };
+
     const handleOpenFullScreenDescription = (tier) => {
         setSelectedTier(tier);
         setFullScreenDescriptionOpen(true);
@@ -333,42 +425,7 @@ const Pricing = () => {
         </>
     );
 };
-// FullScreenDescription component
-const FullScreenDescription = ({ isOpen, onClose, tier }) => {
-    return (
-        <Dialog
-            open={isOpen}
-            onClose={onClose}
-            fullWidth
-            maxWidth="md"
-        >
-            <DialogTitle align='center' sx={TypographyHeaderSx}>
-                {tier.title}
-            </DialogTitle>
-            <DialogContent>
-                {/* Render the full-screen description here using tier.description */}
-                <Typography align='center' sx={TypographyStyle}>
-                    {tier.description.map((line, index) => (
-                        <React.Fragment key={index}>
-                            <Typography component="span" sx={TypographyStyle} variant="subtitle1">
-                                {line}
-                            </Typography>
-                            <br />
-                        </React.Fragment>
-                    ))}
-                    {tier.dailyLimit}
-                    <br />
-                    {'Experience boundless internet speed across various CDN applications, including but not limited to Facebook, TikTok, Instagram, YouTube, Google Play Store, and many others. Unlock seamless connectivity and optimized performance for your business operations.'}
-                </Typography>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={onClose} color="primary">
-                    Close
-                </Button>
-            </DialogActions>
-        </Dialog>
-    );
-};
+
 
 export default function App() {
     const theme = createTheme();
