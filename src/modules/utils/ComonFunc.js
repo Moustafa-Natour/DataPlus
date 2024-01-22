@@ -12,7 +12,7 @@ export const handleWhatsApp = (message) => {
 
 export const handleWhatsAppClick = (tier) => {
     const phoneNumber = '+96170318228';
-    const message = `Hello, I want to apply to the listed Broadband plan ${tier.title} ${tier.description}`;
+    const message = `Hello, I want to apply to the listed Broadband ${tier.title} ${tier.description}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 };

@@ -3,7 +3,7 @@ import MuiToolbar from '@mui/material/Toolbar';
 
 const Toolbar = styled(MuiToolbar)(({ theme }) => ({
     height: 64,
-    backgroundColor: '#050505',
+    // backgroundColor: '#050505',
     [theme.breakpoints.up('sm')]: {
         height: 70,
     },
