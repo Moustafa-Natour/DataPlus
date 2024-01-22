@@ -1,15 +1,21 @@
-export const AppBarSx = {
-    background: `linear-gradient(360deg, #000000,#121212, #1a1a1a, #1f1f1f, #222222, #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959,#000000)`,
-    // background: 'black'
-    // Adjust the colors as needed
-}
-
+export const gradientAnimation = {
+    background: `linear-gradient(90deg, #000000,#000000, #1f1f1f, #595959, #4c4c4c, #444444, #3a3a3a, #323232, #2b2b2b,
+            #222222, #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959, #1f1f1f, #000000, #000000)`,
+    backgroundSize: '180% 180%',
+    animation: 'gradient-animation 15s infinite linear',
+};
+// export const AppBarSx = {
+//     background: `linear-gradient(90deg, #000000, #1f1f1f, #595959, #4c4c4c, #444444, #3a3a3a, #323232, #2b2b2b,
+//         #222222, #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959, #1f1f1f, #000000, #000000)`,
+//     animation: `${gradientAnimation} 15s infinite linear`,
+// };
 
 
 export const AppFooterSx = {
     display: 'flex',
     bottom: 0,
-    background: `linear-gradient(180deg, #000000,#121212, #1a1a1a, #1f1f1f, #222222, #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959,#000000)`,
+    background: `linear-gradient(360deg, #000000, #1f1f1f, #595959,#4c4c4c, #444444,  #3a3a3a, #323232,#2b2b2b,#222222,
+         #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959,#1f1f1f,#000000)`,
     color: 'white',
     textAlign: 'center'
 }

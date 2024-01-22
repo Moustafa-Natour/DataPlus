@@ -25,6 +25,7 @@ import TechincalSupport from './TechincalSupport';
 import NetworkInfastructureService from './NetworkInfastructureService';
 import CloudComputingService from './CloudComputingService';
 import WebHosting from './WebHosting';
+import Test from './Test';
 import { Helmet } from 'react-helmet';
 
 function AppRoutes() {
@@ -58,6 +59,18 @@ function AppRoutes() {
                                 <title>Data Plus - About Us</title>
                             </Helmet>
                             <AboutUs />
+                        </>
+                    }
+                />
+                <Route
+                    path="/test"
+                    element={
+                        <>
+                            {/* Set title for the Home page */}
+                            <Helmet>
+                                <title>Data Plus - Testing Page</title>
+                            </Helmet>
+                            <Test />
                         </>
                     }
                 />
