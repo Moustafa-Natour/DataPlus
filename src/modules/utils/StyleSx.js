@@ -39,10 +39,10 @@ export const CardSx = {
     alignItems: 'center',
     transition: 'transform 0.2s ease-in-out',
     '&:hover': {
-        transform: 'scale(1.18)',  // Increase the scale on hover
+        transform: 'scale(1.05)',  // Increase the scale on hover
     },
     '&:focus': {
-        transform: 'scale(1.18)',  // Increase the scale on focus
+        transform: 'scale(1.05)',  // Increase the scale on focus
     },
     cursor: 'pointer',  // Set cursor to pointer on hover
 };
