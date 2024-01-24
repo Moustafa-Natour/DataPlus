@@ -1,26 +1,46 @@
 export const gradientAnimation = {
-    background: `linear-gradient(90deg, #000000,#000000, #1f1f1f, #595959, #4c4c4c, #444444, #3a3a3a, #323232, #2b2b2b,
-            #222222, #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959, #1f1f1f, #000000, #000000)`,
+    background: `linear-gradient(90deg, #000000, #030303, #060606, #090909, #0c0c0c, #0f0f0f, #121212, #151515, #181818, #1b1b1b,
+            #1e1e1e, #212121, #242424, #272727, #2a2a2a, #2d2d2d, #303030, #333333, #363636, #393939, #3c3c3c, #3f3f3f,
+            #424242, #454545, #484848, #4b4b4b, #4e4e4e, #515151, #545454, #575757, #5a5a5a, #5d5d5d, #606060, #636363,
+            #666666, #696969, #6c6c6c, #6f6f6f, #727272, #757575, #787878, #7b7b7b, #7e7e7e, #818181, #848484, #878787,
+            #8a8a8a, #8d8d8d, #909090, #939393, #969696, #999999, #9c9c9c, #a0a0a0, #a3a3a3, #a6a6a6, #a9a9a9, #acacac,
+            #afafaf, #b2b2b2, #b5b5b5, #b8b8b8, #bbbbbb, #bebebe, #c1c1c1, #c4c4c4, #c7c7c7, #cacaca, #cdcdcd, #d0d0d0,
+            #d3d3d3, #d6d6d6, #d9d9d9, #dcdcdc, #dfdfdf, #e2e2e2, #e5e5e5, #e8e8e8, #ebebeb, #eeeeee, #f1f1f1, #f4f4f4, #ffffff)`,
     backgroundSize: '180% 180%',
-    animation: 'gradient-animation 15s infinite linear',
+    animation: 'gradient-animation 5s infinite ease',
 };
 // export const AppBarSx = {
 //     background: `linear-gradient(90deg, #000000, #1f1f1f, #595959, #4c4c4c, #444444, #3a3a3a, #323232, #2b2b2b,
 //         #222222, #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959, #1f1f1f, #000000, #000000)`,
 //     animation: `${gradientAnimation} 15s infinite linear`,
+// background: `linear-gradient(360deg, #000000, #1f1f1f, #595959,#4c4c4c, #444444,  #3a3a3a, #323232,#2b2b2b,#222222,
+//      #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959,#1f1f1f,#000000)`,
 // };
-
 
 export const AppFooterSx = {
     display: 'flex',
     bottom: 0,
-    background: `linear-gradient(360deg, #000000, #1f1f1f, #595959,#4c4c4c, #444444,  #3a3a3a, #323232,#2b2b2b,#222222,
-         #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959,#1f1f1f,#000000)`,
+    background: `linear-gradient(90deg, #000000, #030303, #060606, #090909, #0c0c0c, #0f0f0f, #121212, #151515, #181818, #1b1b1b,
+            #1e1e1e, #212121, #242424, #272727, #2a2a2a, #2d2d2d, #303030, #333333, #363636, #393939, #3c3c3c, #3f3f3f,
+            #424242, #454545, #484848, #4b4b4b, #4e4e4e, #515151, #545454, #575757, #5a5a5a, #5d5d5d, #606060, #636363,
+            #666666, #696969, #6c6c6c, #6f6f6f, #727272, #757575, #787878, #7b7b7b, #7e7e7e, #818181, #848484, #878787,
+            #8a8a8a, #8d8d8d, #909090, #939393, #969696, #999999, #9c9c9c, #a0a0a0, #a3a3a3, #a6a6a6, #a9a9a9, #acacac,
+            #afafaf, #b2b2b2, #b5b5b5, #b8b8b8, #bbbbbb, #bebebe, #c1c1c1, #c4c4c4, #c7c7c7, #cacaca, #cdcdcd, #d0d0d0,
+            #d3d3d3, #d6d6d6, #d9d9d9, #dcdcdc, #dfdfdf, #e2e2e2, #e5e5e5, #e8e8e8, #ebebeb, #eeeeee, #f1f1f1, #f4f4f4,
+            #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff, #ffffff)`,
+    backgroundSize: '180% 180%',
+    animation: 'gradient-animation 5s infinite ease',
     color: 'white',
-    textAlign: 'center'
-}
+    textAlign: 'center',
+};
+
+
+
+
 export const ContainerSx = {
     background: 'linear-gradient(290deg, #060681,#065B6A,#1d5293,#00a0e5,#C87878,#55F5F5,#FF3E4D,#833AB4,#40a8c4,#00a0e5,#031421)', // Add more colors as needed
+    animation: 'gradient-animation 5s infinite ease',
+    backgroundSize: '120% 120%',
     maxWidth: '100% !important',
     minHeight: '100vh',
     display: 'flex',

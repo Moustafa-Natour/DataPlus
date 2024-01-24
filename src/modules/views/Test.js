@@ -1,6 +1,9 @@
 import React from 'react';
 import { Container } from '@mui/material';
 import Typography from '../components/Typography';
+import { ContainerSx } from '../utils/StyleSx';
+import AppAppBar from './AppAppBar';
+
 
 const Test = () => {
     const gradientAnimation = {
@@ -11,23 +14,15 @@ const Test = () => {
     };
 
     return (
-        <Container sx={{
-            height: "100vh",
-            color: 'white',
-            ...gradientAnimation,
-            '@keyframes gradient-animation': {
-                '0%': {
-                    backgroundPosition: '0% 50%',
-                },
-                '100%': {
-                    backgroundPosition: '100% 50%',
-                },
-            },
-        }}>
-            <Typography variant={'body1'} sx={{ textAlign: 'center' }}>
-                test screen
-            </Typography>
-        </Container>
+        <>
+            <AppAppBar />
+            <Container sx={ContainerSx}>
+                <Typography variant={'body1'} sx={{ textAlign: 'center' }}>
+                    test screen
+                </Typography>
+            </Container>
+        </>
+
     );
 }
 
