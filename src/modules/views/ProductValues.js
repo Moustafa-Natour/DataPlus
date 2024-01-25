@@ -19,10 +19,10 @@ function ProductValues() {
             component="section"
             sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
         >
-            <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
+            <Container sx={{ mt: 15, mb: 15, display: 'flex', position: 'relative' }}>
                 <Box
                     component="img"
-                    src="https://mui.com/static/themes/onepirate/productCurvyLines.png"
+                    src={require('../assets/images/productCurvyLines.png')}
                     alt="curvy lines"
                     sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
                 />
@@ -32,7 +32,7 @@ function ProductValues() {
                         <Box sx={item}>
                             <Box
                                 component="img"
-                                src="https://mui.com/static/themes/onepirate/productValues1.svg"
+                                src={require('../assets/images/productValues1.png')}
                                 alt="suitcase"
                                 sx={{ height: 55 }}
                             />
@@ -51,7 +51,7 @@ function ProductValues() {
                         <Box sx={item}>
                             <Box
                                 component="img"
-                                src="https://mui.com/static/themes/onepirate/productValues2.svg"
+                                src={require('../assets/images/productValues2.png')}
                                 alt="graph"
                                 sx={{ height: 55 }}
                             />
@@ -70,7 +70,7 @@ function ProductValues() {
                         <Box sx={item}>
                             <Box
                                 component="img"
-                                src="https://mui.com/static/themes/onepirate/productValues3.svg"
+                                src={require('../assets/images/productValues3.png')}
                                 alt="clock"
                                 sx={{ height: 55 }}
                             />

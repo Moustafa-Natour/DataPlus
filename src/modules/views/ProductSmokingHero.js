@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
+import curvyLinesImage from '../assets/images/productCurvyLines.png';
+import { scrollToSection } from '../utils/ComonFunc';
 
 function ProductSmokingHero() {
     const handleEmailButtonClick = () => {
@@ -18,13 +20,21 @@ function ProductSmokingHero() {
     return (
         <Container
             component="section"
-            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 9 }}
+            sx={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', my: 4,
+                position: 'relative',
+                backgroundImage: `url(${curvyLinesImage})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                height: 'auto',
+            }}
         >
+
             <Box
                 component="img"
                 src="/contact2.jpg"
                 alt="Contact us"
-                sx={{ my: 2, objectFit: 'contain', width: '90%', height: '90%' }}
+                sx={{ my: 2, objectFit: 'contain', width: '90%', height: '90%', borderRadius: 7 }}
 
             />
             <Button
@@ -44,9 +54,22 @@ function ProductSmokingHero() {
             </Button>
             <Box
                 component="img"
-                src="https://mui.com/static/themes/onepirate/productBuoy.svg"
+                src={require('../assets/images/productBuoy.png')}
                 alt="buoy"
                 sx={{ width: 60 }}
+            />
+            <Box
+                component='img'
+                src={require('../assets/images/arrow.png')}
+                height="16"
+                width="12"
+                alt="arrow up"
+                align="center"
+                sx={{ my: 2, transform: 'rotate(180deg)' }}
+                onClick={() => scrollToSection('StoreVideo')}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.5 }}
             />
         </Container>
     );

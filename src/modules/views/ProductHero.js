@@ -13,7 +13,7 @@ export default function ProductHero() {
             }}
         >
             <Container sx={{ textAlign: 'center' }}>
-                <Typography color='#fff5f8' align="center" variant="h4" marked="center"
+                <Typography id='StoreVideo' color='#fff5f8' align="center" variant="h4" marked="center"
                     sx={{ mb: 25 }}>
                     Internet Is Our Middle Name
                 </Typography>

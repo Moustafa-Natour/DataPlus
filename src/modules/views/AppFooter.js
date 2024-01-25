@@ -37,7 +37,7 @@ const LANGUAGES = [
 
 export default function AppFooter() {
     return (
-        <Typography component="footer" sx={AppFooterSx}>
+        <Typography id="AppFooter" component="footer" sx={AppFooterSx}>
             <Container sx={{ my: 1, display: 'flex' }}>
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={12}>

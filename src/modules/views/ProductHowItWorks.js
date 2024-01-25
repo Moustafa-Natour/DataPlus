@@ -43,7 +43,7 @@ function ProductHowItWorks() {
             >
                 <Box
                     component="img"
-                    src="https://mui.com/static/themes/onepirate/productCurvyLines.png"
+                    src={require('../assets/images/productCurvyLines.png')}
                     alt="curvy lines"
                     sx={{
                         pointerEvents: 'none',
@@ -62,7 +62,7 @@ function ProductHowItWorks() {
                                 <Box sx={number}>1.</Box>
                                 <Box
                                     component="img"
-                                    src="https://mui.com/static/themes/onepirate/productHowItWorks1.svg"
+                                    src={require('../assets/images/productHowItWorks1.png')}
                                     alt="suitcase"
                                     sx={image}
                                 />
@@ -77,7 +77,8 @@ function ProductHowItWorks() {
                                 <Box sx={number}>2.</Box>
                                 <Box
                                     component="img"
-                                    src="https://mui.com/static/themes/onepirate/productHowItWorks2.svg"
+                                    src={require('../assets/images/productHowItWorks2.png')}
+
                                     alt="graph"
                                     sx={image}
                                 />
@@ -92,7 +93,7 @@ function ProductHowItWorks() {
                                 <Box sx={number}>3.</Box>
                                 <Box
                                     component="img"
-                                    src="https://mui.com/static/themes/onepirate/productHowItWorks3.svg"
+                                    src={require('../assets/images/productHowItWorks3.png')}
                                     alt="clock"
                                     sx={image}
                                 />

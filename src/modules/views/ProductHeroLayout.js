@@ -15,9 +15,10 @@ const ProductHeroLayoutRoot = styled(motion.section)(({ theme }) => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
-    height: '100vh',
+    height: 'fit-content',
     width: '100%',
-    overflow: 'hidden',
+    paddingBottom: '0.5rem',
+
     '& video': {
         position: 'absolute',
         objectFit: 'fill',
@@ -70,7 +71,7 @@ function ProductHeroLayout(props) {
                     zIndex: 1,
                     textAlign: 'center',
                     '@media (max-width: 600px)': {
-                        mt: 2.55,
+                        mt: 0.55,
                         height: 'auto',
                         width: 'auto',
                     },
@@ -83,26 +84,19 @@ function ProductHeroLayout(props) {
                 <Box
                     component={motion.img}
                     ref={arrowRef}
-                    src="https://mui.com/static/themes/onepirate/productHeroArrowDown.png"
+                    src={require('../assets/images/arrow.png')}
                     height="16"
                     width="12"
                     alt="arrow down"
                     align="center"
                     sx={{
-                        position: 'absolute',
-                        bottom:
-                            theme.breakpoints.down('xs') ? -5 :
-                                theme.breakpoints.down('sm') ? -20 :
-                                    theme.breakpoints.down('md') ? -20 :
-                                        theme.breakpoints.down('lg') ? -40 :
-                                            theme.breakpoints.down('xl') ? -50 : 300,
-                        mt: 2,
+                        my: 4,
                         cursor: 'pointer',
                         opacity: 0,
                     }}
-                    onClick={() => scrollToSection('StoreMission')}
+                    onClick={() => scrollToSection('AppFooter')}
                     initial={{ scale: 1 }}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.5 }}
                     transition={{ duration: 0.5 }}
                 />
             </Container>
