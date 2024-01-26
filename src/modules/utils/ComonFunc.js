@@ -25,6 +25,8 @@ export const handlePageChange = (url) => {
         url = 'https://www.facebook.com/datap';
     } else if (url === 'Ig') {
         url = 'https://www.instagram.com/dataplus.sarl';
+    } else if (url === 'Telegram') {
+        url = 'https://t.me/Datapluslb';
     }
     window.open(url, '_blank');
 };

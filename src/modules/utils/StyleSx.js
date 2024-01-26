@@ -16,6 +16,7 @@ export const gradientAnimation = {
 //      #2b2b2b, #323232, #3a3a3a, #444444, #4c4c4c, #595959,#1f1f1f,#000000)`,
 // };
 
+
 export const AppFooterSx = {
     display: 'flex',
     bottom: 0,
@@ -71,7 +72,8 @@ export const iconStyle = {
     justifyContent: 'center',
     alignItems: 'center',
     color: '#fff', // Default icon color
-    mr: 1,
+    mr: 0.5,
+    padding: '1.6rem',
     borderRadius: '50%',
     transition: 'background-color 0.3s',
     '&:hover': {
@@ -90,7 +92,7 @@ export const whatsappIconStyle = {
     background: 'linear-gradient(45deg, #25D366, #128C7E)', // WhatsApp-like gradient
     transition: 'background 0.3s',
     '&:hover': {
-        background: 'linear-gradient(45deg, #128C7E, #075e54)', // Adjusted gradient on hover
+        background: 'linear-gradient(45deg, #128C7E, #075e04,#065e54)', // Adjusted gradient on hover
     },
 };
 
@@ -98,9 +100,18 @@ export const instagramIconStyle = {
     background: 'linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D)', // Instagram-like gradient
     transition: 'background 0.3s',
     '&:hover': {
-        background: 'linear-gradient(45deg, #833AB4, #C13584, #FD1D1D)', // Adjusted gradient on hover
+        background: 'linear-gradient(90deg, #833AB4, #C13584, #FD1D1D)', // Adjusted gradient on hover
     },
 };
+export const telegramIconStyle = {
+    background: 'linear-gradient(45deg, #0088cc, #0088cc, #0088cc)', // Telegram-like gradient
+    transition: 'background 0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+        background: 'linear-gradient(45deg, #0088cc, #00c8cc, #008ccc)', // Adjusted gradient on hover
+    },
+};
+
 
 export const BoxSx = {
     border: '2px solid #e0e0e0',

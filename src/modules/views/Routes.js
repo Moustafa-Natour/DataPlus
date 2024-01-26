@@ -28,318 +28,55 @@ import WebHosting from './WebHosting';
 import Test from './Test';
 import { Helmet } from 'react-helmet';
 
+const routes = [
+    { path: '/', component: Home, title: 'Home' },
+    { path: '/aboutus', component: AboutUs, title: 'About Us' },
+    { path: '/test', component: Test, title: 'Testing Page' },
+    { path: '/vpn', component: Vpn, title: 'VPN' },
+    { path: '/webhosting', component: WebHosting, title: 'WebHosting' },
+    { path: '/domainregister', component: DomainRegister, title: 'Domain Name Register' },
+    { path: '/voip', component: Voip, title: 'VOIP' },
+    { path: '/networksolutions', component: NetworkSolutions, title: 'Network Solutions' },
+    { path: '/contentdeliverynetwork', component: ContentDeliveryNetworks, title: 'Content Delivery Networks' },
+    { path: '/technicalsupport', component: TechincalSupport, title: 'Techincal Support' },
+    { path: '/networkinfrastructureservices', component: NetworkInfastructureService, title: 'Network Infastructure Service' },
+    { path: '/cloudcomputingservices', component: CloudComputingService, title: 'Cloud Computing Service' },
+    { path: '/contactus', component: ContactUs, title: 'Contact Us' },
+    { path: '/fairusepolicy', component: FairUsePolicy, title: 'Fair Usage Policy' },
+    { path: '/answers', component: Answers, title: 'FAQ' },
+    { path: '/forgotpassword', component: ForgotPassword, title: 'Forgot Password' },
+    { path: '/adsl', component: Adsl, title: 'ADSL' },
+    { path: '/vdsl', component: Vdsl, title: 'VDSL' },
+    { path: '/broadband', component: Broadband, title: 'Broadband' },
+    { path: '/microwave', component: Microwave, title: 'Microwave' },
+    { path: '/corporatedsl', component: CorporateDsl, title: 'Corporate DSL' },
+    { path: '/samaflix', component: SamaFlix, title: 'SamaFlix' },
+    { path: '/privacy', component: Privacy, title: 'Privacy' },
+    { path: '/terms', component: Terms, title: 'Terms' },
+    { path: '*', component: NotFound, title: '404 Not Found' },
+];
 function AppRoutes() {
     return (
         <>
-            {/* Wrap the entire Routes with Helmet to set default title */}
             <Helmet>
                 <title>Data Plus S.A.R.L</title>
             </Helmet>
 
-            {/* Your individual routes */}
             <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Home</title>
-                            </Helmet>
-                            <Home />
-                        </>
-                    }
-                />
-                <Route
-                    path="/aboutus"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - About Us</title>
-                            </Helmet>
-                            <AboutUs />
-                        </>
-                    }
-                />
-                <Route
-                    path="/test"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Testing Page</title>
-                            </Helmet>
-                            <Test />
-                        </>
-                    }
-                />
-                <Route
-                    path="/vpn"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Vpn</title>
-                            </Helmet>
-                            <Vpn />
-                        </>
-                    }
-                />
-                <Route
-                    path="/webhosting"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - WebHosting</title>
-                            </Helmet>
-                            <WebHosting />
-                        </>
-                    }
-                />
-                <Route
-                    path="/domainregister"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Domain Name Register</title>
-                            </Helmet>
-                            <DomainRegister />
-                        </>
-                    }
-                />
-                <Route
-                    path="/voip"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - VOIP</title>
-                            </Helmet>
-                            <Voip />
-                        </>
-                    }
-                />
-                <Route
-                    path="/networksolutions"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Network Solutions</title>
-                            </Helmet>
-                            <NetworkSolutions />
-                        </>
-                    }
-                />
-                <Route
-                    path="/contentdeliverynetwork"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Content Delivery Networks</title>
-                            </Helmet>
-                            <ContentDeliveryNetworks />
-                        </>
-                    }
-                />
-                <Route
-                    path="/technicalsupport"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Techincal Support</title>
-                            </Helmet>
-                            <TechincalSupport />
-                        </>
-                    }
-                />
-                <Route
-                    path="/networkinfrastructureservices"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Network Infastructure Service</title>
-                            </Helmet>
-                            <NetworkInfastructureService />
-                        </>
-                    }
-                />
-                <Route
-                    path="/cloudcomputingservices"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Cloud Computing Service</title>
-                            </Helmet>
-                            <CloudComputingService />
-                        </>
-                    }
-                />
-                <Route
-                    path="/contactus"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Contact Us</title>
-                            </Helmet>
-                            <ContactUs />
-                        </>
-                    }
-                />
-                <Route
-                    path="/fairusepolicy"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - Fair Usage Policy</title>
-                            </Helmet>
-                            <FairUsePolicy />
-                        </>
-                    }
-                />
-                <Route
-                    path="/answers"
-                    element={
-                        <>
-                            {/* Set title for the Home page */}
-                            <Helmet>
-                                <title>Data Plus - FAQ</title>
-                            </Helmet>
-                            <Answers />
-                        </>
-                    }
-                />
-                <Route
-                    path="/forgotpassword"
-                    element={
-                        <>
-                            {/* Set title for the Forgot Password page */}
-                            <Helmet>
-                                <title>Data Plus - Forgot Password</title>
-                            </Helmet>
-                            <ForgotPassword />
-                        </>
-                    }
-                />
-                <Route
-                    path="/adsl"
-                    element={
-                        <>
-                            {/* Set title for the Pricing page */}
-                            <Helmet>
-                                <title>Data Plus - ADSL</title>
-                            </Helmet>
-                            <Adsl />
-                        </>
-                    }
-                />
-                <Route
-                    path="/vdsl"
-                    element={
-                        <>
-                            {/* Set title for the Pricing page */}
-                            <Helmet>
-                                <title>Data Plus - VDSL</title>
-                            </Helmet>
-                            <Vdsl />
-                        </>
-                    }
-                />
-                <Route
-                    path="/broadband"
-                    element={
-                        <>
-                            {/* Set title for the Broadband page */}
-                            <Helmet>
-                                <title>Data Plus - Broadband</title>
-                            </Helmet>
-                            <Broadband />
-                        </>
-                    }
-                />
-                <Route
-                    path="/microwave"
-                    element={
-                        <>
-                            {/* Set title for the Pricing page */}
-                            <Helmet>
-                                <title>Data Plus - Microwave</title>
-                            </Helmet>
-                            <Microwave />
-                        </>
-                    }
-                />
-                <Route
-                    path="/corporatedsl"
-                    element={
-                        <>
-                            {/* Set title for the Pricing page */}
-                            <Helmet>
-                                <title>Data Plus - Corporate DSL</title>
-                            </Helmet>
-                            <CorporateDsl />
-                        </>
-                    }
-                />
-                <Route
-                    path="/samaflix"
-                    element={
-                        <>
-                            {/* Set title for the Pricing page */}
-                            <Helmet>
-                                <title>Data Plus - SamaFlix</title>
-                            </Helmet>
-                            <SamaFlix />
-                        </>
-                    }
-                />
-                <Route
-                    path="/privacy"
-                    element={
-                        <>
-                            {/* Set title for the Privacy page */}
-                            <Helmet>
-                                <title>Data Plus - Privacy</title>
-                            </Helmet>
-                            <Privacy />
-                        </>
-                    }
-                />
-
-                <Route
-                    path="/terms"
-                    element={
-                        <>
-                            {/* Set title for the Terms page */}
-                            <Helmet>
-                                <title>Data Plus - Terms</title>
-                            </Helmet>
-                            <Terms />
-                        </>
-                    }
-                />
-                {/* Wildcard route for undefined routes */}
-                <Route
-                    path="*"
-                    element={
-                        <>
-                            {/* Set title for the 404 Not Found page */}
-                            <Helmet>
-                                <title>Data Plus - 404 Not Found</title>
-                            </Helmet>
-                            <NotFound />
-                        </>
-                    }
-                />
+                {routes.map(({ path, component: Component, title }) => (
+                    <Route
+                        key={path}
+                        path={path}
+                        element={
+                            <>
+                                <Helmet>
+                                    <title>Data Plus - {title}</title>
+                                </Helmet>
+                                <Component />
+                            </>
+                        }
+                    />
+                ))}
             </Routes>
         </>
     );

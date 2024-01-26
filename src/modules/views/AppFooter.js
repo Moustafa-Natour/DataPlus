@@ -8,7 +8,8 @@ import TextField from '../components/TextField';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { AppFooterSx, whatsappIconStyle, facebookIconStyle, instagramIconStyle, iconStyle } from "../utils/StyleSx";
+import TelegramIcon from '@mui/icons-material/Telegram';
+import { AppFooterSx, whatsappIconStyle, facebookIconStyle, instagramIconStyle, telegramIconStyle, iconStyle } from "../utils/StyleSx";
 import { handleWhatsApp, handlePageChange } from '../utils/ComonFunc';
 
 function Copyright() {
@@ -61,6 +62,9 @@ export default function AppFooter() {
                                 </Box>
                                 <Box component="a" onClick={() => handlePageChange("Ig")} sx={{ ...iconStyle, ...instagramIconStyle }}>
                                     <InstagramIcon />
+                                </Box>
+                                <Box component="a" onClick={() => handlePageChange("Telegram")} sx={{ ...iconStyle, ...telegramIconStyle }}>
+                                    <TelegramIcon />
                                 </Box>
                             </Grid>
                             <Grid item>

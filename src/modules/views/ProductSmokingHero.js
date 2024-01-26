@@ -4,19 +4,9 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import curvyLinesImage from '../assets/images/productCurvyLines.png';
-import { scrollToSection } from '../utils/ComonFunc';
+import { scrollToSection, handleEmail } from '../utils/ComonFunc';
 
 function ProductSmokingHero() {
-    const handleEmailButtonClick = () => {
-        const emailAddress = 'mk@datapluslb.net';
-        const subject = 'Question/Help';
-        const body = 'Hello, I have a question and need help.';
-
-        const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        // Open the default email client
-        window.location.href = mailtoLink;
-    };
     return (
         <Container
             component="section"
@@ -38,7 +28,7 @@ function ProductSmokingHero() {
 
             />
             <Button
-                onClick={handleEmailButtonClick}
+                onClick={handleEmail}
                 sx={{
                     border: '4px solid currentColor',
                     borderRadius: 0,
