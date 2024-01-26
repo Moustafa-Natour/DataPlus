@@ -21,14 +21,13 @@ export const handleEmail = () => {
     window.location.href = `mailto:${email}`;
 }
 export const handlePageChange = (url) => {
-    if (url === 'Fb') {
-        url = 'https://www.facebook.com/datap';
-    } else if (url === 'Ig') {
-        url = 'https://www.instagram.com/dataplus.sarl';
-    } else if (url === 'Telegram') {
-        url = 'https://t.me/Datapluslb';
-    }
-    window.open(url, '_blank');
+    const pageUrls = {
+        Fb: 'https://www.facebook.com/datap',
+        Ig: 'https://www.instagram.com/dataplus.sarl',
+        Telegram: 'https://t.me/Datapluslb'
+    };
+    const newUrl = pageUrls[url] || url;
+    window.open(newUrl, '_blank');
 };
 
 export const scrollToSection = (section) => {

@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
-import TextField from '../components/TextField';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -42,21 +41,11 @@ export default function AppFooter() {
             <Container sx={{ my: 1, display: 'flex' }}>
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={12}>
-                        <Grid
-                            container
-                            direction="column"
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={2}
-                            sx={{ height: 120 }}
-                        >
+                        <Grid container direction="column" alignItems="center" justifyContent="center" spacing={2} sx={{ height: 120 }}>
                             <Grid item sx={{ display: 'flex' }}>
-                                {/* Facebook Icon */}
                                 <Box component="a" onClick={() => handlePageChange("Fb")} sx={{ ...iconStyle, ...facebookIconStyle }}>
                                     <FacebookIcon />
                                 </Box>
-
-                                {/* WhatsApp Icon */}
                                 <Box component="a" onClick={handleWhatsApp} sx={{ ...iconStyle, ...whatsappIconStyle }}>
                                     <WhatsAppIcon />
                                 </Box>
@@ -72,16 +61,7 @@ export default function AppFooter() {
                             </Grid>
                         </Grid>
                         <Grid item xs={12} sm={12} md={12}>
-                            <Typography
-                                variant="caption"
-                                align="center"
-                                sx={{
-                                    marginLeft: 'auto',
-                                    marginRight: 'auto',
-                                    marginTop: 'auto',
-                                    marginBottom: 'auto',
-                                }}
-                            >
+                            <Typography variant="caption" align="center" sx={{ margin: 'auto' }}>
                                 Data Plus S.A.R.L © All Right Reserved
                             </Typography>
                         </Grid>

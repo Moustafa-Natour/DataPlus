@@ -35,18 +35,13 @@ const ProductHeroLayoutRoot = styled(motion.section)(({ theme }) => ({
     },
 }));
 
-function ProductHeroLayout(props) {
-    const { sxBackground, children } = props;
+function ProductHeroLayout({ sxBackground, children }) {
     const theme = useTheme();
     const navigate = useNavigate();
     const arrowRef = useRef(null);
 
-
     useEffect(() => {
-        // Trigger animation when the component mounts
-        if (arrowRef.current) {
-            arrowRef.current.style.opacity = 1;
-        }
+        if (arrowRef.current) arrowRef.current.style.opacity = 1;
     }, []);
 
     return (

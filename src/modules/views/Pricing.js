@@ -63,7 +63,7 @@ const Pricing = () => {
     };
     useEffect(() => {
         if (!isAnimationComplete) {
-            const animationDuration = 12000; // Adjust the duration as needed
+            const animationDuration = 1500; // Adjust the duration as needed
             const steps = 20; // Number of steps in the animation
 
             const animateTier = (tier) => {
