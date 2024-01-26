@@ -78,6 +78,16 @@ const FqaQuestionsAndAnswers = [
         question: 'How can I contact customer support?',
         answer: 'For any inquiries or assistance, you can contact our customer support team through the provided contact channels on our website. We are here to help!',
     },
+
+    {
+        question: 'What are the implications if I exceed my daily data limit?',
+        answer: 'In the event of surpassing your daily data limit, some Internet Service Providers(ISPs) impose penalty fees for each additional megabyte used.However, at Data Plus, we adopt a different approach.Rather than imposing penalties, we adjust the speed of your data bundle, slowing it down until 12 am.Alternatively, you have the option to reset your limit for a fee of $5.This ensures a fair and transparent process for managing data usage.',
+    },
+    {
+        question: 'What i neeed to get Sama Flix?',
+        answer: 'First you will need to have a sama flix reciver in case your Tv is not a smart Tv and internet connection Standard plan and above. If you have a smart tv you can skip this step.',
+    },
+
     // Add more FQA questions and answers as needed
 ];
 

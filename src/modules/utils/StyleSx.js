@@ -73,7 +73,6 @@ export const iconStyle = {
     alignItems: 'center',
     color: '#fff', // Default icon color
     mr: 0.5,
-    padding: '1.6rem',
     borderRadius: '50%',
     transition: 'background-color 0.3s',
     '&:hover': {
