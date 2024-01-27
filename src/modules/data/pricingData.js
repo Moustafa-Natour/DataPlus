@@ -74,5 +74,4 @@ export const tiers = [
         speed: 20,
     },
 ];
-
 export const details = 'Explore our carefully crafted broadband pricing plans designed to meet the diverse needs of your business. Our pricing table is thoughtfully curated to provide valuable solutions for your organization.Leveraging the power of Internet. We offer a seamless and efficient experience with bundle addons for your convenience.';

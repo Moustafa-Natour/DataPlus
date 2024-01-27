@@ -5,34 +5,32 @@ import AppFooter from './AppFooter';
 import ProductCTA from './ProductCTA';
 import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle } from '../utils/StyleSx';
 import { handleEmail, handlePhoneCall, handleWhatsApp, scrollToSection } from '../utils/ComonFunc';
-
-
+import { ContactData } from '../data/ContactData';
 
 const Contact = () => {
     return (
         <Container sx={ContainerSx}>
             <Box sx={BoxSx}>
                 <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
-                    Contact Us
+                    {ContactData.title}
                 </Typography>
                 <Typography sx={{ ...listItemStyle }} component={Link} onClick={() => scrollToSection('StoreLocation')}>
-                    Main office: Bashir Joumblat Street, Ayas Building, Ground and first floor
+                    {ContactData.address}
                 </Typography>
                 <Typography sx={{ ...listItemStyle }} component={Link} onClick={handleEmail}>
-                    Email: mk@datapluslb.net
+                    {ContactData.email}
                 </Typography>
                 <Typography sx={{ ...listItemStyle }} component={Link} onClick={handlePhoneCall}>
-                    Phone Number: +961 1-818422
+                    {ContactData.phoneNumber}
                 </Typography>
                 <Typography sx={{ ...listItemStyle }} component={Link} onClick={handleWhatsApp}>
-                    Whatsapp: 70-318228
+                    {ContactData.whatsapp}
                 </Typography>
-                <Typography sx={{ ...listItemStyle, fontSize: { xs: 16, md: 24, lg: 34, xl: 48 } }}>
-                    Monday-Saturday: 9:00 AM - 11:59 PM
-                </Typography>
-                <Typography sx={{ ...listItemStyle, fontSize: { xs: 16, md: 24, lg: 34, xl: 48 } }}>
-                    Sunday: 10:00 AM - 6:00 PM
-                </Typography>
+                {ContactData.businessHours.map((hours, index) => (
+                    <Typography key={index} sx={{ ...listItemStyle, fontSize: { xs: 16, md: 24, lg: 34, xl: 48 } }}>
+                        {hours}
+                    </Typography>
+                ))}
                 <Divider variant='middle' sx={{ my: 4, bgcolor: 'black' }} />
                 <ProductCTA />
             </Box>

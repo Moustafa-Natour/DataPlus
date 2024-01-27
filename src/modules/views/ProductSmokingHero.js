@@ -1,12 +1,16 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '../components/Typography';
 import curvyLinesImage from '../assets/images/productCurvyLines.png';
 import { scrollToSection, handleEmail } from '../utils/ComonFunc';
+import { motion } from 'framer-motion';
+
 
 function ProductSmokingHero() {
+    const arrowRef = useRef(null);
+
     return (
         <Container
             component="section"
@@ -49,16 +53,21 @@ function ProductSmokingHero() {
                 sx={{ width: 60 }}
             />
             <Box
-                component='img'
+                component={motion.img}
+                ref={arrowRef}
                 src={require('../assets/images/arrow.png')}
                 height="16"
                 width="12"
                 alt="arrow up"
                 align="center"
-                sx={{ my: 2, transform: 'rotate(180deg)' }}
+                sx={{
+                    my: 2,
+                    transform: 'rotate(180deg)',
+                    cursor: 'pointer',
+                }}
                 onClick={() => scrollToSection('StoreVideo')}
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.1 }}
+                initial={{ scale: 1, rotate: 180 }}
+                whileHover={{ scale: 1.5, rotate: 180 }}
                 transition={{ duration: 0.5 }}
             />
         </Container>

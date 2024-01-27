@@ -1,8 +1,10 @@
+// Microwave.js
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import AppAppBar from './AppAppBar';
 import AppFooter from './AppFooter';
-import { BoxSx, ContainerSx, TypographyHeaderSx } from '../utils/StyleSx';
+import { BoxSx, ContainerSx, TypographyHeaderSx, TypographyStyle } from '../utils/StyleSx';
+import { MicrowaveData } from '../data/MicrowaveData';
 
 const MicrowaveView = () => {
     return (
@@ -11,26 +13,26 @@ const MicrowaveView = () => {
             <Container sx={{ ...ContainerSx }}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" sx={TypographyHeaderSx}>
-                        Unleash Connectivity with Microwave Technology
+                        {MicrowaveData.title}
                     </Typography>
                     <Box sx={{ maxWidth: '1000px', margin: 'auto' }}>
-                        <Typography variant="body1" sx={{ mt: 2, fontSize: { xs: 16, md: 18, lg: 20, xl: 22 }, lineHeight: 1.8 }}>
-                            Microwave technology revolutionizes internet connectivity by providing high-speed data transmission through the air using radio waves. As a leading internet service provider, Data Plus embraces microwave technology to deliver seamless, reliable, and high-performance internet services to our customers.
+                        <Typography variant="body1" sx={TypographyStyle}>
+                            {MicrowaveData.description}
                         </Typography>
                     </Box>
-                    <Box sx={{ maxWidth: '1000px', margin: 'auto' }}>
+                    <Box sx={{ margin: 'auto' }}>
                         <Typography variant="h2" sx={TypographyHeaderSx}>
-                            Advantages of Microwave Internet:
+                            {MicrowaveData.advantagesTitle}
                         </Typography>
-                        <Typography variant="body1" sx={{ fontSize: { xs: 16, md: 18, lg: 20, xl: 22 }, lineHeight: 1.8 }}>
-                            - High-Speed Connectivity: Microwave internet offers high-speed data transfer, making it ideal for activities such as streaming, online gaming, and large file downloads.
-                            <br />
-                            - Reliability: With minimal infrastructure requirements and resistance to physical obstacles, microwave technology ensures a reliable and consistent internet connection.
-                            <br />
-                            - Quick Deployment: Microwave links can be rapidly deployed, making it an efficient solution for areas with limited or no existing internet infrastructure.
-                            <br />
-                            - Scalability: Microwave technology allows for easy scalability to meet growing data demands, making it suitable for both residential and corporate needs.
-                        </Typography>
+                        <ul>
+                            {MicrowaveData.advantagesList.map((advantage, index) => (
+                                <li key={index}>
+                                    <Typography variant="body1" sx={TypographyStyle}>
+                                        <strong>{advantage.title}:</strong> {advantage.description}
+                                    </Typography>
+                                </li>
+                            ))}
+                        </ul>
                     </Box>
                 </Box>
             </Container>

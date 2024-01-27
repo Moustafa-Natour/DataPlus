@@ -11,7 +11,7 @@ import {
 import AppFooter from './AppFooter';
 import AppAppBar from './AppAppBar';
 import PricingCard from './PricingCard';
-import { tiers, details } from './pricingData';
+import { tiers, details } from '../data/pricingData';
 import {
     BoxSx,
     ContainerSx,
@@ -84,17 +84,18 @@ const Pricing = () => {
                 }, animationDuration / steps);
             };
 
-            tiers.forEach((tier) => {
-                if (!animatedSpeed[tier.title] || animatedSpeed[tier.title] < tier.speed) {
-                    setAnimatedSpeed((prev) => ({
-                        ...prev,
-                        [tier.title]: 0,
-                    }));
-                    animateTier(tier);
-                }
-            });
-
-            setIsAnimationComplete(true);
+            setTimeout(() => {
+                tiers.forEach((tier) => {
+                    if (!animatedSpeed[tier.title] || animatedSpeed[tier.title] < tier.speed) {
+                        setAnimatedSpeed((prev) => ({
+                            ...prev,
+                            [tier.title]: 0,
+                        }));
+                        animateTier(tier);
+                    }
+                });
+                setIsAnimationComplete(true);
+            }, 2000); // Adjust the delay before starting all the animations
         }
     }, [isAnimationComplete, animatedSpeed]);
     return (

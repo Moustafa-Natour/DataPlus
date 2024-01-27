@@ -1,12 +1,14 @@
-import * as React from 'react';
+// ProductHowItWorks.js
+import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
-import { handlePageChange, handleWhatsApp } from '../utils/ComonFunc';
+import { handleWhatsApp } from '../utils/ComonFunc';
+import { ProductHowItWorksData } from '../data/ProductHowItWorksData';
 
-const item = {
+const itemSx = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -23,6 +25,8 @@ const number = {
 const image = {
     height: 55,
     my: 4,
+    display: 'flex',            // Center the image within the box
+    justifyContent: 'center',  // Center the image within the box
 };
 
 function ProductHowItWorks() {
@@ -57,52 +61,24 @@ function ProductHowItWorks() {
                 </Typography>
                 <div>
                     <Grid container spacing={5}>
-                        <Grid item xs={12} md={4}>
-                            <Box sx={item}>
-                                <Box sx={number}>1.</Box>
-                                <Box
-                                    component="img"
-                                    src={require('../assets/images/productHowItWorks1.png')}
-                                    alt="suitcase"
-                                    sx={image}
-                                />
-                                <Typography variant="h5" align="center">
-                                    {'Unlocking the Educational Power of the Internet.'}
-                                    {'At Data Plus, we understand that the internet is not just for entertainment. It is a rich source of information and knowledge that enhances educational experiences. We bring serious value to the playful world of the internet.'}
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Box sx={item}>
-                                <Box sx={number}>2.</Box>
-                                <Box
-                                    component="img"
-                                    src={require('../assets/images/productHowItWorks2.png')}
-
-                                    alt="graph"
-                                    sx={image}
-                                />
-                                <Typography variant="h5" align="center">
-                                    {'Fast, Secure, and Unlimited Internet 24/7.'}
-                                    {'Experience the power of Data Plus with our high-speed, secure, and reliable internet services. Stay connected anytime, anywhere with our 24/7 unlimited internet access.'}
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <Box sx={item}>
-                                <Box sx={number}>3.</Box>
-                                <Box
-                                    component="img"
-                                    src={require('../assets/images/productHowItWorks3.png')}
-                                    alt="clock"
-                                    sx={image}
-                                />
-                                <Typography variant="h5" align="center">
-                                    {'New Addons For Every Bundle for Unforgettable Experiences.'}
-                                    {'Discover a world of surprises with Data Plus. Every bundle brings new addon and experiences that will redefine your experience with Real IP, Free night and Gaming pool. Your internet experience will never be the same again.'}
-                                </Typography>
-                            </Box>
-                        </Grid>
+                        {ProductHowItWorksData.map((item) => (
+                            <Grid item xs={12} md={4} key={item.number}>
+                                <Box sx={itemSx}>
+                                    <Box sx={number}>{item.number}</Box>
+                                    <Box
+                                        component="img"
+                                        src={item.imageSrc}
+                                        alt="image"
+                                        sx={image}
+                                    />
+                                    <Typography variant="h5" align="left">
+                                        {item.title}
+                                        {item.description && <br />}
+                                        {item.description}
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                        ))}
                     </Grid>
                 </div>
                 <Button

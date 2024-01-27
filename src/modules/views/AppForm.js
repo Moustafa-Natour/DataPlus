@@ -11,7 +11,7 @@ function AppForm(props) {
         <Box
             sx={{
                 display: 'flex',
-                backgroundImage: 'url(/https://mui.com/static/themes/onepirate/appCurvyLines.png)',
+                backgroundImage: '../assets/images/productCurvyLines.png',
                 backgroundRepeat: 'no-repeat',
             }}
         >
