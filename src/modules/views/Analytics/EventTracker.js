@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { UseAnalytics } from './AnalyticsContext';
 import LocationInfo from './LocationInfo';
+import { Container } from '@mui/material';
 
 const EventTracker = () => {
     const { trackEvent, userLocation, setUserLocation } = UseAnalytics();
@@ -39,17 +40,15 @@ const EventTracker = () => {
     };
 
     const getOperatingSystem = (userAgent) => {
-        const platforms = ['Win', 'Mac', 'Linux', 'Android', 'iOS'];
+        const platforms = ['Windows', 'Mac', 'Linux', 'Android', 'iOS'];
         const os = platforms.find((platform) => userAgent.includes(platform)) || 'Unknown OS';
         return os;
     };
 
     return (
-        <div>
-            <h1>Event Tracker</h1>
+        <Container fixed>
             <button onClick={handleButtonClick}>Track Button Click</button>
-            <LocationInfo latitude={userLocation?.latitude} longitude={userLocation?.longitude} />
-        </div>
+        </Container>
     );
 };
 

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
+import { Container } from '@mui/material';
+import Typography from '../../components/Typography';
+import { TypographyStyle } from '../../utils/StyleSx';
 
 const LocationInfo = ({ fetchData, latitude, longitude }) => {
     const [locationData, setLocationData] = useState(null);
@@ -55,10 +58,16 @@ const LocationInfo = ({ fetchData, latitude, longitude }) => {
         return flattened;
     };
 
-    // Flatten the first result to get column definitions
+    // Flatten the first result to get row definitions
     const flattenedFirstResult = flattenObject(locationData.results[0]);
 
-    // Generate columns dynamically based on the flattened properties
+    // Generate rows dynamically based on the flattened properties
+    const rows = locationData.results.map((result, index) => ({
+        id: index,
+        ...flattenObject(result),
+    }));
+
+    // Generate columns based on the flattened properties
     const columns = Object.keys(flattenedFirstResult).map((property) => ({
         field: property,
         headerName: property,
@@ -66,17 +75,17 @@ const LocationInfo = ({ fetchData, latitude, longitude }) => {
     }));
 
     return (
-        <div style={{ height: 400, width: '100%' }}>
-            <h2>Location Information</h2>
+        <Container style={{ height: 'fit-content', width: '100%' }}>
+            <Typography variant='h2' sx={{ ...TypographyStyle, textAlign: 'center' }}>Location Information</Typography>
             <DataGrid
-                rows={locationData.results.map((result) => flattenObject(result))}
+                rows={rows}
                 columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
-                checkboxSelection
                 disableSelectionOnClick
+                sx={{ border: 'none', width: '100%', height: '100%', margin: '5 5 5 5' }}
             />
-        </div>
+        </Container>
     );
 };
 
