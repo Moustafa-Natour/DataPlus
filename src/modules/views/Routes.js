@@ -26,10 +26,14 @@ import NetworkInfastructureService from './NetworkInfastructureService';
 import CloudComputingService from './CloudComputingService';
 import WebHosting from './WebHosting';
 import Test from './Test';
+import index from './Analytics/index';
+import AnalyticsPage from './Analytics/AnalyticsPage';
 import { Helmet } from 'react-helmet';
 
 const routes = [
     { path: '/', component: Home, title: 'Home' },
+    { path: '/analytics', component: AnalyticsPage, title: 'Analytics Dashboard' },
+    { path: '/index', component: index, title: 'Analytics Dashboard' },
     { path: '/aboutus', component: AboutUs, title: 'About Us' },
     { path: '/test', component: Test, title: 'Testing Page' },
     { path: '/vpn', component: Vpn, title: 'VPN' },
