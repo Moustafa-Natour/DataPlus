@@ -3,18 +3,22 @@ import React from 'react';
 import EventTracker from './EventTracker';
 import AnalyticsDashboard from './AnalyticsDashboard';
 import { AnalyticsProvider } from './AnalyticsContext';
-import { Container } from '@mui/material';
-import Paper from '../../components/Paper';
+import { Container, Box } from '@mui/material';
+import AppAppBar from '../AppAppBar';
+import AppFooter from '../AppFooter';
+import { BoxSx, ContainerSx } from '../../utils/StyleSx';
 const index = () => {
 
     return (
         <AnalyticsProvider>
+            <AppAppBar />
             <Container fixed>
-                <Paper align="center">
+                <Box align="center" sx={BoxSx}>
                     <EventTracker />
                     <AnalyticsDashboard />
-                </Paper>
+                </Box>
             </Container>
+            <AppFooter />
         </AnalyticsProvider>
     );
 };
