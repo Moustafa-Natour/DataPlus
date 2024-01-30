@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Container } from '@mui/material';
 import Typography from '../../components/Typography';
 import { TypographyStyle } from '../../utils/StyleSx';
@@ -67,12 +67,18 @@ const LocationInfo = ({ fetchData, latitude, longitude }) => {
         ...flattenObject(result),
     }));
 
-    // Generate columns based on the flattened properties
-    const columns = Object.keys(flattenedFirstResult).map((property) => ({
-        field: property,
-        headerName: property,
-        width: 200,
-    }));
+    // Define custom column names and widths
+    const columns = [
+        { field: 'id', headerName: 'ID', width: 100 },
+        { field: 'formatted', headerName: 'Formatted Address', width: 300 },
+        { field: 'annotations.Maidenhead', headerName: 'Grid Square', width: 150 },
+        { field: 'components.country', headerName: 'Country', width: 200 },
+        { field: 'components.city', headerName: 'City', width: 200 },
+        { field: 'geometry.lat', headerName: 'Latitude', width: 150 },
+        { field: 'geometry.lng', headerName: 'Longitude', width: 150 },
+        { field: 'confidence', headerName: 'Confidence Level', width: 200 },
+    ];
+
 
     return (
         <Container style={{ height: 'fit-content', width: '100%' }}>
