@@ -23,14 +23,14 @@ let LogoView = () => {
                 href="/"
             >
                 <img
-                    src="/android-chrome-512x512.png"
+                    src="/Dataplus.png"
                     alt="DATA PLUS"
-                    width="100"
-                    height="60"
+                    width="200"
+                    height="150"
                     style={{
                         objectFit: 'cover', // Maintain aspect ratio and cover the entire container
                         display: 'block', // Ensure the image is treated as a block element
-                        marginTop: '10px', // Center the image horizontally
+                        marginTop: '1px', // Center the image horizontally
                         overflow: 'hidden', // Hide any overflow
                     }}
                 />
