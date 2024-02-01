@@ -4,8 +4,8 @@ import EventTracker from './EventTracker';
 import AnalyticsDashboard from './AnalyticsDashboard';
 import { AnalyticsProvider } from './AnalyticsContext';
 import { Container, Box } from '@mui/material';
-import AppAppBar from '../AppAppBar';
-import AppFooter from '../AppFooter';
+import AppAppBar from '../AppBar/AppAppBar';
+import AppFooter from '../AppBar/AppFooter';
 import { BoxSx, ContainerSx } from '../../utils/StyleSx';
 import WebAnalyticsPage from './WebAnalyticsPage';
 const index = () => {
