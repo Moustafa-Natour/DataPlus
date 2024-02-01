@@ -40,8 +40,16 @@ function ProductSmokingHero() {
                     py: 2,
                     px: 5,
                     my: 1,
+                    transition: 'transform 0.2s ease-in-out',
+                    '&:hover': {
+                        transform: 'scale(1.02)',  // Increase the scale on hover
+                    },
+                    '&:focus': {
+                        transform: 'scale(1.02)',  // Increase the scale on focus
+                    },
                 }}
             >
+
                 <Typography variant="h4" component="span">
                     Got any questions? Need help?
                 </Typography>

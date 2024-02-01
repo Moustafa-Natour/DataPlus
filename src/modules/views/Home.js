@@ -6,6 +6,7 @@ import ProductValues from './ProductValues';
 import ProductHowItWorks from './ProductHowItWorks';
 import AppAppBar from './AppAppBar';
 import withRoot from '../withRoot';
+import NewsLetter from './NewsLetter';
 
 function Index() {
     return (
@@ -14,6 +15,7 @@ function Index() {
             <ProductHero />
             <ProductValues />
             <ProductHowItWorks />
+            <NewsLetter />
             <ProductSmokingHero />
             <AppFooter />
         </React.Fragment>

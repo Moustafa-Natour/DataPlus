@@ -7,6 +7,7 @@ import { Container, Box } from '@mui/material';
 import AppAppBar from '../AppAppBar';
 import AppFooter from '../AppFooter';
 import { BoxSx, ContainerSx } from '../../utils/StyleSx';
+import WebAnalyticsPage from './WebAnalyticsPage';
 const index = () => {
 
     return (
