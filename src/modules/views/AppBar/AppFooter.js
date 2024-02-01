@@ -16,7 +16,7 @@ function Copyright() {
         <React.Fragment>
             {'© 2016 '}
             <Link color="inherit" href="/" sx={{ textDecoration: 'none', color: '#fff' }}>
-                DATA PLUS
+                All Right Reserved
             </Link>
             {/* {' Since '} */}
             {/* {new Date().getFullYear()} */}
@@ -41,7 +41,7 @@ export default function AppFooter() {
             <Container sx={{ my: 1, display: 'flex' }}>
                 <Grid container spacing={4}>
                     <Grid item xs={12} sm={12} md={12}>
-                        <Grid container direction="column" alignItems="center" justifyContent="center" spacing={2} sx={{ height: 120 }}>
+                        <Grid container direction="column" alignItems="center" justifyContent="center" spacing={2} sx={{ height: 110 }}>
                             <Grid item sx={{ display: 'flex' }}>
                                 <Box component="a" onClick={() => handlePageChange("Fb")} sx={{ ...iconStyle, ...facebookIconStyle }}>
                                     <FacebookIcon />
@@ -60,10 +60,23 @@ export default function AppFooter() {
                                 <Copyright />
                             </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={12}>
-                            <Typography variant="caption" align="center" sx={{ margin: 'auto' }}>
-                                Data Plus S.A.R.L © All Right Reserved
-                            </Typography>
+                        <Grid container justifyContent="center" alignItems="center">
+                            <Grid item xs={12} sm={12} md={12} sx={{ display: 'flex' }} justifyContent="center" alignItems="center">
+                                <Link variant="a" underline="none" href="/" sx={{ justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
+                                    <img
+                                        src="/dataplusfooter.png"
+                                        alt="DATA PLUS"
+                                        width="200"
+                                        height="40"
+                                        style={{
+                                            marginTop: 2,
+                                            objectFit: 'cover',
+                                            display: 'block',
+                                            overflow: 'hidden',
+                                        }}
+                                    />
+                                </Link>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
