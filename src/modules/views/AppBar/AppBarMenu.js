@@ -23,14 +23,13 @@ let LogoView = () => {
                 href="/"
             >
                 <img
-                    src="/Dataplus.png"
+                    src="/Dataplus.svg"
                     alt="DATA PLUS"
-                    width="200"
-                    height="150"
+                    width="150"
+                    height="65"
                     style={{
                         objectFit: 'cover', // Maintain aspect ratio and cover the entire container
                         display: 'block', // Ensure the image is treated as a block element
-                        marginTop: '1px', // Center the image horizontally
                         overflow: 'hidden', // Hide any overflow
                     }}
                 />

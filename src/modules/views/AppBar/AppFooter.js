@@ -64,7 +64,7 @@ export default function AppFooter() {
                             <Grid item xs={12} sm={12} md={12} sx={{ display: 'flex' }} justifyContent="center" alignItems="center">
                                 <Link variant="a" underline="none" href="/" sx={{ justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
                                     <img
-                                        src="/dataplusfooter.png"
+                                        src="/Dplusfooter.svg"
                                         alt="DATA PLUS"
                                         width="200"
                                         height="40"
