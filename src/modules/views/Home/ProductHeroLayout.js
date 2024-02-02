@@ -51,7 +51,7 @@ function ProductHeroLayout({ sxBackground, children }) {
             exit={{ opacity: 0 }}
         >
             <video autoPlay muted loop playsInline>
-                <source src={StoreVideo} type="video/mp4" />
+                <source src={StorewebVideo} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <Container
