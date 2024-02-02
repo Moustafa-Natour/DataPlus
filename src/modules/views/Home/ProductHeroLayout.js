@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import StoreVideo from '../../assets/videos/StoreVideo.mp4';
+import StorewebVideo from '../../assets/videos/StoreVideo.mp4';
 import Typography from '../../components/Typography';
 import { useTheme } from '@mui/material/styles';
 import { scrollToSection } from '../../utils/ComonFunc';
