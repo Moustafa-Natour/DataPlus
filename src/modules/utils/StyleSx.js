@@ -1,15 +1,12 @@
 export const gradientAnimation = {
-    background: `linear-gradient(90deg, hsl(0, 0%, 0%),  hsl(0, 0%, 0%),hsl(0, 0%, 5%), hsl(0, 0%, 10%), hsl(0, 0%, 15%), hsl(0, 0%, 20%), hsl(0, 0%, 25%), hsl(0, 0%, 25%), hsl(0, 0%, 20%), hsl(0, 0%, 15%), hsl(0, 0%, 10%),  hsl(0, 0%, 0%),hsl(0, 0%, 5%))`,
+    background: `hsl(0, 0%, 0%)`,
     backgroundSize: '180% 180%',
-    animation: 'gradient-animation 5s infinite ease',
 };
 
 export const AppFooterSx = {
     display: 'flex',
     bottom: 0,
-    background: `linear-gradient(90deg, hsl(0, 0%, 0%), hsl(0, 0%, 0%), hsl(0, 0%, 5%), hsl(0, 0%, 10%), hsl(0, 0%, 15%), hsl(0, 0%, 20%), hsl(0, 0%, 25%), hsl(0, 0%, 25%), hsl(0, 0%, 20%), hsl(0, 0%, 15%), hsl(0, 0%, 10%), hsl(0, 0%, 0%), hsl(0, 0%, 5%))`,
-    backgroundSize: '180% 180%',
-    animation: 'gradient-animation 5s infinite ease',
+    background: `hsl(0, 0%, 0%)`,
     color: 'white',
     textAlign: 'center',
 };
