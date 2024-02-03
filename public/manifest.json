@@ -3,16 +3,16 @@
   "name": "DATA PLUS S.A.R.L",
   "icons": [
     {
-      "src": "favico.ico",
+      "src": "favicon.ico",
       "type": "image/x-icon"
     },
     {
-      "src": "favico.ico",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favico.ico",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "512x512"
     }
