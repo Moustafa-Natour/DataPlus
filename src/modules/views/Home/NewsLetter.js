@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
@@ -9,12 +9,38 @@ import Button from '../../components/Button';
 import { useTheme } from '@mui/material/styles';
 
 function NewsLetter() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
     const theme = useTheme();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        setOpen(true);
+
+        const email = event.target.email.value;
+
+        try {
+            setLoading(true);
+
+            const response = await fetch('http://localhost:3001/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setOpen(true);
+            } else {
+                console.error(data.message);
+            }
+        } catch (error) {
+            console.error('Error subscribing:', error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleClose = () => {
@@ -30,8 +56,8 @@ function NewsLetter() {
                             display: 'flex',
                             justifyContent: 'center',
                             bgcolor: 'warning.main',
-                            py: 4, // Adjust the padding for smaller screens
-                            px: 2, // Adjust the padding for smaller screens
+                            py: 4,
+                            px: 2,
                             [theme.breakpoints.up('md')]: {
                                 py: 8,
                                 px: 3,
@@ -43,7 +69,7 @@ function NewsLetter() {
                             onSubmit={handleSubmit}
                             sx={{
                                 maxWidth: 400,
-                                width: '100%', // Adjust the width for smaller screens
+                                width: '100%',
                             }}
                         >
                             <Typography variant="h2" component="h2" gutterBottom>
@@ -53,6 +79,7 @@ function NewsLetter() {
                                 Taste the holidays of the everyday close to home.
                             </Typography>
                             <TextField
+                                name="email"
                                 noBorder
                                 placeholder="Your email"
                                 variant="standard"
@@ -63,8 +90,9 @@ function NewsLetter() {
                                 color="primary"
                                 variant="contained"
                                 sx={{ width: '100%' }}
+                                disabled={loading}
                             >
-                                Keep me updated
+                                {loading ? 'Subscribing...' : 'Keep me updated'}
                             </Button>
                         </Box>
                     </Box>
@@ -84,8 +112,8 @@ function NewsLetter() {
                             justifyContent: 'center',
                             height: '100%',
                             background: `url(${require('../../assets/images/productCTAImageDots.png')})`,
-                            backgroundSize: 'contain', // Adjust the background size as needed
-                            backgroundPosition: 'center', // Center the background
+                            backgroundSize: 'contain',
+                            backgroundPosition: 'center',
                         }}
                     />
                     <Box
@@ -98,7 +126,7 @@ function NewsLetter() {
                             maxWidth: 500,
                             maxHeight: 425,
                             [theme.breakpoints.down('sm')]: {
-                                maxWidth: '90%', // Adjust image size for smaller screens
+                                maxWidth: '90%',
                                 maxHeight: '90%',
                                 pb: 1,
                                 mr: 1.75,
@@ -111,7 +139,7 @@ function NewsLetter() {
             <Snackbar
                 open={open}
                 closeFunc={handleClose}
-                message="We will send you our best offers, once a week."
+                message="Subscription successful. We will send you our best offers."
             />
         </Container>
     );
