@@ -21,7 +21,7 @@ function NewsLetter() {
         try {
             setLoading(true);
 
-            const response = await fetch('https://data-plus-server.vercel.app/subscribe', {
+            const response = await fetch('http://localhost:3001/api/addSubscriber', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
