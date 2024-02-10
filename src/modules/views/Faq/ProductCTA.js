@@ -81,7 +81,7 @@ function ProductCTA() {
                                     color: 'black',
                                     borderRadius: '15px 15px 0px 0px'
                                 }} />
-                            <Tooltip title="Click for directions" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', color: 'white' }}>
+                            <Tooltip title="Navigate with Confidence: Click the Logo for Directions" sx={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', color: 'white' }}>
                                 <div id="map" style={{ width: '100%', height: '400px' }}>
                                     <img src={customMarkerImg} alt="Custom Marker Image" style={{ width: '100px', height: 'auto', cursor: 'pointer' }} onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`)} />
                                 </div>
