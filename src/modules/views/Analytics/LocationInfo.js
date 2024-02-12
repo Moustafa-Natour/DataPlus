@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { Container } from '@mui/material';
 import Typography from '../../components/Typography';
 import { TypographyStyle } from '../../utils/StyleSx';
+import getLocationData from './getLocationData'; // Import the function
 
 const LocationInfo = ({ fetchData, latitude, longitude }) => {
     const [locationData, setLocationData] = useState(null);
@@ -11,29 +11,8 @@ const LocationInfo = ({ fetchData, latitude, longitude }) => {
     useEffect(() => {
         if (fetchData && latitude && longitude) {
             const fetchData = async () => {
-                try {
-                    const response = await axios.get(
-                        'https://api.opencagedata.com/geocode/v1/json',
-                        {
-                            params: {
-                                q: `${latitude},${longitude}`,
-                                key: '915b429d8dc0405882301bafcb146f0a',
-                            },
-                        }
-                    );
-
-                    // Add unique id to each row
-                    const dataWithIds = response.data.results.map((result, index) => ({
-                        ...result,
-                        id: index, // Using the array index as a simple identifier
-                    }));
-
-                    setLocationData({
-                        results: dataWithIds,
-                    });
-                } catch (error) {
-                    console.error('Error fetching location data:', error);
-                }
+                const data = await getLocationData(latitude, longitude); // Use the function
+                setLocationData(data);
             };
 
             fetchData();
@@ -69,29 +48,38 @@ const LocationInfo = ({ fetchData, latitude, longitude }) => {
 
     // Define custom column names and widths
     const columns = [
-        { field: 'id', headerName: 'ID', width: 100 },
-        { field: 'formatted', headerName: 'Formatted Address', width: 300 },
-        { field: 'annotations.Maidenhead', headerName: 'Grid Square', width: 150 },
-        { field: 'components.country', headerName: 'Country', width: 200 },
-        { field: 'components.city', headerName: 'City', width: 200 },
-        { field: 'geometry.lat', headerName: 'Latitude', width: 150 },
-        { field: 'geometry.lng', headerName: 'Longitude', width: 150 },
-        { field: 'confidence', headerName: 'Confidence Level', width: 200 },
+        { field: 'formatted', headerName: 'Formatted Address', width: 380 },
+        { field: 'annotations.callingcode', headerName: 'Country Code', width: 100 },
+        { field: 'annotations.currency.name', headerName: 'Currency', width: 150 },
+        { field: 'annotations.currency.iso_code', headerName: 'Currency Code', width: 150 },
+        { field: 'annotations.currency.symbol', headerName: 'Currency Symbol', width: 150 },
+        { field: 'annotations.timezone.name', headerName: 'TimeZone', width: 150 },
+        { field: 'annotations.timezone.offset_string', headerName: 'GMT Offset', width: 150 },
+        { field: 'components.country', headerName: 'Country', width: 100 },
+        { field: 'components.city', headerName: 'City', width: 100 },
+        { field: 'components.municipality', headerName: 'Municipality', width: 100 },
+        { field: 'components.neighbourhood', headerName: 'Neighbourhood', width: 100 },
+        { field: 'components.road', headerName: 'Road name', width: 100 },
     ];
 
-
+    const LocationDashboardView = () => {
+        return (
+            <Container style={{ height: 'fit-content', width: '100%' }}>
+                <Typography variant='h2' sx={{ ...TypographyStyle, textAlign: 'center' }}>Location Information</Typography>
+                <DataGrid
+                    rows={rows} // Use rowsWithFlags
+                    columns={columns}
+                    pageSize={10}
+                    rowsPerPageOptions={[5]}
+                    disableSelectionOnClick
+                    sx={{ border: 'none', width: '100%', height: '100%', margin: '5 5 5 5' }}
+                />
+            </Container>
+        );
+    }
+    // Update DataGrid rows to use rowsWithFlags
     return (
-        <Container style={{ height: 'fit-content', width: '100%' }}>
-            <Typography variant='h2' sx={{ ...TypographyStyle, textAlign: 'center' }}>Location Information</Typography>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                disableSelectionOnClick
-                sx={{ border: 'none', width: '100%', height: '100%', margin: '5 5 5 5' }}
-            />
-        </Container>
+        <LocationDashboardView />
     );
 };
 

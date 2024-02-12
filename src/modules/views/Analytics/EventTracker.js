@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { UseAnalytics } from './AnalyticsContext';
-import LocationInfo from './LocationInfo';
 import { Container } from '@mui/material';
 
 const EventTracker = () => {
@@ -26,7 +25,7 @@ const EventTracker = () => {
     }, [userLocation, setUserLocation]);
 
     const handleButtonClick = () => {
-        if (userLocation) {
+        if (userLocation && userLocation.latitude && userLocation.longitude) {
             trackEvent('ButtonClick', {
                 gpsLocation: {
                     latitude: userLocation.latitude,
