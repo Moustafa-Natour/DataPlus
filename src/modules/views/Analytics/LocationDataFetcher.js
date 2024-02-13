@@ -15,12 +15,14 @@ const LocationDataFetcher = () => {
         if (!hasFetchedLocationData && !dataSaved) {
             const fetchData = async () => {
                 try {
+                    const sessionId = getSessionId();
+                    const ipAddress = await getUserIpAddress();
                     const { latitude, longitude } = await getUserCoordinates();
                     const data = await getLocationData(latitude, longitude);
                     setUserLocation({ latitude, longitude });
                     console.log(data.results[0]);
                     // Perform POST request to save data to backend
-                    await saveLocationDataToBackend(data);
+                    await saveLocationDataToBackend(data, sessionId, ipAddress);
                     // Update local storage to indicate that fetching has been completed
                     localStorage.setItem('hasFetchedLocationData', 'true');
                     setDataSaved(true); // Set dataSaved to true after saving data
@@ -53,7 +55,30 @@ const LocationDataFetcher = () => {
         });
     };
 
-    const saveLocationDataToBackend = async (data) => {
+    const getSessionId = () => {
+        let sessionId = localStorage.getItem('sessionId');
+        if (!sessionId) {
+            sessionId = generateSessionId();
+            localStorage.setItem('sessionId', sessionId);
+        }
+        return sessionId;
+    };
+
+    const generateSessionId = () => {
+        return Math.random().toString(36).substring(2) + Date.now().toString(36);
+    };
+
+    const getUserIpAddress = async () => {
+        try {
+            const response = await axios.get('https://api.ipify.org?format=json');
+            return response.data.ip;
+        } catch (error) {
+            console.error('Error getting user IP address:', error);
+            return null;
+        }
+    };
+
+    const saveLocationDataToBackend = async (data, sessionId, ipAddress) => {
         try {
             // Extract relevant fields from data
             const {
@@ -64,6 +89,8 @@ const LocationDataFetcher = () => {
 
             // Create a new VisitorLocation document
             const visitorLocation = {
+                IP_Address: ipAddress, // Include IP address
+                Session_Id: sessionId, // Include session ID
                 Formatted_Address: formatted,
                 Country_Code: callingcode,
                 Currency: currency.name,
@@ -75,7 +102,7 @@ const LocationDataFetcher = () => {
                 City: city,
                 Municipality: municipality,
                 Neighbourhood: neighbourhood,
-                Road_Name: road
+                Road_Name: road,
             };
 
             // Save the document to the database
