@@ -4,13 +4,10 @@ import { UseAnalytics } from './AnalyticsContext';
 import axios from 'axios'; // Import axios for making HTTP requests
 
 const LocationDataFetcher = () => {
-    console.log("LocationDataFetcher Renderd");
     const { setUserLocation } = UseAnalytics();
     const [dataSaved, setDataSaved] = useState(false); // State variable to track whether data has been saved
 
     useEffect(() => {
-        console.log("UseEffect Renderd");
-
         const hasFetchedLocationData = localStorage.getItem('hasFetchedLocationData');
         if (!hasFetchedLocationData && !dataSaved) {
             const fetchData = async () => {
@@ -80,6 +77,7 @@ const LocationDataFetcher = () => {
 
     const saveLocationDataToBackend = async (data, sessionId, ipAddress) => {
         try {
+            const { brands, mobile, platform } = navigator.userAgentData;
             // Extract relevant fields from data
             const {
                 formatted,
@@ -103,6 +101,10 @@ const LocationDataFetcher = () => {
                 Municipality: municipality,
                 Neighbourhood: neighbourhood,
                 Road_Name: road,
+                // Include device information
+                Device_Brands: brands.map(brand => brand.brand).join(', '), // Convert brands array to comma-separated string
+                Mobile_Device: mobile,
+                Platform: platform
             };
 
             // Save the document to the database
