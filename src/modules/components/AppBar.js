@@ -1,6 +1,6 @@
 import * as React from 'react';
 import MuiAppBar from '@mui/material/AppBar';
-import { AppBarSx, gradientAnimation } from '../utils/StyleSx';
+import { gradientAnimation } from '../utils/StyleSx';
 
 function AppBar(props) {
     return <MuiAppBar elevation={1} sx={{

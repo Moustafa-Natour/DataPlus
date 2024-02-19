@@ -5,7 +5,7 @@ import ProductHeroLayout from './ProductHeroLayout';
 import Container from '@mui/material/Container';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { handleWhatsApp } from '../../utils/ComonFunc';
-export default function ProductHero() {
+function ProductHero() {
     return (
         <ProductHeroLayout
             sxBackground={{
@@ -43,3 +43,4 @@ export default function ProductHero() {
         </ProductHeroLayout>
     );
 }
+export default ProductHero;

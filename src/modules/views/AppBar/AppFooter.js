@@ -35,7 +35,7 @@ const LANGUAGES = [
     },
 ];
 
-export default function AppFooter() {
+function AppFooter() {
     return (
         <Typography id="AppFooter" component="footer" sx={AppFooterSx}>
             <Container sx={{ my: 1, display: 'flex' }}>
@@ -84,3 +84,5 @@ export default function AppFooter() {
         </Typography>
     );
 }
+
+export default AppFooter;

@@ -1,31 +1,34 @@
 // Routes.js
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Home from '../Home/Home';
-import AboutUs from '../Faq/AboutUs';
-import ContactUs from '../Faq/ContactUs';
-import Adsl from '../Internet/Adsl';
-import Vdsl from '../Internet/Vdsl';
-import CorporateDsl from '../Internet/CorporateDsl';
-import Microwave from '../Internet/Microwave';
-import Broadband from '../Internet/Broadband/Broadband';
-import SamaFlix from '../Internet/SamaFlix';
-import Answers from '../Faq/Answers';
-import NotFound from '../Routes/NotFound';
-import ForgotPassword from '../Test/Login/ForgotPassword';
-import FairUsePolicy from '../Internet/Broadband/FairUsePolicy';
-import Vpn from '../Services/Vpn';
-import DomainRegister from '../Services/DomainRegister';
-import Voip from '../Services/Voip';
-import NetworkSolutions from '../Services/NetworkSolutions';
-import ContentDeliveryNetworks from '../Services/ContentDeliveryNetworks';
-import TechincalSupport from '../Services/TechincalSupport';
-import NetworkInfastructureService from '../Services/NetworkInfastructureService';
-import CloudComputingService from '../Services/CloudComputingService';
-import WebHosting from '../Services/WebHosting';
-import Test from '../Test/Test';
-import index from '../Analytics/index';
+import React, { lazy, Suspense } from 'react';
+import { Route, Router, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+
+
+const Home = lazy(() => import('../Home/Home'));
+const LoadingIndicator = lazy(() => import('./LoadingIndicator'));
+const AboutUs = lazy(() => import('../Faq/AboutUs'));
+const ContactUs = lazy(() => import('../Faq/ContactUs'));
+const Adsl = lazy(() => import('../Internet/Adsl'));
+const Vdsl = lazy(() => import('../Internet/Vdsl'));
+const CorporateDsl = lazy(() => import('../Internet/CorporateDsl'));
+const Microwave = lazy(() => import('../Internet/Microwave'));
+const Broadband = lazy(() => import('../Internet/Broadband/Broadband'));
+const SamaFlix = lazy(() => import('../Internet/SamaFlix'));
+const Answers = lazy(() => import('../Faq/Answers'));
+const NotFound = lazy(() => import('../Routes/NotFound'));
+const ForgotPassword = lazy(() => import('../Test/Login/ForgotPassword'));
+const FairUsePolicy = lazy(() => import('../Internet/Broadband/FairUsePolicy'));
+const Vpn = lazy(() => import('../Services/Vpn'));
+const DomainRegister = lazy(() => import('../Services/DomainRegister'));
+const Voip = lazy(() => import('../Services/Voip'));
+const NetworkSolutions = lazy(() => import('../Services/NetworkSolutions'));
+const ContentDeliveryNetworks = lazy(() => import('../Services/ContentDeliveryNetworks'));
+const TechincalSupport = lazy(() => import('../Services/TechincalSupport'));
+const NetworkInfastructureService = lazy(() => import('../Services/NetworkInfastructureService'));
+const CloudComputingService = lazy(() => import('../Services/CloudComputingService'));
+const WebHosting = lazy(() => import('../Services/WebHosting'));
+const Test = lazy(() => import('../Test/Test'));
+const index = lazy(() => import('../Analytics/index'));
 
 const routes = [
     { path: '/', component: Home, title: 'Home' },
@@ -53,29 +56,33 @@ const routes = [
     { path: '/samaflix', component: SamaFlix, title: 'SamaFlix' },
     { path: '*', component: NotFound, title: '404 Not Found' },
 ];
+
+
 function AppRoutes() {
     return (
         <>
             <Helmet>
                 <title>Data Plus S.A.R.L</title>
             </Helmet>
+            <Suspense fallback={<LoadingIndicator />}>
+                <Routes>
+                    {routes.map(({ path, component: Component, title }) => (
+                        <Route
+                            key={path}
+                            path={path}
+                            element={
+                                <>
+                                    <Helmet>
+                                        <title>Data Plus - {title}</title>
+                                    </Helmet>
+                                    <Component />
+                                </>
+                            }
+                        />
+                    ))}
+                </Routes>
+            </Suspense>
 
-            <Routes>
-                {routes.map(({ path, component: Component, title }) => (
-                    <Route
-                        key={path}
-                        path={path}
-                        element={
-                            <>
-                                <Helmet>
-                                    <title>Data Plus - {title}</title>
-                                </Helmet>
-                                <Component />
-                            </>
-                        }
-                    />
-                ))}
-            </Routes>
         </>
     );
 }

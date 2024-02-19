@@ -8,7 +8,7 @@ import AppAppBar from '../AppBar/AppAppBar';
 import withRoot from '../../withRoot';
 import NewsLetter from './NewsLetter';
 
-function Index() {
+function Home() {
     return (
         <React.Fragment>
             <AppAppBar />
@@ -22,4 +22,4 @@ function Index() {
     );
 }
 
-export default withRoot(Index);
+export default withRoot(Home);
