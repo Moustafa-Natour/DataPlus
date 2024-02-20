@@ -1,15 +1,12 @@
 // CorporateDsl.js
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import { BoxSx, ContainerSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { CorporateDslData } from '../../data/CorporateDslData';
 
 const CorporateDslView = () => {
     return (
         <>
-            <AppAppBar />
             <Container sx={{ ...ContainerSx }}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" sx={TypographyHeaderSx}>
@@ -44,7 +41,6 @@ const CorporateDslView = () => {
                     </Box>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 };

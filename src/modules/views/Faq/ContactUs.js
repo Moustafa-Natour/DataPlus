@@ -1,7 +1,5 @@
 import React from 'react';
 import { Container, Typography, Box, Link, Divider } from '@mui/material';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import ProductCTA from './ProductCTA';
 import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle } from '../../utils/StyleSx';
 import { handleEmail, handlePhoneCall, handleWhatsApp, scrollToSection } from '../../utils/ComonFunc';
@@ -41,9 +39,7 @@ const Contact = () => {
 const ContactUs = () => {
     return (
         <>
-            <AppAppBar />
             <Contact />
-            <AppFooter />
         </>
     );
 };

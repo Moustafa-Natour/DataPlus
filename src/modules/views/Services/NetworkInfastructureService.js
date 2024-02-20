@@ -1,8 +1,6 @@
 // NetworkInfrastructureService.js
 import React from 'react';
 import { Container, Typography, Box, Button } from '@mui/material';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import { BoxSx, ContainerSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { NetworkInfrastructureServiceData } from '../../data/NetworkInfrastructureServiceData';
@@ -10,7 +8,6 @@ import { NetworkInfrastructureServiceData } from '../../data/NetworkInfrastructu
 const NetworkInfrastructureServiceView = () => {
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
@@ -47,7 +44,6 @@ const NetworkInfrastructureServiceView = () => {
                     </Box>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 };

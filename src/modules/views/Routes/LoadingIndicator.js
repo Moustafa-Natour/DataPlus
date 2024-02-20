@@ -1,9 +1,11 @@
 // LoadingIndicator.js
 import React from 'react';
-import LinearProgress from '@mui/material/LinearProgress';
 import { styled } from '@mui/system';
+import LinearBuffer from './LinearBuffer'; // Import LinearProgressWithLabel
 import logo from '../../assets/images/Dicon.png'; // Import your logo image
 import './LoadingIndicator.css'; // Import the CSS file
+import { ContainerSx } from '../../utils/StyleSx';
+import { Container } from '@mui/material';
 
 const RootContainer = styled('div')({
     display: 'flex',
@@ -19,16 +21,13 @@ const Logo = styled('img')(({ theme }) => ({
     animation: 'spin 1.5s infinite linear', // Apply spinning animation
 }));
 
-const LinearProgressBar = styled(LinearProgress)(({ theme }) => ({
-    width: '80%', // Adjust the width of the progress bar as needed
-    marginTop: theme.spacing(2),
-}));
-
-function LoadingIndicator() {
+function LoadingIndicator({ progress }) {
     return (
         <RootContainer>
-            <Logo src={logo} alt="Logo" />
-            <LinearProgressBar />
+            <Container maxWidth="sm" sx={ContainerSx}>
+                <Logo src={logo} alt="Logo" />
+                <LinearBuffer value={progress} />
+            </Container>
         </RootContainer>
     );
 }

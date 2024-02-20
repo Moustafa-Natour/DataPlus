@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import { Accordion, AccordionSummary, AccordionDetails, Box, Typography, Container, Tabs, Tab } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { BoxSx, ContainerSx, TypographyHeaderSx } from '../../utils/StyleSx';
@@ -25,7 +23,6 @@ const AnswersView = () => {
     };
     return (
         <>
-            <AppAppBar />
             <Container fixed sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h4" sx={TypographyHeaderSx}>
@@ -73,7 +70,6 @@ const AnswersView = () => {
                     </Box>
                 </Box>
             </Container>
-            <AppFooter />
 
         </>
     );

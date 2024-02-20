@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from '@mui/material';
 import Typography from '../../components/Typography';
 import { ContainerSx } from '../../utils/StyleSx';
-import AppAppBar from '../AppBar/AppAppBar';
 
 
 const Test = () => {
@@ -15,7 +14,6 @@ const Test = () => {
 
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Typography variant={'body1'} sx={{ textAlign: 'center' }}>
                     test screen for issa

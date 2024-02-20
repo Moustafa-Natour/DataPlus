@@ -1,11 +1,11 @@
 // Routes.js
 import React, { lazy, Suspense } from 'react';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import LoadingIndicator from './LoadingIndicator'; // Import LoadingIndicator
 
 
 const Home = lazy(() => import('../Home/Home'));
-const LoadingIndicator = lazy(() => import('./LoadingIndicator'));
 const AboutUs = lazy(() => import('../Faq/AboutUs'));
 const ContactUs = lazy(() => import('../Faq/ContactUs'));
 const Adsl = lazy(() => import('../Internet/Adsl'));
@@ -29,6 +29,8 @@ const CloudComputingService = lazy(() => import('../Services/CloudComputingServi
 const WebHosting = lazy(() => import('../Services/WebHosting'));
 const Test = lazy(() => import('../Test/Test'));
 const index = lazy(() => import('../Analytics/index'));
+const AppAppBar = lazy(() => import('../AppBar/AppAppBar'));
+const AppFooter = lazy(() => import('../AppBar/AppFooter'));
 
 const routes = [
     { path: '/', component: Home, title: 'Home' },
@@ -54,9 +56,9 @@ const routes = [
     { path: '/microwave', component: Microwave, title: 'Microwave' },
     { path: '/corporatedsl', component: CorporateDsl, title: 'Corporate DSL' },
     { path: '/samaflix', component: SamaFlix, title: 'SamaFlix' },
+    { path: '/loadingindicator', component: LoadingIndicator, title: 'Loading' },
     { path: '*', component: NotFound, title: '404 Not Found' },
 ];
-
 
 function AppRoutes() {
     return (
@@ -64,6 +66,8 @@ function AppRoutes() {
             <Helmet>
                 <title>Data Plus S.A.R.L</title>
             </Helmet>
+            {/* AppAppBar and AppFooter components */}
+            <AppAppBar />
             <Suspense fallback={<LoadingIndicator />}>
                 <Routes>
                     {routes.map(({ path, component: Component, title }) => (
@@ -82,7 +86,7 @@ function AppRoutes() {
                     ))}
                 </Routes>
             </Suspense>
-
+            <AppFooter />
         </>
     );
 }

@@ -1,6 +1,4 @@
 import React from 'react';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import { Container, Typography, Box, Button } from '@mui/material';
 import { BoxSx, ContainerSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
@@ -9,7 +7,6 @@ import { ContentDeliveryNetworksData } from '../../data/ContentDeliveryNetworksD
 const ContentDeliveryNetworksView = () => {
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
@@ -44,7 +41,6 @@ const ContentDeliveryNetworksView = () => {
                     </Box>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 };

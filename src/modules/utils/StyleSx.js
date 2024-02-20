@@ -52,6 +52,7 @@ export const iconStyle = {
     transition: 'background-color 0.3s',
     '&:hover': {
         backgroundColor: '#13489e', // Default background color on hover
+
     },
 };
 
@@ -131,11 +132,16 @@ export const rightLink = {
     '&:hover': {
         color: 'common.white !important',
         textDecoration: 'none',
+        transform: 'scale(1.015)', // Scale the link slightly on hover
+
     },
     '&:active': {
         color: 'common.white !important',
         textDecoration: 'none',
-    }
+    },
+    transition: 'color 0.3s ease-in-out', // Add smooth color transition
+    cursor: 'pointer', // Change cursor on hover
+    padding: '4px', // Add padding for better click area
 
 };
 export const menuStyle = {

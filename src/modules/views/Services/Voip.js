@@ -1,8 +1,6 @@
 // VoipView.js
 import React from 'react';
 import { Container, Typography, Box, Button } from '@mui/material';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import { BoxSx, ContainerSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { VoipData } from '../../data/VoipData';
@@ -10,7 +8,6 @@ import { VoipData } from '../../data/VoipData';
 const VoipView = () => {
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
@@ -40,7 +37,6 @@ const VoipView = () => {
                     </Box>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 };

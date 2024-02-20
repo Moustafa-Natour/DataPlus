@@ -3,8 +3,6 @@ import { Field, Form, FormSpy } from 'react-final-form';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '../../../components/Typography';
-import AppFooter from '../AppBar/AppFooter';
-import AppAppBar from '../AppBar/AppAppBar';
 import AppForm from './AppForm';
 import { email, required } from '../../../form/validation';
 import RFTextField from '../../../form/RFTextField';
@@ -34,7 +32,6 @@ function SignIn() {
 
     return (
         <React.Fragment>
-            <AppAppBar />
             <AppForm>
                 <React.Fragment>
                     <Typography variant="h3" gutterBottom marked="center" align="center">
@@ -109,7 +106,6 @@ function SignIn() {
                     </Link>
                 </Typography>
             </AppForm>
-            <AppFooter />
         </React.Fragment>
     );
 }

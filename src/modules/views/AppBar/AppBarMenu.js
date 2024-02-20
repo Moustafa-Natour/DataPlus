@@ -21,6 +21,7 @@ let LogoView = () => {
                 align="center"
                 underline="none"
                 href="/"
+                sx={{ ...rightLink }}
             >
                 <img
                     src="/Dataplus.svg"

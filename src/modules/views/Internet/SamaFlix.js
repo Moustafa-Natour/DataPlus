@@ -1,6 +1,4 @@
 import React from 'react';
-import AppAppBar from '../AppBar/AppAppBar';
-import AppFooter from '../AppBar/AppFooter';
 import { Box, Container, Typography, Grid, Card, CardMedia } from '@mui/material';
 import { BoxSx, ContainerSx, TypographyHeaderSx } from '../../utils/StyleSx';
 
@@ -14,7 +12,6 @@ const SamaFlixView = () => {
 
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" sx={TypographyHeaderSx}>
@@ -51,7 +48,6 @@ const SamaFlixView = () => {
                     </Box>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 };

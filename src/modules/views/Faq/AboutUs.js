@@ -1,14 +1,11 @@
 import React from 'react';
 import { Typography, Box, Container, Card, CardMedia, CardContent } from '@mui/material';
-import AppAppBar from '../AppBar/AppAppBar'
-import AppFooter from '../AppBar/AppFooter'
 import { BoxSx, ContainerSx, TypographyHeaderSx } from '../../utils/StyleSx';
 import { Description, Title } from '../../data/AboutUsData';
 
 let CompanyInfo = () => {
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" align="center" sx={TypographyHeaderSx}>
@@ -43,7 +40,6 @@ let CompanyInfo = () => {
                     </CardContent>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 }

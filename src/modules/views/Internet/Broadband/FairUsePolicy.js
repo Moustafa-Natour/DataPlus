@@ -1,7 +1,6 @@
 // FairUsePolicy.js
 import React from 'react';
-import AppAppBar from '../../AppBar/AppAppBar';
-import AppFooter from '../../AppBar/AppFooter';
+
 import { Container, Typography, Box, Link } from '@mui/material';
 import { ContainerSx, BoxSx, TypographyHeaderSx } from '../../../utils/StyleSx';
 import { FairUsePolicyData } from '../../../data/FairUsePolicyData';
@@ -9,7 +8,6 @@ import { FairUsePolicyData } from '../../../data/FairUsePolicyData';
 const FairUsePolicyView = () => {
     return (
         <>
-            <AppAppBar />
             <Container sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" sx={TypographyHeaderSx}>
@@ -41,7 +39,6 @@ const FairUsePolicyView = () => {
                     </Typography>
                 </Box>
             </Container>
-            <AppFooter />
         </>
     );
 };

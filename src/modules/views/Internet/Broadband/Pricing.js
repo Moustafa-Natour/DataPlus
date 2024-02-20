@@ -8,8 +8,6 @@ import {
     GlobalStyles,
     Container
 } from '@mui/material';
-import AppFooter from '../../AppBar/AppFooter';
-import AppAppBar from '../../AppBar/AppAppBar';
 import PricingCard from './PricingCard';
 import { tiers, details } from '../../../data/pricingData';
 import {
@@ -102,7 +100,6 @@ const Pricing = () => {
         <>
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
-            <AppAppBar />
             <Container disableGutters component="main" sx={ContainerSx}>
                 <Box sx={BoxSx}>
                     <Typography component="h1" variant="h2" align="center" color="text.primary" sx={TypographyHeaderSx} gutterBottom >
@@ -136,7 +133,6 @@ const Pricing = () => {
                     handleOpenFullScreenDescription={handleOpenFullScreenDescription}
                 />
             )}
-            <AppFooter />
         </>
     );
 };

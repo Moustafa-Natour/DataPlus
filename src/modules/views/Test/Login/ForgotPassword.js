@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Field, Form, FormSpy } from 'react-final-form';
 import Box from '@mui/material/Box';
 import Typography from '../../../components/Typography';
-import AppFooter from '../../AppBar/AppFooter';
-import AppAppBar from '../../AppBar/AppAppBar';
 import AppForm from './AppForm';
 import { email, required } from '../../../form/validation';
 import RFTextField from '../../../form/RFTextField';
@@ -33,7 +31,6 @@ function ForgotPassword() {
 
     return (
         <React.Fragment>
-            <AppAppBar />
             <AppForm>
                 <React.Fragment>
                     <Typography variant="h3" gutterBottom marked="center" align="center">
@@ -85,7 +82,6 @@ function ForgotPassword() {
                     )}
                 </Form>
             </AppForm>
-            <AppFooter />
         </React.Fragment>
     );
 }
