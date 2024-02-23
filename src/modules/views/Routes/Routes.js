@@ -69,7 +69,7 @@ function AppRoutes() {
             {/* AppAppBar and AppFooter components */}
             <AppAppBar />
             <Suspense fallback={<LoadingIndicator />}>
-                <Routes>
+                <Routes basename="/react/">
                     {routes.map(({ path, component: Component, title }) => (
                         <Route
                             key={path}
