@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <AnalyticsProvider>
-        <Router basename='/react'>
+        <Router basename='/react/'>
           <LocationDataFetcher />
           <AppRoutes />
         </Router>

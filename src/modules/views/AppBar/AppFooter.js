@@ -6,18 +6,28 @@ import Container from '@mui/material/Container';
 import Typography from '../../components/Typography';
 import { handleWhatsApp, handlePageChange } from '../../utils/ComonFunc';
 import { AppFooterSx, whatsappIconStyle, facebookIconStyle, instagramIconStyle, telegramIconStyle, iconStyle, rightLink } from "../../utils/StyleSx";
-
+import { BASENAME } from '../../utils/EnvVar';
 // Lazy load icons
 const LazyLoadedWhatsAppIcon = React.lazy(() => import('@mui/icons-material/WhatsApp'));
 const LazyLoadedFacebookIcon = React.lazy(() => import('@mui/icons-material/Facebook'));
 const LazyLoadedInstagramIcon = React.lazy(() => import('@mui/icons-material/Instagram'));
 const LazyLoadedTelegramIcon = React.lazy(() => import('@mui/icons-material/Telegram'));
 
+const currentPathname = window.location.pathname;
+
+// Check if the current pathname already contains BASENAME
+const isBaseNameAlreadyIncluded = currentPathname.startsWith(BASENAME);
+
+// Function to construct URL with BASENAME
+const constructUrlWithBaseName = (path) => {
+    return isBaseNameAlreadyIncluded ? `${BASENAME}${path}` : `/react${path}`;
+};
+
 function Copyright() {
     return (
         <React.Fragment>
             {'© 2016 '}
-            <Link color="inherit" href="/" sx={{ textDecoration: 'none', color: '#fff' }}>
+            <Link color="inherit" href={constructUrlWithBaseName('/home')} sx={{ textDecoration: 'none', color: '#fff' }}>
                 All Right Reserved
             </Link>
         </React.Fragment>
@@ -25,6 +35,16 @@ function Copyright() {
 }
 
 function AppFooter() {
+    const currentPathname = window.location.pathname;
+
+    // Check if the current pathname already contains BASENAME
+    const isBaseNameAlreadyIncluded = currentPathname.startsWith(BASENAME);
+
+    // Function to construct URL with BASENAME
+    const constructUrlWithBaseName = (path) => {
+        return isBaseNameAlreadyIncluded ? `${BASENAME}${path}` : `/react${path}`;
+    };
+
     return (
         <Typography id="AppFooter" component="footer" sx={AppFooterSx}>
             <Container sx={{ my: 1, display: 'flex' }}>
@@ -59,7 +79,7 @@ function AppFooter() {
                         </Grid>
                         <Grid container justifyContent="center" alignItems="center">
                             <Grid item xs={12} sm={12} md={12} sx={{ display: 'flex' }} justifyContent="center" alignItems="center">
-                                <Link variant="a" underline="none" href="/" sx={{ ...rightLink, justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
+                                <Link variant="a" underline="none" href={constructUrlWithBaseName('/home')} sx={{ ...rightLink, justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
                                     <img
                                         src="assets/logo/Dplusfooter.svg"
                                         alt="DATA PLUS"

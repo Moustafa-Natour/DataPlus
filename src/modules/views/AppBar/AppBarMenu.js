@@ -1,43 +1,10 @@
-import React from 'react'
+import React from 'react';
 import Popover from '@mui/material/Popover';
 import MenuItem from '@mui/material/MenuItem';
 import { rightLink, menuStyle } from '../../utils/StyleSx';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-
-
-let LogoView = () => {
-    return (
-        <Box
-            sx={{
-                flex: 1,
-                display: 'flex',
-                justifyContent: 'flex-start',
-
-            }}
-        >
-            <Link
-                variant="a"
-                align="center"
-                underline="none"
-                href="/"
-                sx={{ ...rightLink }}
-            >
-                <img
-                    src="assets/logo/Dataplus.svg"
-                    alt="DATA PLUS"
-                    width="150"
-                    height="65"
-                    style={{
-                        objectFit: 'cover', // Maintain aspect ratio and cover the entire container
-                        display: 'block', // Ensure the image is treated as a block element
-                        overflow: 'hidden', // Hide any overflow
-                    }}
-                />
-            </Link>
-        </Box >
-    );
-}
+import { BASENAME } from '../../utils/EnvVar';
 
 const AppBarMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -61,7 +28,7 @@ const AppBarMenu = () => {
             setServicesMenuOpen(true);
             setServicesMenuAnchorEl(event.currentTarget);
         }
-    }
+    };
 
     const handleNestedMenuOpen = (event, menuType) => {
         if (menuType === 'residential') {
@@ -84,7 +51,6 @@ const AppBarMenu = () => {
         setResidentialNestedMenuOpen(false);
         setCorporateNestedMenuOpen(false);
         setIPTVNestedMenuOpen(false);
-
     };
 
     const handleNestedMenuClose = () => {
@@ -94,13 +60,49 @@ const AppBarMenu = () => {
 
     const isMenuOpen = Boolean(anchorEl);
 
+    const currentPathname = window.location.pathname;
+
+    // Check if the current pathname already contains BASENAME
+    const isBaseNameAlreadyIncluded = currentPathname.startsWith(BASENAME);
+
+    // Function to construct URL with BASENAME
+    const constructUrlWithBaseName = (path) => {
+        return isBaseNameAlreadyIncluded ? `${BASENAME}${path}` : `/react${path}`;
+    };
 
     return (
         <>
-            <LogoView />
+            <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+                <Box
+                    sx={{
+                        flex: 1,
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                    }}
+                >
+                    <Link
+                        variant="a"
+                        align="center"
+                        underline="none"
+                        href={constructUrlWithBaseName('/home')}
+                        sx={{ color: '#fff' }} // Adjust styles as needed
+                    >
+                        <img
+                            src="assets/logo/Dataplus.svg"
+                            alt="DATA PLUS"
+                            width="150"
+                            height="65"
+                            style={{
+                                objectFit: 'cover', // Maintain aspect ratio and cover the entire container
+                                display: 'block', // Ensure the image is treated as a block element
+                                overflow: 'hidden', // Hide any overflow
+                            }}
+                        />
+                    </Link>
+                </Box>
+            </Box>
             <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
                 {/* Internet Menu Section */}
-
                 <Link
                     variant="h6"
                     underline="none"
@@ -114,21 +116,9 @@ const AppBarMenu = () => {
                     open={isMenuOpen && menuSection === 'residential'}
                     anchorEl={anchorEl}
                     onClose={handleMenuClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    PaperProps={{
-                        style: {
-                            ...menuStyle,
-                            minWidth: '200px',
-                            maxWidth: '300px',
-                        },
-                    }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
                 >
                     <MenuItem
                         onClick={(event) => handleNestedMenuOpen(event, 'residential')}
@@ -140,34 +130,22 @@ const AppBarMenu = () => {
                         open={isResidentialNestedMenuOpen}
                         anchorEl={residentialNestedAnchorEl}
                         onClose={handleNestedMenuClose}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        PaperProps={{
-                            style: {
-                                ...menuStyle,
-                                minWidth: '200px',
-                                maxWidth: '300px',
-                            },
-                        }}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                        PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
                     >
-                        <MenuItem onClick={handleMenuClose} component="a" href="/broadband" sx={{ ...rightLink, cursor: 'pointer' }}>
+                        {/* Adjusted menu items */}
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/broadband')} sx={{ ...rightLink, cursor: 'pointer' }}>
                             Broadband
                         </MenuItem>
-                        <MenuItem onClick={handleMenuClose} component="a" href="/adsl" sx={{ ...rightLink, cursor: 'pointer' }}>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/adsl')} sx={{ ...rightLink, cursor: 'pointer' }}>
                             ADSL
                         </MenuItem>
-                        <MenuItem onClick={handleMenuClose} component="a" href="/vdsl" sx={{ ...rightLink, cursor: 'pointer' }}>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/vdsl')} sx={{ ...rightLink, cursor: 'pointer' }}>
                             VDSL
                         </MenuItem>
                     </Popover>
-
-                    {/* Add additional menu items for Corporate Internet */}
+                    {/* Adjusted additional menu items for Corporate Internet */}
                     <MenuItem
                         onClick={(event) => handleNestedMenuOpen(event, 'corporate')}
                         sx={{ ...rightLink, cursor: 'pointer' }}
@@ -178,34 +156,20 @@ const AppBarMenu = () => {
                         open={isCorporateNestedMenuOpen}
                         anchorEl={corporateNestedAnchorEl}
                         onClose={handleNestedMenuClose}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        PaperProps={{
-                            style: {
-                                ...menuStyle,
-                                minWidth: '200px',
-                                maxWidth: '300px',
-                            },
-                        }}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                        transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                        PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
                     >
-
-                        <MenuItem onClick={handleMenuClose} component="a" href="/corporatedsl" sx={{ ...rightLink, cursor: 'pointer' }}>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/corporatedsl')} sx={{ ...rightLink, cursor: 'pointer' }}>
                             Corporate DSL
                         </MenuItem>
-                        <MenuItem onClick={handleMenuClose} component="a" href="/microwave" sx={{ ...rightLink, cursor: 'pointer' }}>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/microwave')} sx={{ ...rightLink, cursor: 'pointer' }}>
                             Microwave
                         </MenuItem>
                     </Popover>
                 </Popover>
-
                 {/*  Services Menu Section */}
-
+                {/* Adjusted links */}
                 <Link
                     variant="h6"
                     underline="none"
@@ -219,53 +183,60 @@ const AppBarMenu = () => {
                     open={isMenuOpen && menuSection === 'services'}
                     anchorEl={servicesMenuAnchorEl}
                     onClose={handleMenuClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    PaperProps={{
-                        style: {
-                            ...menuStyle,
-                            minWidth: '200px',
-                            maxWidth: '300px',
-                        },
-                    }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
                 >
-                    <MenuItem onClick={handleMenuClose} component="a" href="/vpn" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        VPN
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/domainregister" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Domain Registration
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/voip" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        VOIP
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/webhosting" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Website Hosting
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/networksolutions" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Network Solutions
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/contentdeliverynetwork" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Content Delivery Networks
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/technicalsupport" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Techincal Support
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/networkinfrastructureservices" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Network Infastructure Services
-                    </MenuItem>
-                    <MenuItem onClick={handleMenuClose} component="a" href="/cloudcomputingservices" sx={{ ...rightLink, cursor: 'pointer' }}>
-                        Cloud computing Services
-                    </MenuItem>
+                    {/*  Services Menu Section */}
+                    <Link
+                        variant="h6"
+                        underline="none"
+                        aria-haspopup="true"
+                        onMouseEnter={(event) => handleMenuOpen(event, 'services')}
+                        sx={{ ...rightLink, color: '#58a0fa !important' }}
+                    >
+                        {'SERVICES'}
+                    </Link>
+                    <Popover
+                        open={isMenuOpen && menuSection === 'services'}
+                        anchorEl={servicesMenuAnchorEl}
+                        onClose={handleMenuClose}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                        transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+                        PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
+                    >
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/vpn')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            VPN
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/domainregister')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Domain Registration
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/voip')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            VOIP
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/webhosting')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Website Hosting
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/networksolutions')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Network Solutions
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/contentdeliverynetwork')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Content Delivery Networks
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/technicalsupport')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Technical Support
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/networkinfrastructureservices')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Network Infrastructure Services
+                        </MenuItem>
+                        <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/cloudcomputingservices')} sx={{ ...rightLink, cursor: 'pointer' }}>
+                            Cloud Computing Services
+                        </MenuItem>
+                    </Popover>
+
                 </Popover>
-
                 {/*  IPTV Menu Section */}
-
+                {/* Adjusted links */}
                 <Link
                     variant="h6"
                     underline="none"
@@ -279,35 +250,22 @@ const AppBarMenu = () => {
                     open={isMenuOpen && menuSection === 'iptv'}
                     anchorEl={anchorEl}
                     onClose={handleMenuClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    PaperProps={{
-                        style: {
-                            ...menuStyle,
-                            minWidth: '200px',
-                            maxWidth: '300px',
-                        },
-                    }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
                 >
                     <MenuItem
                         onClick={handleNestedMenuClose}
                         component="a"
-                        href="/samaflix"
+                        href={constructUrlWithBaseName('/samaflix')}
                         sx={{ ...rightLink, cursor: 'pointer' }}
                     >
                         SAMA FLIX
                     </MenuItem>
-                    {/* Add more IPTV-related menu items as needed */}
+                    {/* Adjust more IPTV-related menu items as needed */}
                 </Popover>
-
                 {/*  FAQ Menu Section */}
-
+                {/* Adjusted links */}
                 <Link
                     variant="h6"
                     underline="none"
@@ -321,52 +279,23 @@ const AppBarMenu = () => {
                     open={isMenuOpen && menuSection === 'faq'}
                     anchorEl={anchorEl}
                     onClose={handleMenuClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    PaperProps={{
-                        style: {
-                            ...menuStyle,
-                            minWidth: '200px',
-                            maxWidth: '300px',
-                        },
-                    }}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    PaperProps={{ style: { ...menuStyle, minWidth: '200px', maxWidth: '300px' } }}
                 >
-
-                    <MenuItem
-                        onClick={handleMenuClose}
-                        component="a"
-                        href="/aboutus"
-                        sx={{ ...rightLink, cursor: 'pointer' }}
-                    >
+                    <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/aboutus')} sx={{ ...rightLink, cursor: 'pointer' }}>
                         About Us
                     </MenuItem>
-                    <MenuItem
-                        onClick={handleMenuClose}
-                        component="a"
-                        href="/contactus"
-                        sx={{ ...rightLink, cursor: 'pointer' }}
-                    >
+                    <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/contactus')} sx={{ ...rightLink, cursor: 'pointer' }}>
                         Contact Us
                     </MenuItem>
-                    <MenuItem
-                        onClick={handleMenuClose}
-                        component="a"
-                        href="/answers"
-                        sx={{ ...rightLink, cursor: 'pointer' }}
-                    >
+                    <MenuItem onClick={handleMenuClose} component="a" href={constructUrlWithBaseName('/answers')} sx={{ ...rightLink, cursor: 'pointer' }}>
                         Answers
                     </MenuItem>
                 </Popover>
             </Box>
         </>
+    );
+};
 
-    )
-}
-
-export default AppBarMenu
+export default AppBarMenu;

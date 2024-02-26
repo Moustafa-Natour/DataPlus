@@ -33,8 +33,8 @@ const AppAppBar = lazy(() => import('../AppBar/AppAppBar'));
 const AppFooter = lazy(() => import('../AppBar/AppFooter'));
 
 const routes = [
-    { path: '/', component: Home, title: 'Home' },
-    { path: '/index', component: index, title: 'Analytics Dashboard' },
+    { path: '/home', component: Home, title: 'Home' },
+    // { path: '/index', component: index, title: 'Analytics Dashboard' },
     { path: '/aboutus', component: AboutUs, title: 'About Us' },
     { path: '/test', component: Test, title: 'Testing Page' },
     { path: '/vpn', component: Vpn, title: 'VPN' },
@@ -59,6 +59,8 @@ const routes = [
     { path: '/loadingindicator', component: LoadingIndicator, title: 'Loading' },
     { path: '*', component: NotFound, title: '404 Not Found' },
 ];
+
+
 
 function AppRoutes() {
     return (

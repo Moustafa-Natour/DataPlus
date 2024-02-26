@@ -1,7 +1,7 @@
 {
   "name": "Data Plus SARL",
   "version": "0.1.0",
-  "homepage": "/react",
+  "homepage": "/react/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -10,6 +10,7 @@
     "@mui/system": "^5.15.7",
     "@mui/x-data-grid": "^6.19.2",
     "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
     "framer-motion": "^10.18.0",
     "leaflet": "^1.9.4",
     "markdown-to-jsx": "^7.3.2",
