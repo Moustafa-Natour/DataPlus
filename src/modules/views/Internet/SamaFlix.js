@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Card, CardMedia } from '@mui/material';
-import { BoxSx, ContainerSx, TypographyHeaderSx } from '../../utils/StyleSx';
+import { Box, Typography, Grid, Card, CardMedia } from '@mui/material';
+import { BoxSx, TypographyHeaderSx } from '../../utils/StyleSx';
+import Container from '../../components/Container';
 
 const SamaFlixView = () => {
     const tvChannels = getChannelImages();
@@ -12,7 +13,7 @@ const SamaFlixView = () => {
 
     return (
         <>
-            <Container sx={ContainerSx}>
+            <Container>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" sx={TypographyHeaderSx}>
                         SamaFlix

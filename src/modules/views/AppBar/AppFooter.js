@@ -7,6 +7,7 @@ import Typography from '../../components/Typography';
 import { handleWhatsApp, handlePageChange } from '../../utils/ComonFunc';
 import { AppFooterSx, whatsappIconStyle, facebookIconStyle, instagramIconStyle, telegramIconStyle, iconStyle, rightLink } from "../../utils/StyleSx";
 import { BASENAME } from '../../utils/EnvVar';
+import logoImg from "../../assets/logo/Dplusfooter.svg";
 // Lazy load icons
 const LazyLoadedWhatsAppIcon = React.lazy(() => import('@mui/icons-material/WhatsApp'));
 const LazyLoadedFacebookIcon = React.lazy(() => import('@mui/icons-material/Facebook'));
@@ -81,7 +82,7 @@ function AppFooter() {
                             <Grid item xs={12} sm={12} md={12} sx={{ display: 'flex' }} justifyContent="center" alignItems="center">
                                 <Link variant="a" underline="none" href={constructUrlWithBaseName('/home')} sx={{ ...rightLink, justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
                                     <img
-                                        src="assets/logo/Dplusfooter.svg"
+                                        src={logoImg}
                                         alt="DATA PLUS"
                                         width="200"
                                         height="40"

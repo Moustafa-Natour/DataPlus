@@ -6,7 +6,7 @@ import Typography from '../../components/Typography';
 import curvyLinesImage from '../../assets/images/productCurvyLines.png';
 import { scrollToSection, handleEmail } from '../../utils/ComonFunc';
 import { motion } from 'framer-motion';
-
+import contactImg from "../../assets/logo/contact.jpg";
 
 function ProductSmokingHero() {
     const arrowRef = useRef(null);
@@ -26,7 +26,7 @@ function ProductSmokingHero() {
 
             <Box
                 component="img"
-                src="assets/logo/contact.jpg"
+                src={contactImg}
                 alt="Contact us"
                 sx={{ my: 2, objectFit: 'contain', width: '90%', height: '90%', borderRadius: 7 }}
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container } from '@mui/material';
 import Typography from '../../components/Typography';
-import { ContainerSx } from '../../utils/StyleSx';
+import Container from '../../components/Container';
 
 
 const Test = () => {
@@ -14,7 +13,7 @@ const Test = () => {
 
     return (
         <>
-            <Container sx={ContainerSx}>
+            <Container >
                 <Typography variant={'body1'} sx={{ textAlign: 'center' }}>
                     test screen for issa
                 </Typography>

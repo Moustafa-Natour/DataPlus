@@ -5,6 +5,7 @@ import { rightLink, menuStyle } from '../../utils/StyleSx';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import { BASENAME } from '../../utils/EnvVar';
+import logoImg from '../../assets/logo/Dataplus.svg';
 
 const AppBarMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -70,36 +71,43 @@ const AppBarMenu = () => {
         return isBaseNameAlreadyIncluded ? `${BASENAME}${path}` : `/react${path}`;
     };
 
+    let LogoView = () => {
+        return (
+            <Box
+                sx={{
+                    flex: 1,
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                }}
+            >
+                <Link
+                    variant="a"
+                    align="center"
+                    underline="none"
+                    href={constructUrlWithBaseName('/home')}
+                    sx={{ color: '#fff' }} // Adjust styles as needed
+                >
+
+                    <img
+                        src={logoImg}
+                        alt="DATA PLUS"
+                        width="150"
+                        height="65"
+                        style={{
+                            objectFit: 'cover', // Maintain aspect ratio and cover the entire container
+                            display: 'block', // Ensure the image is treated as a block element
+                            overflow: 'hidden', // Hide any overflow
+                        }}
+                    />
+                </Link>
+            </Box>
+        )
+    }
+
     return (
         <>
             <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-                <Box
-                    sx={{
-                        flex: 1,
-                        display: 'flex',
-                        justifyContent: 'flex-start',
-                    }}
-                >
-                    <Link
-                        variant="a"
-                        align="center"
-                        underline="none"
-                        href={constructUrlWithBaseName('/home')}
-                        sx={{ color: '#fff' }} // Adjust styles as needed
-                    >
-                        <img
-                            src="assets/logo/Dataplus.svg"
-                            alt="DATA PLUS"
-                            width="150"
-                            height="65"
-                            style={{
-                                objectFit: 'cover', // Maintain aspect ratio and cover the entire container
-                                display: 'block', // Ensure the image is treated as a block element
-                                overflow: 'hidden', // Hide any overflow
-                            }}
-                        />
-                    </Link>
-                </Box>
+                <LogoView />
             </Box>
             <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
                 {/* Internet Menu Section */}

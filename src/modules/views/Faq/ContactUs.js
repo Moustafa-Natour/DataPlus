@@ -1,13 +1,14 @@
 import React from 'react';
-import { Container, Typography, Box, Link, Divider } from '@mui/material';
+import { Typography, Box, Link, Divider } from '@mui/material';
 import ProductCTA from './ProductCTA';
-import { BoxSx, ContainerSx, TypographyHeaderSx, listItemStyle } from '../../utils/StyleSx';
+import { BoxSx, TypographyHeaderSx, listItemStyle } from '../../utils/StyleSx';
 import { handleEmail, handlePhoneCall, handleWhatsApp, scrollToSection } from '../../utils/ComonFunc';
 import { ContactData } from '../../data/ContactData';
+import Container from '../../components/Container';
 
 const Contact = () => {
     return (
-        <Container sx={ContainerSx}>
+        <Container>
             <Box sx={BoxSx}>
                 <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                     {ContactData.title}

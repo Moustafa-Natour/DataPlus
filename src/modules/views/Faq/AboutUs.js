@@ -1,12 +1,14 @@
 import React from 'react';
-import { Typography, Box, Container, Card, CardMedia, CardContent } from '@mui/material';
-import { BoxSx, ContainerSx, TypographyHeaderSx } from '../../utils/StyleSx';
+import { Typography, Box, Card, CardMedia, CardContent } from '@mui/material';
+import { BoxSx, TypographyHeaderSx } from '../../utils/StyleSx';
 import { Description, Title } from '../../data/AboutUsData';
+import Container from '../../components/Container';
+import aboutUsVideo from '../../assets/videos/aboutus.mp4';
 
 let CompanyInfo = () => {
     return (
         <>
-            <Container sx={ContainerSx}>
+            <Container >
                 <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" align="center" sx={TypographyHeaderSx}>
                         {Title}
@@ -20,7 +22,7 @@ let CompanyInfo = () => {
                             loop
                             height="100%"
                             objectFit="cover"
-                            src="/assets/videos/aboutus.mp4"
+                            src={aboutUsVideo}
                             alt="Company Video"
                         />
                     </Card>

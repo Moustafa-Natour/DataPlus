@@ -1,14 +1,15 @@
 // TechnicalSupportView.js
 import React from 'react';
-import { Container, Typography, Box, Button } from '@mui/material';
-import { BoxSx, ContainerSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import { Typography, Box, Button } from '@mui/material';
+import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { TechnicalSupportData } from '../../data/TechnicalSupportData';
+import Container from '../../components/Container';
 
 const TechnicalSupportView = () => {
     return (
         <>
-            <Container sx={ContainerSx}>
+            <Container >
                 <Box sx={BoxSx}>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {TechnicalSupportData.title}

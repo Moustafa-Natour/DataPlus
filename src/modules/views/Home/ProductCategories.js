@@ -6,6 +6,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Container from '@mui/material/Container';
 import Typography from '../../components/Typography';
 
+
 const FullScreenImageOverlay = styled('div')({
     position: 'fixed',
     top: 35,

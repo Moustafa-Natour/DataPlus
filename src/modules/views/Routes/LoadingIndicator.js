@@ -4,8 +4,8 @@ import { styled } from '@mui/system';
 import LinearBuffer from './LinearBuffer'; // Import LinearProgressWithLabel
 import logo from '../../assets/images/Dicon.png'; // Import your logo image
 import './LoadingIndicator.css'; // Import the CSS file
-import { ContainerSx } from '../../utils/StyleSx';
-import { Container } from '@mui/material';
+import Container from '../../components/Container';
+
 
 const RootContainer = styled('div')({
     display: 'flex',
@@ -24,7 +24,7 @@ const Logo = styled('img')(({ theme }) => ({
 function LoadingIndicator({ progress }) {
     return (
         <RootContainer>
-            <Container maxWidth="sm" sx={ContainerSx}>
+            <Container maxWidth="sm" >
                 <Logo src={logo} alt="Logo" />
                 <LinearBuffer value={progress} />
             </Container>

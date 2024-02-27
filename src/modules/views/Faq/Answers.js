@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Accordion, AccordionSummary, AccordionDetails, Box, Typography, Container, Tabs, Tab } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Box, Typography, Tabs, Tab } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { BoxSx, ContainerSx, TypographyHeaderSx } from '../../utils/StyleSx';
+import { BoxSx, TypographyHeaderSx } from '../../utils/StyleSx';
 import { FiberQuestionsAndAnswers, AdslQuestionsAndAnswers, FqaQuestionsAndAnswers } from '../../data/AnswersData';
+import Container from '../../components/Container';
 
 const AnswersView = () => {
     const [selectedCategory, setSelectedCategory] = useState('fiber');
@@ -23,7 +24,7 @@ const AnswersView = () => {
     };
     return (
         <>
-            <Container fixed sx={ContainerSx}>
+            <Container>
                 <Box sx={BoxSx}>
                     <Typography variant="h4" sx={TypographyHeaderSx}>
                         {selectedCategory === 'fiber'

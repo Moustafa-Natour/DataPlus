@@ -6,13 +6,12 @@ import {
     Grid,
     Typography,
     GlobalStyles,
-    Container
 } from '@mui/material';
+import Container from '../../../components/Container';
 import PricingCard from './PricingCard';
 import { tiers, details } from '../../../data/pricingData';
 import {
     BoxSx,
-    ContainerSx,
     TypographyHeaderSx,
     listItemStyle,
     TypographyStyle,
@@ -38,7 +37,7 @@ const Pricing = () => {
                 {'All profiles are subject to our'}
                 <Typography
                     variant="subtitle2"
-                    onClick={() => { window.location.href = "/fairusepolicy" }}
+                    onClick={() => { window.location.href = "/react/fairusepolicy" }}
                     sx={{
                         ...listItemStyle, textAlign: 'center', fontSize: { xs: 12, md: 20 },
                         display: 'inline', // or 'display: inline-block'
@@ -100,7 +99,7 @@ const Pricing = () => {
         <>
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
-            <Container disableGutters component="main" sx={ContainerSx}>
+            <Container >
                 <Box sx={BoxSx}>
                     <Typography component="h1" variant="h2" align="center" color="text.primary" sx={TypographyHeaderSx} gutterBottom >
                         Broadband Pricing

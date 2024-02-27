@@ -1,14 +1,16 @@
 // FairUsePolicy.js
 import React from 'react';
 
-import { Container, Typography, Box, Link } from '@mui/material';
-import { ContainerSx, BoxSx, TypographyHeaderSx } from '../../../utils/StyleSx';
+import { Typography, Box, Link } from '@mui/material';
+import { BoxSx, TypographyHeaderSx } from '../../../utils/StyleSx';
 import { FairUsePolicyData } from '../../../data/FairUsePolicyData';
+import Container from '../../../components/Container';
+
 
 const FairUsePolicyView = () => {
     return (
         <>
-            <Container sx={ContainerSx}>
+            <Container>
                 <Box sx={BoxSx}>
                     <Typography variant="h1" sx={TypographyHeaderSx}>
                         {FairUsePolicyData.title}

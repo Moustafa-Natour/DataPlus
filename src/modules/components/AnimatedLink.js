@@ -13,8 +13,7 @@ const AnimatedLink = ({ to, children }) => {
         >
             <Link
                 to={to}
-                style={rightLink
-                }
+                style={rightLink}
             >
                 {children}
             </Link>
