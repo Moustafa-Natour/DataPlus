@@ -1,24 +1,25 @@
 // Microwave.js
 import React from 'react';
 import Container from '../../components/Container'
-import { Typography, Box } from '@mui/material';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import Box from '../../components/Box'
+import { Typography, Box as MuiBox } from '@mui/material';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { MicrowaveData } from '../../data/MicrowaveData';
 
 const MicrowaveView = () => {
     return (
         <>
             <Container>
-                <Box sx={BoxSx}>
+                <Box >
                     <Typography variant="h1" sx={TypographyHeaderSx}>
                         {MicrowaveData.title}
                     </Typography>
-                    <Box sx={{ maxWidth: '1000px', margin: 'auto' }}>
+                    <MuiBox sx={{ maxWidth: '1000px', margin: 'auto' }}>
                         <Typography variant="body1" sx={TypographyStyle}>
                             {MicrowaveData.description}
                         </Typography>
-                    </Box>
-                    <Box sx={{ margin: 'auto' }}>
+                    </MuiBox>
+                    <MuiBox sx={{ margin: 'auto' }}>
                         <Typography variant="h2" sx={TypographyHeaderSx}>
                             {MicrowaveData.advantagesTitle}
                         </Typography>
@@ -31,7 +32,7 @@ const MicrowaveView = () => {
                                 </li>
                             ))}
                         </ul>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

@@ -1,15 +1,16 @@
 import React from 'react';
-import { Typography, Box, Button } from '@mui/material';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import { Typography, Box as MuiBox, Button } from '@mui/material';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { Title, Description } from '../../data/CloudComputingServiceData';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
 
 const CloudComputingServiceView = () => {
     return (
         <>
             <Container >
-                <Box sx={BoxSx}>
+                <Box>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {Title.title}
                     </Typography>
@@ -29,7 +30,7 @@ const CloudComputingServiceView = () => {
                     <Typography sx={TypographyStyle}>
                         {Description.additionalDescription}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
+                    <MuiBox sx={{ textAlign: 'center' }}>
                         <Button
                             variant="contained"
                             onClick={() => handleWhatsApp('Hello, I would like to know more about Data Plus Cloud Computing Service')}
@@ -39,7 +40,7 @@ const CloudComputingServiceView = () => {
                         >
                             Get Started
                         </Button>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

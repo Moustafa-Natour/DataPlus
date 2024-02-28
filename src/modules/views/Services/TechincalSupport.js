@@ -1,16 +1,17 @@
 // TechnicalSupportView.js
 import React from 'react';
-import { Typography, Box, Button } from '@mui/material';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import { Typography, Box as MuiBox, Button } from '@mui/material';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { TechnicalSupportData } from '../../data/TechnicalSupportData';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
 
 const TechnicalSupportView = () => {
     return (
         <>
             <Container >
-                <Box sx={BoxSx}>
+                <Box >
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {TechnicalSupportData.title}
                     </Typography>
@@ -32,7 +33,7 @@ const TechnicalSupportView = () => {
                     <Typography sx={TypographyStyle}>
                         {TechnicalSupportData.additionalDescription}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
+                    <MuiBox sx={{ textAlign: 'center' }}>
                         <Button
                             variant="contained"
                             onClick={() => handleWhatsApp(TechnicalSupportData.whatsappMessage)}
@@ -42,7 +43,7 @@ const TechnicalSupportView = () => {
                         >
                             Get Started
                         </Button>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

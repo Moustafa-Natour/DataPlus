@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Card, CardHeader, Box, Grid, Tooltip } from '@mui/material';
+import { Card, CardHeader, Box as MuiBox, Grid, Tooltip } from '@mui/material';
 import L from 'leaflet'; // Import Leaflet library
 import 'leaflet/dist/leaflet.css'; // Import Leaflet CSS
 import markerIcon from 'leaflet/dist/images/marker-icon.png'; // Import default marker icon image
-import { BoxSx } from '../../utils/StyleSx';
 
 // Import your image or icon
 import customMarkerImg from '../../assets/images/Dicon.png';
@@ -52,10 +51,10 @@ function ProductCTA() {
     }, []); // Empty dependency array ensures this effect runs only once after initial render
 
     return (
-        <Box id="StoreLocation" sx={BoxSx}>
+        <MuiBox id="StoreLocation" >
             <Grid container>
-                <Grid item xs={12} md={12} sx={{ zIndex: 1 }}>
-                    <Box
+                <Grid item xs={12} md={12} sx={{ zIndex: 1, marginBottom: 5 }}>
+                    <MuiBox
                         sx={{
                             background: 'url(https://mui.com/static/themes/onepirate/productCTAImageDots.png)',
                             display: 'flex',
@@ -87,10 +86,10 @@ function ProductCTA() {
                                 </div>
                             </Tooltip>
                         </Card>
-                    </Box>
+                    </MuiBox>
                 </Grid>
             </Grid>
-        </Box>
+        </MuiBox>
     );
 }
 

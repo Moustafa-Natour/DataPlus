@@ -1,8 +1,10 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Typography, Box } from '@mui/material';
-import { BoxSx, TypographyHeaderSx } from '../../utils/StyleSx';
+import { Typography } from '@mui/material';
+import { TypographyHeaderSx } from '../../utils/StyleSx';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
+
 
 
 const useStyles = styled((theme) => ({
@@ -33,7 +35,7 @@ const NotFound = () => {
     return (
         <div className={classes.root}>
             <Container className={classes.container} >
-                <Box sx={BoxSx}>
+                <Box >
                     <Typography sx={TypographyHeaderSx} className={classes.text}>Data Plus Error 404 - Page Not Found</Typography>
                 </Box>
             </Container>

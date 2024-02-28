@@ -1,15 +1,16 @@
 import React from 'react';
-import { Typography, Box, Card, CardMedia, CardContent } from '@mui/material';
-import { BoxSx, TypographyHeaderSx } from '../../utils/StyleSx';
+import { Typography, Card, CardMedia, CardContent } from '@mui/material';
+import { TypographyHeaderSx } from '../../utils/StyleSx';
 import { Description, Title } from '../../data/AboutUsData';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
 import aboutUsVideo from '../../assets/videos/aboutus.mp4';
 
 let CompanyInfo = () => {
     return (
         <>
             <Container >
-                <Box sx={BoxSx}>
+                <Box >
                     <Typography variant="h1" component="h1" align="center" sx={TypographyHeaderSx}>
                         {Title}
                     </Typography>

@@ -1,8 +1,9 @@
 // DomainRegister.js
 import React from 'react';
-import { Typography, Box, Button } from '@mui/material';
+import { Typography, Box as MuiBox, Button } from '@mui/material';
 import Container from '../../components/Container';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import Box from '../../components/Box';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { DomainRegisterData } from '../../data/DomainRegisterData';
 
@@ -10,7 +11,7 @@ const DomainRegisterView = () => {
     return (
         <>
             <Container>
-                <Box sx={BoxSx}>
+                <Box>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {DomainRegisterData.title}
                     </Typography>
@@ -32,7 +33,7 @@ const DomainRegisterView = () => {
                     <Typography sx={TypographyStyle}>
                         {DomainRegisterData.additionalDescription}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
+                    <MuiBox sx={{ textAlign: 'center' }}>
                         <Button
                             onClick={() => handleWhatsApp(DomainRegisterData.whatsappMessage)}
                             variant="contained"
@@ -42,7 +43,7 @@ const DomainRegisterView = () => {
                         >
                             Get Started
                         </Button>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

@@ -1,16 +1,17 @@
 // VoipView.js
 import React from 'react';
-import { Typography, Box, Button } from '@mui/material';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import { Typography, Box as MuiBox, Button } from '@mui/material';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { VoipData } from '../../data/VoipData';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
 
 const VoipView = () => {
     return (
         <>
             <Container>
-                <Box sx={BoxSx}>
+                <Box>
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {VoipData.title}
                     </Typography>
@@ -31,11 +32,11 @@ const VoipView = () => {
                     <Typography sx={TypographyStyle}>
                         {VoipData.additionalInformation}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
+                    <MuiBox sx={{ textAlign: 'center' }}>
                         <Button variant="contained" onClick={() => handleWhatsApp(VoipData.buttonMessage)} color="primary" size="large" sx={{ mt: 3 }}>
                             Get Started
                         </Button>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

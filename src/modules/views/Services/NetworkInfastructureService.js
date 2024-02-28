@@ -1,16 +1,17 @@
 // NetworkInfrastructureService.js
 import React from 'react';
-import { Typography, Box, Button } from '@mui/material';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import { Typography, Box as MuiBox, Button } from '@mui/material';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { NetworkInfrastructureServiceData } from '../../data/NetworkInfrastructureServiceData';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
 
 const NetworkInfrastructureServiceView = () => {
     return (
         <>
             <Container >
-                <Box sx={BoxSx}>
+                <Box >
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {NetworkInfrastructureServiceData.title}
                     </Typography>
@@ -32,7 +33,7 @@ const NetworkInfrastructureServiceView = () => {
                     <Typography sx={TypographyStyle}>
                         {NetworkInfrastructureServiceData.additionalDescription}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
+                    <MuiBox sx={{ textAlign: 'center' }}>
                         <Button
                             variant="contained"
                             onClick={() => handleWhatsApp(NetworkInfrastructureServiceData.whatsappMessage)}
@@ -42,7 +43,7 @@ const NetworkInfrastructureServiceView = () => {
                         >
                             Get Started
                         </Button>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

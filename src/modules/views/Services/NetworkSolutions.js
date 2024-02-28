@@ -1,16 +1,17 @@
 // NetworkSolutions.js
 import React from 'react';
-import { Typography, Box, Button } from '@mui/material';
-import { BoxSx, TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
+import { Typography, Box as MuiBox, Button } from '@mui/material';
+import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { handleWhatsApp } from '../../utils/ComonFunc';
 import { NetworkSolutionsData } from '../../data/NetworkSolutionsData';
 import Container from '../../components/Container';
+import Box from '../../components/Box';
 
 const NetworkSolutionsView = () => {
     return (
         <>
             <Container>
-                <Box sx={BoxSx}>
+                <Box >
                     <Typography variant="h1" component="h1" sx={TypographyHeaderSx}>
                         {NetworkSolutionsData.title}
                     </Typography>
@@ -32,7 +33,7 @@ const NetworkSolutionsView = () => {
                     <Typography sx={TypographyStyle}>
                         {NetworkSolutionsData.additionalDescription}
                     </Typography>
-                    <Box sx={{ textAlign: 'center' }}>
+                    <MuiBox sx={{ textAlign: 'center' }}>
                         <Button
                             variant="contained"
                             onClick={() => handleWhatsApp(NetworkSolutionsData.whatsappMessage)}
@@ -42,7 +43,7 @@ const NetworkSolutionsView = () => {
                         >
                             Get Started
                         </Button>
-                    </Box>
+                    </MuiBox>
                 </Box>
             </Container>
         </>

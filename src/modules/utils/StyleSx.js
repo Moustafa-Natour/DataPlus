@@ -89,13 +89,14 @@ export const telegramIconStyle = {
 
 
 export const BoxSx = {
-    border: '2px solid #e0e0e0',
+    border: '15px solid #ffffff',
     backgroundColor: '#fff',
-    borderRadius: '12px',
+    borderRadius: '69px',
     boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-    p: 4,
-    my: 2,
-    height: '100%',
+    margin: '20px',
+    height: '95%',
+    width: '95%',
+
 }
 
 export const TypographyHeaderSx = {

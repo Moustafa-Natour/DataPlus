@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
-    Box,
     CssBaseline,
     Grid,
     Typography,
     GlobalStyles,
 } from '@mui/material';
 import Container from '../../../components/Container';
+import Box from '../../../components/Box';
 import PricingCard from './PricingCard';
 import { tiers, details } from '../../../data/pricingData';
 import {
-    BoxSx,
     TypographyHeaderSx,
     listItemStyle,
     TypographyStyle,
@@ -100,7 +99,7 @@ const Pricing = () => {
             <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
             <CssBaseline />
             <Container >
-                <Box sx={BoxSx}>
+                <Box>
                     <Typography component="h1" variant="h2" align="center" color="text.primary" sx={TypographyHeaderSx} gutterBottom >
                         Broadband Pricing
                     </Typography>
