@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 import { Box as MuiBox } from '@mui/material';
 import Container from '../../components/Container';
 import Box from '../../components/Box';
+import Typography from '../../components/Typography';
 import { TypographyHeaderSx, TypographyStyle } from '../../utils/StyleSx';
 import { Description, Title } from '../../data/AdslData';
 const AdslView = () => {
