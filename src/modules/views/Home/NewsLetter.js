@@ -7,6 +7,7 @@ import TextField from '../../components/TextField';
 import Snackbar from '../../components/Snackbar';
 import Button from '../../components/Button';
 import { useTheme } from '@mui/material/styles';
+import axios from 'axios'; // Import Axios
 
 function NewsLetter() {
     const [open, setOpen] = useState(false);
@@ -20,21 +21,15 @@ function NewsLetter() {
 
         try {
             setLoading(true);
+            console.log("FrontEnd email : " + JSON.stringify({ email }));
 
-            const response = await fetch('http://localhost:3001/api/addSubscriber', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-            });
+            // Use Axios to make the POST request
+            const response = await axios.post('http://localhost:3001/api/mysql/addSubscriber', { email });
 
-            const data = await response.json();
-
-            if (response.ok) {
+            if (response.status === 200) {
                 setOpen(true);
             } else {
-                console.error(data.message);
+                console.error("Error: ", response.data);
             }
         } catch (error) {
             console.error('Error subscribing:', error);
