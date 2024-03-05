@@ -4,14 +4,19 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../../components/Typography';
 import TextField from '../../components/TextField';
-import Snackbar from '../../components/Snackbar';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 import Button from '../../components/Button';
 import { useTheme } from '@mui/material/styles';
 import axios from 'axios'; // Import Axios
+import Slide from '@mui/material/Slide'; // Import Slide transition
+
 
 function NewsLetter() {
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [severity, setSeverity] = useState('success'); // Initialize severity with 'success'
     const theme = useTheme();
 
     const handleSubmit = async (event) => {
@@ -21,22 +26,35 @@ function NewsLetter() {
 
         try {
             setLoading(true);
-            console.log("FrontEnd email : " + JSON.stringify({ email }));
 
             // Use Axios to make the POST request
             const response = await axios.post('http://localhost:3001/api/mysql/addSubscriber', { email });
 
-            if (response.status === 200) {
+            if (response.status === 201) {
                 setOpen(true);
+                setSnackbarMessage(response.data.message);
+                setSeverity('success'); // Set severity to 'success' for successful actions
             } else {
-                console.error("Error: ", response.data);
+                // console.error("Error: ", response.data);
+                setSeverity('error'); // Set severity to 'error' for other errors
             }
         } catch (error) {
-            console.error('Error subscribing:', error);
+            if (error.response && error.response.status === 400 && error.response.data.error === 'This email is already subscribed') {
+                // If the error is due to the email already being subscribed, set the appropriate snackbar message
+                setSnackbarMessage('This email is already subscribed.');
+                setSeverity('info'); // Set severity to 'info' for duplicate emails
+            } else {
+                // Otherwise, set a generic error message
+                setSnackbarMessage('An error occurred while subscribing. Please try again.');
+                setSeverity('warning'); // Set severity to 'warning' for other errors
+            }
+            setOpen(true);
         } finally {
             setLoading(false);
         }
     };
+
+
 
     const handleClose = () => {
         setOpen(false);
@@ -133,9 +151,15 @@ function NewsLetter() {
             </Grid>
             <Snackbar
                 open={open}
-                closeFunc={handleClose}
-                message="Subscription successful. We will send you our best offers."
-            />
+                autoHideDuration={6000}
+                onClose={handleClose}
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                TransitionComponent={Slide} // Set the transition to Slide
+            >
+                <Alert onClose={handleClose} variant='filled' severity={severity} sx={{ width: '100%' }}>
+                    {snackbarMessage}
+                </Alert>
+            </Snackbar>
         </Container>
     );
 }
