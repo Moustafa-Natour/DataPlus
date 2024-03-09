@@ -3,14 +3,13 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '../../components/Typography';
-import TextField from '../../components/TextField';
+import TextField from '@mui/material/TextField';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import Button from '../../components/Button';
 import { useTheme } from '@mui/material/styles';
 import axios from 'axios'; // Import Axios
 import Slide from '@mui/material/Slide'; // Import Slide transition
-
 
 function NewsLetter() {
     const [open, setOpen] = useState(false);
@@ -23,6 +22,14 @@ function NewsLetter() {
         event.preventDefault();
 
         const email = event.target.email.value;
+
+        // Perform basic email validation
+        if (!isValidEmail(email)) {
+            setSnackbarMessage('Please enter a valid email address.');
+            setSeverity('warning');
+            setOpen(true);
+            return; // Do not proceed further if email is invalid
+        }
 
         try {
             setLoading(true);
@@ -54,10 +61,13 @@ function NewsLetter() {
         }
     };
 
-
-
     const handleClose = () => {
         setOpen(false);
+    };
+
+    // Regular expression for basic email validation
+    const isValidEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     };
 
     return (
@@ -92,10 +102,14 @@ function NewsLetter() {
                                 Taste the holidays of the everyday close to home.
                             </Typography>
                             <TextField
+                                required
+                                id="outlined-basic"
                                 name="email"
-                                noBorder
-                                placeholder="Your email"
-                                variant="standard"
+                                type="email"
+                                label="Email"
+                                placeholder='@example.com'
+                                size='Normal'
+                                variant="outlined"
                                 sx={{ width: '100%', mt: 3, mb: 2 }}
                             />
                             <Button

@@ -7,31 +7,6 @@ const LocationDataFetcher = () => {
     const { setUserLocation } = UseAnalytics();
     const [dataSaved, setDataSaved] = useState(false); // State variable to track whether data has been saved
 
-    useEffect(() => {
-        const hasFetchedLocationData = localStorage.getItem('hasFetchedLocationData');
-        if (!hasFetchedLocationData && !dataSaved) {
-            const fetchData = async () => {
-                try {
-                    const sessionId = getSessionId();
-                    const ipAddress = await getUserIpAddress();
-                    const { latitude, longitude } = await getUserCoordinates();
-                    const data = await getLocationData(latitude, longitude);
-                    setUserLocation({ latitude, longitude });
-                    console.log(data.results[0]);
-                    // Perform POST request to save data to backend
-                    await saveLocationDataToBackend(data, sessionId, ipAddress);
-                    // Update local storage to indicate that fetching has been completed
-                    localStorage.setItem('hasFetchedLocationData', 'true');
-                    setDataSaved(true); // Set dataSaved to true after saving data
-                } catch (error) {
-                    console.error('Error fetching location data:', error);
-                }
-            };
-
-            fetchData();
-        }
-    }, [setUserLocation, dataSaved]);
-
     const getUserCoordinates = () => {
         return new Promise((resolve, reject) => {
             if (navigator.geolocation) {
@@ -52,6 +27,10 @@ const LocationDataFetcher = () => {
         });
     };
 
+    const generateSessionId = () => {
+        return Math.random().toString(36).substring(2) + Date.now().toString(36);
+    };
+
     const getSessionId = () => {
         let sessionId = localStorage.getItem('sessionId');
         if (!sessionId) {
@@ -59,10 +38,6 @@ const LocationDataFetcher = () => {
             localStorage.setItem('sessionId', sessionId);
         }
         return sessionId;
-    };
-
-    const generateSessionId = () => {
-        return Math.random().toString(36).substring(2) + Date.now().toString(36);
     };
 
     const getUserIpAddress = async () => {
@@ -108,14 +83,65 @@ const LocationDataFetcher = () => {
             };
 
             // Save the document to the database
-            await axios.post('http://localhost:3001/api/addVisitor', visitorLocation);
+            await axios.post('http://localhost:3001/api/mysql/addVisitorLocation', visitorLocation);
             console.log('Location data saved to backend:', visitorLocation);
         } catch (error) {
             console.error('Error saving location data to backend:', error);
         }
     };
 
-    return null; // Return null to render nothing
+    const incrementVisitCount = async (sessionId) => {
+        try {
+            await axios.post(`http://localhost:3001/api/mysql/incrementVisitCount/${sessionId}`);
+            console.log('Visit count incremented successfully');
+        } catch (error) {
+            console.error('Error incrementing visit count:', error);
+        }
+    };
+
+    useEffect(() => {
+        console.log("Add effect rendered");
+
+        const hasFetchedLocationData = localStorage.getItem('hasFetchedLocationData');
+        if (!hasFetchedLocationData && !dataSaved) {
+            const fetchData = async () => {
+                try {
+                    const sessionId = getSessionId();
+                    const ipAddress = await getUserIpAddress();
+                    const { latitude, longitude } = await getUserCoordinates();
+                    const data = await getLocationData(latitude, longitude);
+                    setUserLocation({ latitude, longitude });
+
+                    await saveLocationDataToBackend(data, sessionId, ipAddress);
+
+                    localStorage.setItem('hasFetchedLocationData', 'true');
+                    setDataSaved(true);
+                } catch (error) {
+                    console.error('Error fetching location data:', error);
+                }
+            };
+
+            fetchData();
+        }
+    }, [setUserLocation, dataSaved]);
+
+    useEffect(() => {
+        console.log("Update effect rendered");
+        const updateVisitCount = async () => {
+            try {
+                const sessionId = getSessionId();
+                await incrementVisitCount(sessionId);
+            } catch (error) {
+                console.error('Error updating visit count:', error);
+            }
+        };
+
+        updateVisitCount();
+    }, []);
+
+
+
+    return null;
 };
 
 export default LocationDataFetcher;
