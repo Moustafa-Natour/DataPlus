@@ -147,7 +147,7 @@ export const rightLink = {
 };
 export const menuStyle = {
     backgroundColor: '#58a0fa', // Dark background color
-    borderRadius: '8px', // Rounded corners
+    borderRadius: '6px', // Rounded corners
     boxShadow: '5px 5px 10px 5px rgba(0, 0, 0, 0.2)', // Box shadow for depth
 };
 
@@ -158,8 +158,8 @@ export const listItemStyle = {
     textAlign: 'left',
     fontSize: { xs: 16, md: 24, lg: 30, xl: 45 },
     textDecoration: 'none',
-    letterSpacing: 1,
-    lineHeight: 1.5,
+    letterSpacing: 0.6,
+    lineHeight: 2.5,
     cursor: 'pointer',
     color: 'text.primary',
     transition: 'color 0.3s ease-in-out',

@@ -36,7 +36,7 @@ const Pricing = () => {
                 {'All profiles are subject to our'}
                 <Typography
                     variant="subtitle2"
-                    onClick={() => { window.location.href = "/react/fairusepolicy" }}
+                    onClick={() => { window.location.href = "/fairusepolicy" }}
                     sx={{
                         ...listItemStyle, textAlign: 'center', fontSize: { xs: 12, md: 20 },
                         display: 'inline', // or 'display: inline-block'
@@ -59,7 +59,7 @@ const Pricing = () => {
     };
     useEffect(() => {
         if (!isAnimationComplete) {
-            const animationDuration = 1500; // Adjust the duration as needed
+            const animationDuration = 750; // Adjust the duration as needed
             const steps = 20; // Number of steps in the animation
 
             const animateTier = (tier) => {
@@ -91,7 +91,7 @@ const Pricing = () => {
                     }
                 });
                 setIsAnimationComplete(true);
-            }, 2000); // Adjust the delay before starting all the animations
+            }, 1000); // Adjust the delay before starting all the animations
         }
     }, [isAnimationComplete, animatedSpeed]);
     return (

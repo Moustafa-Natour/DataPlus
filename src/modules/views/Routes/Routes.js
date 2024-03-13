@@ -3,8 +3,7 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import LoadingIndicator from './LoadingIndicator'; // Import LoadingIndicator
-
-
+//Lazy load
 const Home = lazy(() => import('../Home/Home'));
 const AboutUs = lazy(() => import('../Faq/AboutUs'));
 const ContactUs = lazy(() => import('../Faq/ContactUs'));
@@ -27,16 +26,12 @@ const TechincalSupport = lazy(() => import('../Services/TechincalSupport'));
 const NetworkInfastructureService = lazy(() => import('../Services/NetworkInfastructureService'));
 const CloudComputingService = lazy(() => import('../Services/CloudComputingService'));
 const WebHosting = lazy(() => import('../Services/WebHosting'));
-const Test = lazy(() => import('../Test/Test'));
-const index = lazy(() => import('../Analytics/index'));
 const AppAppBar = lazy(() => import('../AppBar/AppAppBar'));
 const AppFooter = lazy(() => import('../AppBar/AppFooter'));
-
+//Routes
 const routes = [
     { path: '/home', component: Home, title: 'Home' },
-    // { path: '/index', component: index, title: 'Analytics Dashboard' },
     { path: '/aboutus', component: AboutUs, title: 'About Us' },
-    { path: '/test', component: Test, title: 'Testing Page' },
     { path: '/vpn', component: Vpn, title: 'VPN' },
     { path: '/webhosting', component: WebHosting, title: 'WebHosting' },
     { path: '/domainregister', component: DomainRegister, title: 'Domain Name Register' },
@@ -59,9 +54,7 @@ const routes = [
     { path: '/loadingindicator', component: LoadingIndicator, title: 'Loading' },
     { path: '*', component: NotFound, title: '404 Not Found' },
 ];
-
-
-
+//Routes Fn
 function AppRoutes() {
     return (
         <>
@@ -71,7 +64,8 @@ function AppRoutes() {
             {/* AppAppBar and AppFooter components */}
             <AppAppBar />
             <Suspense fallback={<LoadingIndicator />}>
-                <Routes basename="/react/">
+                <Routes >
+                    {/* {basename = "/react/"} */}
                     {routes.map(({ path, component: Component, title }) => (
                         <Route
                             key={path}
@@ -92,5 +86,4 @@ function AppRoutes() {
         </>
     );
 }
-
 export default AppRoutes;

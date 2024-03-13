@@ -41,7 +41,7 @@ const PricingCard = ({ tier, handleOpenFullScreenDescription, animatedSpeed, han
                     <motion.div // Wrap the speedometer component with motion.div
                         initial={{ scale: 0 }} // Set initial animation properties
                         animate={{ scale: 1 }} // Set animation properties
-                        transition={{ duration: 3, delay: 0.2 }} // Set animation duration and delay
+                        transition={{ duration: 1, delay: 0.2 }} // Set animation duration and delay
                     >
                         <div
                             style={{
