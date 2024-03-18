@@ -12,7 +12,8 @@ function ProductHero() {
                 backgroundPosition: 'center',
             }}
         >
-            <Container sx={{ textAlign: 'center' }}>
+            <Container
+                sx={{ textAlign: 'center' }}>
                 <Typography id='StoreVideo' color='#fff5f8' align="center" variant="h4" marked="center"
                     sx={{ mb: 25 }}>
                     Internet Is Our Middle Name
