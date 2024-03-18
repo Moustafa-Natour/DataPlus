@@ -5,6 +5,7 @@ import { AnalyticsProvider } from './modules/views/Analytics/AnalyticsContext';
 import LocationDataFetcher from './modules/views/Analytics/LocationDataFetcher';
 
 function App() {
+
   return (
     <div className="App">
       <AnalyticsProvider>

@@ -53,6 +53,8 @@ const LocationDataFetcher = () => {
     const saveLocationDataToBackend = async (data, sessionId, ipAddress) => {
         try {
             const { brands, mobile, platform } = navigator.userAgentData;
+            const deviceName = navigator.userAgent;
+
             // Extract relevant fields from data
             const {
                 formatted,
@@ -62,6 +64,7 @@ const LocationDataFetcher = () => {
 
             // Create a new VisitorLocation document
             const visitorLocation = {
+                Device_Name: deviceName,
                 IP_Address: ipAddress, // Include IP address
                 Session_Id: sessionId, // Include session ID
                 Formatted_Address: formatted,

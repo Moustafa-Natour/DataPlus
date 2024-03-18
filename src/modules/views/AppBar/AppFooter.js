@@ -80,7 +80,7 @@ function AppFooter() {
                         </Grid>
                         <Grid container justifyContent="center" alignItems="center">
                             <Grid item xs={12} sm={12} md={12} sx={{ display: 'flex' }} justifyContent="center" alignItems="center">
-                                <Link variant="a" underline="none" href={constructUrlWithBaseName('/home')} sx={{ ...rightLink, justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
+                                <Link variant="a" underline="none" href={'/home'} sx={{ ...rightLink, justifyContent: "center", alignItems: "center", textAlign: 'center' }}>
                                     <img
                                         src={logoImg}
                                         alt="DATA PLUS"

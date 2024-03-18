@@ -76,7 +76,7 @@ const AppBarMenu = () => {
                     variant="a"
                     align="center"
                     underline="none"
-                    href={constructUrlWithBaseName('/home')}
+                    href={'/home'}
                     sx={{ color: '#fff' }} // Adjust styles as needed
                 >
 
