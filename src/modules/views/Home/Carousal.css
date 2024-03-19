@@ -1,0 +1,15 @@
+.MuiMobileStepper-dots {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2px;
+}
+
+.css-114p2tk-MuiMobileStepper-dot {
+    background-color: grey !important;
+}
+
+
+.MuiMobileStepper-dotActive {
+    background-color: #343231 !important;
+}

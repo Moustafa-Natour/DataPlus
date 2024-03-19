@@ -1,11 +1,9 @@
 import React from 'react';
 import { Box, Container, Paper } from '@mui/material';
 import RecipeReviewCard from './RecipeReviewCard'; // Assuming RecipeReviewCard component is in a separate file
+import OffersCarousal from './OffersCarousal';
 
 const NewOffer = () => {
-    // Sample data for the title
-    const title = "Happy Mothers Day";
-
     return (
         <>
             <Box
@@ -21,9 +19,8 @@ const NewOffer = () => {
                         sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
                     />
 
-                    <Paper elevation={8} square={false} sx={{ maxWidth: 345, textAlign: 'center', my: 10, mx: 'auto', p: 4 }}>
-                        {/* Integrate RecipeReviewCard component */}
-                        <RecipeReviewCard title={title} />
+                    <Paper elevation={8} square={false} sx={{ maxWidth: 500, textAlign: 'center', my: 5, mx: 'auto', p: 4 }}>
+                        <OffersCarousal />
                     </Paper>
                 </Container>
 
