@@ -80,7 +80,7 @@ function OffersCarousal() {
     };
 
     return (
-        <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+        <Box sx={{ maxWidth: { xs: 280, sm: 420, md: 500, lg: 600 }, flexGrow: 1 }}>
             <SwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}

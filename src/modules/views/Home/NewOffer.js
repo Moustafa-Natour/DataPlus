@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Container, Paper } from '@mui/material';
-import RecipeReviewCard from './RecipeReviewCard'; // Assuming RecipeReviewCard component is in a separate file
 import OffersCarousal from './OffersCarousal';
 
 const NewOffer = () => {
@@ -19,7 +18,7 @@ const NewOffer = () => {
                         sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
                     />
 
-                    <Paper elevation={8} square={false} sx={{ maxWidth: 420, textAlign: 'center', my: 10, mx: 'auto' }}>
+                    <Paper elevation={8} square={false} sx={{ maxWidth: { xs: 280, sm: 420, md: 500, lg: 600, xl: 600 }, textAlign: 'center', my: 10, mx: 'auto' }}>
                         <OffersCarousal />
                     </Paper>
                 </Container>
