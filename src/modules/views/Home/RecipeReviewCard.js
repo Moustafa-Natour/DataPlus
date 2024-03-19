@@ -31,7 +31,12 @@ const RecipeReviewCard = ({ title, subheader, image, description, handleApply })
                 alt="Offer"
             />
             <CardContent>
-                <Typography variant="body2" align='center' color="text.secondary" sx={{ fontSize: 14 }}>
+                <Typography variant="body2" align='center' color="text.secondary" sx={{
+                    fontSize: { xs: 10, sm: 14, md: 16, lg: 18, xl: 20 },
+                    mr: 4, // Add margin to right
+                    maxWidth: '100%', // Ensure text doesn't exceed container width
+                    overflowWrap: 'break-word', // Allow word-wrap to prevent overflow
+                }}>
                     {description}
                 </Typography>
             </CardContent>
