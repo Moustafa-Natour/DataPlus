@@ -31,7 +31,7 @@ const RecipeReviewCard = ({ title, subheader, image, description, handleApply })
                 alt="Offer"
             />
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" align='center' color="text.secondary" sx={{ fontSize: 14 }}>
                     {description}
                 </Typography>
             </CardContent>

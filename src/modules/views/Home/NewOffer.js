@@ -19,7 +19,7 @@ const NewOffer = () => {
                         sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
                     />
 
-                    <Paper elevation={8} square={false} sx={{ maxWidth: 500, textAlign: 'center', my: 5, mx: 'auto', p: 4 }}>
+                    <Paper elevation={8} square={false} sx={{ maxWidth: 420, textAlign: 'center', my: 10, mx: 'auto' }}>
                         <OffersCarousal />
                     </Paper>
                 </Container>

@@ -29,7 +29,6 @@ const ramadanDescription = `
 const samaDescription = `
    ☑️ ببيتك SAMA صارت ال\n
     Your ultimate IPTV platform in Lebanon\n
-    Explore SAMA Flix now!\n
     📍Barbour - Bachir Jomblat street\n
     For more Info Contact us
 `;
