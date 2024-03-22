@@ -197,6 +197,7 @@ function AppRoutes() {
             <AppAppBar />
             <Suspense fallback={<LoadingIndicator />}>
                 <Routes >
+                    <Route path="/" element={<Navigate to="/home" replace />} />
                     {/* {basename = "/react/"} */}
                     {routes.map(({ path, component: Component, title }) => (
                         <Route
