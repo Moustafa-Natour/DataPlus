@@ -1,6 +1,6 @@
 // Routes.js
 import React, { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import LoadingIndicator from './LoadingIndicator'; // Import LoadingIndicator
 //Lazy load
@@ -185,9 +185,20 @@ const routes = [
     }
 
 ];
-
+const RenderedRoute = () => {
+    const navigate = useNavigate();
+    React.useEffect(() => {
+        navigate('/home');
+    }, [navigate]);
+    return null;
+};
 //Routes Fn
 function AppRoutes() {
+    const navigate = useNavigate(); // Define navigate function
+    const handleRootRedirect = () => {
+        navigate('/home'); // Redirect to /home
+        return null; // Return null to avoid rendering anything
+    };
     return (
         <>
             <Helmet>
@@ -197,9 +208,9 @@ function AppRoutes() {
             <AppAppBar />
             <Suspense fallback={<LoadingIndicator />}>
                 <Routes >
-                    <Route path="/" element={<Navigate to="/home" replace />} />
+                    <Route path="/" element={<RenderedRoute />} />
                     {/* {basename = "/react/"} */}
-                    {routes.map(({ path, component: Component, title }) => (
+                    {routes.map(({ path, component: Component, title, description, keywords }) => (
                         <Route
                             key={path}
                             path={path}
